@@ -16,6 +16,7 @@
         var t = localStorage.getItem('fisi-theme') || 'system';
         var dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
         if (dark) document.documentElement.classList.add('dark');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#020617' : '#f8fafc');
       } catch (e) {}
     </script>
   </head>

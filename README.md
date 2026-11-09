@@ -16,7 +16,7 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
 - **Prüfungsendspurt:** Prüfungsdatum eintragen → Countdown; in den letzten 60 Tagen werden prüfungsrelevante Karten und Themen mit schlechter Quote stärker gewichtet
 - Stern, eigene Notiz, „Karte als fehlerhaft melden“ (Liste exportierbar)
 - **Backup**: Export/Import als JSON (zusammenführen oder ersetzen) – auch für den Wechsel Handy ↔ PC
-- Dark Mode, Markdown mit Tabellen und Syntax-Highlighting
+- Dark Mode (Schnellumschalter System → Hell → Dunkel in Kopfzeile/Sidebar), Markdown mit Tabellen und Syntax-Highlighting
 - **Rechen-Trainer** (8 Trainer, je 3 Stufen, unendlich viele seed-basierte Zufallsaufgaben, ausführlicher Rechenweg, Trefferquote und Zeit):
   IPv4-Subnetting (inkl. VLSM) · IPv6 (Kürzen, Präfixe, n-tes Subnetz, EUI-64) · Zahlensysteme · RAID & Speicher (GB/GiB) ·
   Übertragung & Datenmengen · Backup · Verfügbarkeit & USV · Wirtschaftlichkeit (Nutzwertanalyse, Break-even, Amortisation, Stromkosten, Netzplan)

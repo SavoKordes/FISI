@@ -3,6 +3,7 @@ import { NavLink, Outlet, useLocation } from 'react-router';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import { IconCalc, IconCards, IconChart, IconHome, IconSettings, IconSpark } from '../components/icons';
 import { Button } from '../components/ui';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 export const NAV = [
   { to: '/', label: 'Heute', icon: IconHome, end: true },
@@ -83,6 +84,7 @@ export function Layout() {
           </NavLink>
         ))}
         <div className="flex-1" />
+        <ThemeToggle withLabel className="px-3 py-2.5" />
         <NavLink to="/einstellungen" className={linkCls}>
           <IconSettings className="h-5 w-5" /> Einstellungen
         </NavLink>
@@ -94,6 +96,7 @@ export function Layout() {
           <header className="sticky top-0 z-30 flex items-center gap-2 border-b border-slate-200 bg-slate-50/90 px-4 pt-[env(safe-area-inset-top)] backdrop-blur lg:hidden dark:border-slate-800 dark:bg-slate-950/90">
             <img src="icon.svg" alt="" className="h-7 w-7" />
             <span className="flex-1 py-3 font-bold">FISI-Trainer</span>
+            <ThemeToggle />
             <NavLink to="/einstellungen" aria-label="Einstellungen" className="rounded-lg p-2 text-slate-600 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-800">
               <IconSettings className="h-5 w-5" />
             </NavLink>

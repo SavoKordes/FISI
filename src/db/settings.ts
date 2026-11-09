@@ -53,4 +53,6 @@ export function applyTheme(theme: Theme) {
   const dark =
     theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   document.documentElement.classList.toggle('dark', dark);
+  // Farbe der Browser-/Statusleiste passend zum Theme
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#020617' : '#f8fafc');
 }
