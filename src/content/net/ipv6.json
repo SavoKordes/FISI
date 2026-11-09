@@ -28,6 +28,113 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-vorteile-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Vorteile bzw. Neuerungen von IPv6 gegenüber IPv4.",
+      "back": "1. **Riesiger Adressraum** (128 Bit) → kein NAT nötig, Ende-zu-Ende-Erreichbarkeit\n2. **Autokonfiguration (SLAAC)** ohne DHCP\n3. **Vereinfachter Header** fester Länge (40 Byte), Erweiterungsheader → effizienteres Routing; keine Fragmentierung durch Router\n4. **Kein Broadcast** – Multicast/Anycast; NDP ersetzt ARP\n\n(IPsec ist in IPv6 vorgesehen, aber nicht Pflicht.)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-ndp-01",
+      "type": "qa",
+      "front": "Welche Aufgaben übernimmt das **Neighbor Discovery Protocol (NDP)** in IPv6? Nennen Sie drei.",
+      "back": "1. **Adressauflösung** IPv6 → MAC (Neighbor Solicitation/Advertisement) – ersetzt ARP\n2. **Router finden** (Router Solicitation/Advertisement), Präfix für SLAAC verteilen\n3. **Duplicate Address Detection (DAD)**\n\n(weiter: Erreichbarkeitsprüfung von Nachbarn, Redirects). NDP basiert auf **ICMPv6** – deshalb ICMPv6 nicht pauschal blockieren!",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-dhcpv6-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **stateless** und **stateful DHCPv6** und erläutern Sie die Rolle der **M- und O-Flags** im Router Advertisement.",
+      "back": "- **Stateless DHCPv6:** Adresse per **SLAAC**, DHCPv6 liefert **nur Zusatzinfos** (DNS-Server, Domain) → **O-Flag = 1**, M = 0.\n- **Stateful DHCPv6:** DHCPv6-Server **vergibt die Adressen** und führt Buch → **M-Flag = 1**.\n- M = 0 und O = 0: nur SLAAC (DNS ggf. per RDNSS im RA).\n- Das **Default-Gateway** kommt in IPv6 **immer per Router Advertisement**, nicht per DHCPv6.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-dualstack-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Dual-Stack** und nennen Sie einen Vor- und einen Nachteil.",
+      "back": "- Geräte und Netz betreiben **IPv4 und IPv6 parallel**; Clients bevorzugen in der Regel IPv6 (Happy Eyeballs).\n- **Vorteil:** schrittweise Migration, volle Kompatibilität zu reinen IPv4- und IPv6-Zielen.\n- **Nachteil:** **doppelter Aufwand** – zwei Adresskonzepte, Firewall-Regelwerke, Monitoring; Sicherheitslücken, wenn IPv6 „vergessen“ wird.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-tunnel-01",
+      "type": "qa",
+      "front": "Wozu dienen **Tunnelverfahren** bei IPv6 und welche Alternative gibt es für reine IPv6-Netze? Nennen Sie je ein Beispiel.",
+      "back": "- **Tunneling:** IPv6-Pakete werden in **IPv4 gekapselt**, um IPv4-Netze zu überbrücken – z. B. **6in4** (manuell), früher 6to4/Teredo, **DS-Lite** (umgekehrt: IPv4 in IPv6 beim Provider).\n- **Translation** für IPv6-only-Netze: **NAT64/DNS64** – IPv6-Clients erreichen IPv4-Server über einen Übersetzer.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv6-multicast-01",
+      "type": "qa",
+      "front": "Was bedeuten die IPv6-Multicast-Adressen **ff02::1** und **ff02::2**?",
+      "back": "- **ff02::1:** alle **Knoten** im lokalen Link (All Nodes)\n- **ff02::2:** alle **Router** im lokalen Link (All Routers) – Ziel der Router Solicitation\n- Präfix **ff02** = Multicast mit **Link-Local-Gültigkeit** (Scope 2).",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv6-privacy-01",
+      "type": "qa",
+      "front": "Warum verwenden Clients heute meist **Privacy Extensions** statt EUI-64-Interface-IDs?",
+      "back": "- Bei **EUI-64** steckt die **MAC-Adresse** in der IPv6-Adresse → das Gerät ist **netzübergreifend verfolgbar** (gleiche Interface-ID in jedem Netz).\n- Privacy Extensions (RFC 8981) erzeugen **zufällige, regelmäßig wechselnde** temporäre Adressen für ausgehende Verbindungen.\n- Server erhalten dagegen meist **feste Adressen** (statisch oder DHCPv6).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv6-loopback-01",
+      "type": "qa",
+      "front": "Wie lauten in IPv6 die **Loopback-Adresse** und die **unspezifizierte Adresse**?",
+      "back": "- Loopback: **::1** (entspricht 127.0.0.1)\n- Unspezifiziert: **::** (alle Bits 0, entspricht 0.0.0.0) – z. B. als Quelladresse bei DAD bevor eine Adresse vergeben ist oder bei „lausche auf allen Adressen“.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv6-prefix-planung-01",
+      "type": "qa",
+      "front": "Ein Unternehmen erhält vom Provider ein **/48**. Wie viele Standorte mit je **256 Subnetzen (/64)** können damit versorgt werden? Wie lautet das Präfix je Standort?",
+      "back": "- Je Standort: 256 Subnetze = 2⁸ → Standortpräfix **/56** (64 − 8)\n- Anzahl Standorte: /48 → /56 = 2⁸ = **256 Standorte**\n- Merke: **/64 je Subnetz** (wegen SLAAC), Planung entlang von **Nibble-Grenzen** (/48, /52, /56, /60) vereinfacht die Lesbarkeit.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-sicherheit-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Sicherheitsaspekte, die bei der Einführung von IPv6 beachtet werden müssen.",
+      "back": "1. **Firewall-Regeln für IPv6** genauso pflegen wie für IPv4 – ohne NAT sind interne Geräte potenziell direkt erreichbar; ICMPv6 gezielt erlauben statt pauschal sperren.\n2. **Rogue Router Advertisements** verhindern (RA Guard auf Switches), sonst kann ein Angreifer sich als Gateway ausgeben.\n\n(weiter: IPv6 auf Systemen ohne Konzept deaktivieren oder überwachen, Logging/IDS für IPv6)",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv6-aufbau-01",
+      "type": "cloze",
+      "front": "Eine IPv6-Adresse ist {{128}} Bit lang und wird in {{8}} Gruppen zu je {{16}} Bit (4 Hexadezimalziffern) notiert. Ein Standard-Subnetz hat das Präfix /{{64}}.",
+      "back": "Die Trennung erfolgt durch Doppelpunkte. In URLs wird die Adresse in eckige Klammern gesetzt: `https://[2001:db8::1]:8443/`.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-anycast-01",
+      "type": "qa",
+      "front": "Was ist eine **Anycast-Adresse**? Nennen Sie ein Einsatzbeispiel.",
+      "back": "- Dieselbe Adresse wird **mehreren Geräten** zugewiesen; ein Paket wird an das **nächstgelegene** (laut Routing) zugestellt.\n- Beispiele: **DNS-Root-Server** und öffentliche Resolver (z. B. 9.9.9.9), **CDNs**.\n- Vorteil: geringe Latenz, Lastverteilung, Ausfallsicherheit.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

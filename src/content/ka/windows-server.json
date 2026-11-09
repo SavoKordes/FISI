@@ -1,0 +1,114 @@
+{
+  "area": "KA",
+  "topic": "Windows Server & Berechtigungen",
+  "cards": [
+    {
+      "id": "ka-win-ntfs-share-01",
+      "type": "qa",
+      "front": "Ein Benutzer hat auf eine Freigabe die **Freigabeberechtigung „Lesen“** und auf den Ordner die **NTFS-Berechtigung „Ändern“**. Welche effektive Berechtigung hat er beim Zugriff **über das Netzwerk**? Begründen Sie.",
+      "back": "- Effektiv: **Lesen**.\n- Bei Zugriff über das Netzwerk gilt die **restriktivere** der beiden Berechtigungen (Schnittmenge aus Freigabe- und NTFS-Rechten).\n- Lokal (direkt am Server angemeldet) gilt nur NTFS → dort „Ändern“.\n\nBest Practice: Freigabe „Vollzugriff“ bzw. „Ändern“ für authentifizierte Benutzer, fein steuern über NTFS.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-win-ntfs-deny-01",
+      "type": "qa",
+      "front": "Ein Benutzer ist Mitglied der Gruppen **„Vertrieb“ (Ändern)** und **„Praktikanten“ (Schreiben: Verweigern)**. Darf er Dateien im Ordner speichern? Begründen Sie.",
+      "back": "- **Nein.** NTFS-Berechtigungen aus mehreren Gruppen **addieren** sich, aber eine **explizite Verweigerung (Deny)** hat Vorrang vor Zulassen.\n- Ausnahme: Ein explizites Zulassen auf dem Objekt selbst schlägt ein **geerbtes** Verweigern.\n\nDeny sparsam einsetzen – lieber Rechte gezielt nicht vergeben.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-win-agdlp-01",
+      "type": "qa",
+      "front": "Erläutern Sie das Berechtigungskonzept **AGDLP** in einer Active-Directory-Umgebung.",
+      "back": "- **A**ccounts (Benutzerkonten) →\n- in **G**lobale Gruppen (nach Rolle/Abteilung, z. B. „GG_Vertrieb“) →\n- in **D**omänen**l**okale Gruppen (nach Ressource/Recht, z. B. „DL_Projekte_Ändern“) →\n- **P**ermissions (Berechtigungen) werden nur an domänenlokale Gruppen vergeben.\n\n**Vorteil:** übersichtlich, leicht änderbar – neue Mitarbeiter nur in die Rollengruppe aufnehmen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-win-vererbung-01",
+      "type": "qa",
+      "front": "Erläutern Sie die **Vererbung** von NTFS-Berechtigungen und wann man sie unterbricht.",
+      "back": "- Berechtigungen eines Ordners werden standardmäßig an **Unterordner und Dateien vererbt**.\n- Vererbung kann **deaktiviert** werden; dabei werden die bisherigen Rechte entweder **kopiert** oder **entfernt**.\n- Einsatz: Unterordner mit abweichendem Zugriff, z. B. „Geschäftsleitung“ in einem allgemeinen Abteilungsordner.\n- Zu viele Unterbrechungen machen das Rechtekonzept unübersichtlich.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-win-rollen-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** typische **Serverrollen** von Windows Server und ihren Zweck.",
+      "back": "1. **AD DS** – Active-Directory-Domänendienste (Domänencontroller)\n2. **DNS-Server** – Namensauflösung, für AD zwingend\n3. **DHCP-Server** – automatische IP-Vergabe\n4. **Datei- und Speicherdienste** – Freigaben, DFS, Kontingente\n\n(weitere: Hyper-V, WSUS, Druckdienste, Remotedesktopdienste, IIS, AD CS)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-win-core-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Vorteile einer **Server-Core**-Installation gegenüber der Installation mit Desktopdarstellung.",
+      "back": "1. **Geringere Angriffsfläche** – weniger Komponenten, weniger Sicherheitslücken\n2. **Weniger Updates/Neustarts** und **geringerer Ressourcenbedarf**\n\nVerwaltung über PowerShell, Windows Admin Center oder RSAT von einem Admin-PC.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-win-kontingente-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Unterschied zwischen einem **harten** und einem **weichen Kontingent** (FSRM-Quota) auf einem Dateiserver.",
+      "back": "- **Hartes Kontingent:** Benutzer kann die Grenze **nicht überschreiten**, Speichern schlägt fehl.\n- **Weiches Kontingent:** Grenze kann überschritten werden, es werden nur **Warnungen/Benachrichtigungen** ausgelöst (Überwachung).\n- Einsatz weich: Bedarf ermitteln; hart: Speicherplatz durchsetzen.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-win-dfs-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Nutzen von **DFS-Namespaces** und **DFS-Replikation**.",
+      "back": "- **DFS-N:** einheitlicher Pfad (z. B. `\\\\firma.local\\daten`) auf Freigaben verschiedener Server → Benutzer müssen den Serverstandort nicht kennen, Server können ohne Pfadänderung getauscht werden.\n- **DFS-R:** repliziert Ordnerinhalte zwischen Servern (z. B. Standorte) → Verfügbarkeit und lokaler Zugriff.\n- DFS-R ist **kein Backup** (Löschungen werden mitrepliziert).",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-win-uac-admin-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum Administratoren für ihre tägliche Arbeit ein **separates, nicht privilegiertes Benutzerkonto** verwenden sollten.",
+      "back": "- **Prinzip der minimalen Rechte (Least Privilege).**\n- Schadsoftware aus E-Mail/Web läuft mit den Rechten des angemeldeten Kontos – mit einem Admin-Konto hätte sie sofort weitreichenden Zugriff.\n- Admin-Konto nur für Verwaltungsaufgaben (ideal: eigene Admin-Arbeitsstation, „Tiering“), zusätzlich MFA.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-win-ereignis-01",
+      "type": "qa",
+      "front": "Nennen Sie die drei wichtigsten **Windows-Ereignisprotokolle** und welche Informationen Sie dort jeweils finden.",
+      "back": "- **System:** Ereignisse von Windows-Komponenten und Treibern (Dienststarts, Hardwarefehler, Neustarts)\n- **Anwendung:** Meldungen von Programmen (z. B. SQL Server, Backup-Software)\n- **Sicherheit:** Überwachungsereignisse (An-/Abmeldungen, fehlgeschlagene Logins z. B. Ereignis-ID 4625, Rechteänderungen)\n\nZentral sammeln (Event Forwarding/SIEM), damit Angreifer Logs nicht einfach löschen können.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-win-laps-01",
+      "type": "qa",
+      "front": "Was ist **Windows LAPS** und welches Sicherheitsproblem löst es?",
+      "back": "- **Local Administrator Password Solution:** setzt für das **lokale Administratorkonto jedes Rechners ein eigenes, zufälliges Kennwort**, rotiert es regelmäßig und speichert es geschützt im AD/Entra ID.\n- Problem: Gleiches lokales Admin-Kennwort auf allen PCs ermöglicht **Lateral Movement** – ein kompromittierter PC öffnet alle anderen (Pass-the-Hash).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-win-gruppenbereiche-01",
+      "type": "qa",
+      "front": "Nennen Sie die drei **Gruppenbereiche** im Active Directory und ihren typischen Einsatz.",
+      "back": "| Bereich | Mitglieder | Einsatz |\n|---|---|---|\n| **Domänenlokal** | Konten/Gruppen aus beliebigen Domänen der Gesamtstruktur | Rechte auf Ressourcen der eigenen Domäne |\n| **Global** | Konten/Gruppen der **eigenen** Domäne | Rollen/Abteilungen bündeln |\n| **Universal** | Konten/Gruppen aller Domänen der Gesamtstruktur | domänenübergreifende Rollen (in Multi-Domain-Umgebungen) |\n\nZusätzlich Gruppentyp: **Sicherheitsgruppe** (Rechte) vs. **Verteilergruppe** (nur E-Mail).",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "area": "KA",
+  "topic": "Lizenzmodelle",
+  "cards": [
+    {
+      "id": "ka-lizenz-modelle-01",
+      "type": "compare",
+      "front": "Erläutern Sie die Lizenzmodelle **Einzelplatz/Gerät**, **Named User**, **Concurrent User** und **Abonnement (Subscription)**.",
+      "back": "| Modell | Lizenzierung |\n|---|---|\n| **Gerätelizenz (Device CAL)** | pro Gerät, beliebig viele Benutzer an diesem Gerät |\n| **Named User (User CAL)** | pro namentlich benannter Person, beliebig viele Geräte |\n| **Concurrent User (Floating)** | maximale Zahl **gleichzeitiger** Nutzer, Lizenzserver verwaltet |\n| **Subscription** | zeitlich begrenztes Nutzungsrecht gegen laufende Gebühr (monatlich/jährlich), meist inkl. Updates |\n\nServer werden oft **pro Kern** lizenziert (z. B. Windows Server, SQL Server).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-lizenz-cal-01",
+      "type": "qa",
+      "front": "Ein Unternehmen hat **40 Mitarbeiter**, die jeweils einen PC und ein Smartphone nutzen, und **10 Schicht-PCs**, die von insgesamt 30 Mitarbeitern geteilt werden. Welche CAL-Art ist für die 40 Mitarbeiter, welche für die Schicht-PCs günstiger? Begründen Sie.",
+      "back": "- **40 Mitarbeiter mit je 2 Geräten:** **User-CALs** (40 statt 80 Device-CALs).\n- **10 geteilte Schicht-PCs für 30 Personen:** **Device-CALs** (10 statt 30 User-CALs).\n- Grundregel: mehr Geräte pro Person → User-CAL; mehr Personen pro Gerät → Device-CAL.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-lizenz-opensource-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Copyleft**-Lizenzen (z. B. GPL) und **permissive** Open-Source-Lizenzen (z. B. MIT, Apache 2.0).",
+      "back": "- **Copyleft (GPL):** Wer veränderte Software **weitergibt**, muss sie **unter derselben Lizenz** inkl. Quellcode weitergeben.\n- **Permissiv (MIT, BSD, Apache):** Nutzung, Änderung und Weitergabe – auch in **proprietärer** Software – erlaubt; Pflicht v. a. zum Erhalt des Copyright- und Lizenzhinweises.\n- Open Source heißt **nicht** „ohne Lizenzbedingungen“ – Lizenz-Compliance prüfen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-lizenz-management-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Gründe für ein zentrales **Lizenzmanagement** (SAM).",
+      "back": "1. **Rechtssicherheit:** Unterlizenzierung vermeiden (Urheberrechtsverletzung, Nachzahlungen bei Audits)\n2. **Kosten senken:** Überlizenzierung und ungenutzte Abos erkennen\n3. **Planung:** Ablauf von Lizenzen/Supportverträgen rechtzeitig erkennen, Budget planen\n\nGrundlage: Inventarisierung installierter Software und Lizenznachweise.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

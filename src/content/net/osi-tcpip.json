@@ -27,6 +27,120 @@
       "points": 4,
       "difficulty": 1,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-tcpip-modell-01",
+      "type": "qa",
+      "front": "Ordnen Sie die vier Schichten des **TCP/IP-Modells** den OSI-Schichten zu und nennen Sie je ein Protokoll.",
+      "back": "| TCP/IP | OSI | Protokolle |\n|---|---|---|\n| Anwendung | 5–7 | HTTP, DNS, SMTP, SSH |\n| Transport | 4 | TCP, UDP |\n| Internet | 3 | IP, ICMP |\n| Netzzugang | 1–2 | Ethernet, WLAN (802.11), ARP* |\n\n*ARP liegt zwischen Schicht 2 und 3.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-tcp-udp-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **TCP** und **UDP** und nennen Sie je zwei typische Anwendungen.",
+      "back": "| | TCP | UDP |\n|---|---|---|\n| Verbindung | **verbindungsorientiert** (3-Way-Handshake) | verbindungslos |\n| Zuverlässigkeit | Bestätigungen, Wiederholung, Reihenfolge, Flusskontrolle | keine Garantie |\n| Overhead | höher (Header ≥ 20 Byte) | gering (8 Byte) |\n| Anwendungen | HTTP(S), SSH, SMTP, SMB | DNS, DHCP, VoIP/RTP, Streaming, NTP, SNMP |",
+      "points": 6,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-tcp-handshake-01",
+      "type": "order",
+      "front": "Bringen Sie den **TCP-Verbindungsaufbau** in die richtige Reihenfolge.",
+      "choices": [
+        "Client sendet SYN (Sequenznummer x)",
+        "Server antwortet mit SYN-ACK (Sequenznummer y, ACK x+1)",
+        "Client sendet ACK (y+1)",
+        "Datenübertragung"
+      ],
+      "back": "**3-Way-Handshake.** Der Abbau erfolgt mit FIN/ACK (bzw. RST bei Abbruch). Ein SYN-Flood-Angriff nutzt halboffene Verbindungen aus.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-kapselung-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Kapselung (Encapsulation)** beim Senden von Daten und nennen Sie die Bezeichnungen der Dateneinheiten auf den Schichten 2, 3 und 4.",
+      "back": "- Jede Schicht fügt den Daten der darüberliegenden Schicht einen eigenen **Header** (bei Schicht 2 auch Trailer/FCS) hinzu; der Empfänger entfernt sie in umgekehrter Reihenfolge.\n- Dateneinheiten (PDU):\n  - Schicht 4: **Segment** (TCP) bzw. Datagramm (UDP)\n  - Schicht 3: **Paket**\n  - Schicht 2: **Frame (Rahmen)**\n  - Schicht 1: Bits",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-arp-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Funktion von **ARP** und wie ein Angreifer sie missbrauchen kann.",
+      "back": "- **ARP** ermittelt zu einer bekannten **IPv4-Adresse** die zugehörige **MAC-Adresse** im lokalen Netz (Broadcast-Anfrage „Wer hat 192.168.1.1?“, Unicast-Antwort), Ergebnis im ARP-Cache.\n- **ARP-Spoofing:** Angreifer sendet gefälschte ARP-Antworten (z. B. „ich bin das Gateway“) → **Man-in-the-Middle**.\n- Schutz: **Dynamic ARP Inspection** auf Switches, Verschlüsselung (TLS/VPN). (IPv6 nutzt stattdessen NDP.)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-mtu-01",
+      "type": "qa",
+      "front": "Was bedeutet **MTU** und welches Problem kann bei VPN-Verbindungen auftreten?",
+      "back": "- **MTU (Maximum Transmission Unit):** größte Paketgröße, die ohne Fragmentierung über eine Verbindung passt – bei Ethernet **1500 Byte**.\n- Ein VPN fügt zusätzliche Header hinzu → Pakete werden größer als die MTU, müssen fragmentiert oder verworfen werden (bei gesetztem DF-Bit).\n- Symptome: Webseiten laden nur teilweise, große Downloads hängen. Abhilfe: **MTU/MSS anpassen** (MSS-Clamping), Path-MTU-Discovery zulassen (ICMP nicht komplett blockieren).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-osi-mc-01",
+      "type": "mc",
+      "front": "Auf welcher OSI-Schicht arbeitet ein klassischer **Switch** hauptsächlich?",
+      "choices": [
+        "Schicht 1",
+        "Schicht 2",
+        "Schicht 3",
+        "Schicht 4"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Schicht 2** (Sicherungsschicht) – Weiterleitung anhand von MAC-Adressen.",
+      "explanation": "Layer-3-Switches können zusätzlich routen (Schicht 3).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-osi-mc-02",
+      "type": "mc",
+      "front": "Welche Protokolle sind der **Transportschicht** (Schicht 4) zuzuordnen? (2 richtige)",
+      "choices": [
+        "IP",
+        "TCP",
+        "UDP",
+        "ICMP"
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "back": "**TCP** und **UDP**.",
+      "explanation": "IP und ICMP gehören zur Vermittlungsschicht (Schicht 3).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-osi-mc-03",
+      "type": "mc",
+      "front": "Welche Adresse verwendet die **Vermittlungsschicht** (Schicht 3) zur Wegfindung?",
+      "choices": [
+        "MAC-Adresse",
+        "Portnummer",
+        "IP-Adresse",
+        "VLAN-ID"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "Die **IP-Adresse** (logische Adresse).",
+      "explanation": "MAC = Schicht 2, Port = Schicht 4, VLAN-ID = Schicht 2 (802.1Q-Tag).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
     }
   ]
 }

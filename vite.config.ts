@@ -37,7 +37,19 @@ export default defineConfig({
       },
     }),
   ],
-  build: { chunkSizeWarningLimit: 800 },
+  build: {
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        // Inhalte und Bibliotheken getrennt: Inhalts-Updates invalidieren nicht den Vendor-Cache
+        manualChunks(id) {
+          if (id.includes('/src/content/') && id.endsWith('.json')) return 'content';
+          if (/node_modules\/(react|react-dom|react-router|scheduler)\//.test(id)) return 'react';
+          if (/node_modules\/(dexie|dexie-react-hooks|ts-fsrs)\//.test(id)) return 'data';
+        },
+      },
+    },
+  },
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts', 'scripts/**/*.test.ts'],

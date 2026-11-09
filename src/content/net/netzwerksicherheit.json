@@ -19,6 +19,114 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-firewall-typen-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **Paketfilter**, **Stateful-Inspection-Firewall** und **Application-Level-Gateway/NGFW**.",
+      "back": "| Typ | OSI | prüft | Bewertung |\n|---|---|---|---|\n| **Paketfilter** (stateless) | 3–4 | IP-Adressen, Ports, Protokoll **je Paket** | schnell, einfach; Rückverkehr muss extra erlaubt werden |\n| **Stateful Inspection** | 3–4 | zusätzlich **Verbindungszustand** (Zustandstabelle) | Antworten zu erlaubten Verbindungen automatisch zugelassen |\n| **Application Gateway / NGFW** | bis 7 | **Inhalte/Anwendungen** (z. B. HTTP-Methoden, App-Erkennung), Benutzer, IPS, TLS-Inspection | höchste Sicherheit, ressourcenintensiv |",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dmz-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Aufbau und Zweck einer **DMZ** und nennen Sie zwei typische Systeme darin.",
+      "back": "- **Demilitarisierte Zone:** eigenes Netzsegment **zwischen Internet und internem LAN**, durch Firewall(s) von beiden getrennt (eine Firewall mit drei Zonen oder zwei hintereinander, idealerweise verschiedener Hersteller).\n- Zweck: **Öffentlich erreichbare Dienste** isolieren – wird ein Server kompromittiert, hat der Angreifer **keinen direkten Zugriff** auf das LAN.\n- Beispiele: **Webserver**, **Mail-Relay**, Reverse Proxy, VPN-Gateway.\n- Regeln: Internet → DMZ nur benötigte Ports; DMZ → LAN möglichst gar nicht.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-firewall-regel-erstellen-01",
+      "type": "qa",
+      "front": "Erstellen Sie Firewall-Regeln: Clients aus **10.0.10.0/24** dürfen **im Internet surfen** (HTTP/HTTPS) und den internen DNS-Server **10.0.1.5** nutzen. Alles andere ist verboten.",
+      "back": "| Nr. | Quelle | Ziel | Dienst | Aktion |\n|---|---|---|---|---|\n| 1 | 10.0.10.0/24 | 10.0.1.5 | UDP/TCP 53 | erlauben |\n| 2 | 10.0.10.0/24 | any (extern/WAN) | TCP 80, 443 (+ UDP 443 für HTTP/3) | erlauben |\n| 3 | any | any | any | verweigern + protokollieren |\n\nBei einer **Stateful Firewall** sind die Antwortpakete automatisch erlaubt.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-proxy-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Forward Proxy** und **Reverse Proxy** und nennen Sie je einen Einsatzzweck.",
+      "back": "- **Forward Proxy:** steht vor den **Clients** und stellt deren Anfragen ins Internet – Zwecke: **Webfilter**, Malware-Scan, Caching, Protokollierung, Authentifizierung.\n- **Reverse Proxy:** steht vor den **Servern** und nimmt Anfragen aus dem Internet entgegen – Zwecke: **TLS-Terminierung**, Lastverteilung, Web Application Firewall, Server verbergen (z. B. nginx, Traefik).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ids-ips-01",
+      "type": "compare",
+      "front": "Unterscheiden Sie **IDS** und **IPS** sowie **netzwerkbasiert** und **hostbasiert**.",
+      "back": "| | IDS | IPS |\n|---|---|---|\n| Funktion | **erkennt** Angriffe und **alarmiert** | erkennt und **blockiert** aktiv |\n| Platzierung | passiv (Spiegelport/TAP) | **inline** im Datenstrom |\n| Risiko | keine Beeinträchtigung des Verkehrs | Fehlalarme blockieren legitimen Verkehr |\n\n- **NIDS/NIPS:** überwacht Netzwerkverkehr (z. B. Suricata, Snort)\n- **HIDS:** überwacht einen Host (Logs, Dateiintegrität, z. B. Wazuh)\n- Erkennung: **signaturbasiert** oder **anomaliebasiert**.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-nac-01",
+      "type": "qa",
+      "front": "Was ist **Network Access Control (NAC)**? Nennen Sie zwei Funktionen.",
+      "back": "- Steuert, **welche Geräte/Benutzer sich mit dem Netz verbinden dürfen** – meist auf Basis von **802.1X** (Port-basierte Authentifizierung mit RADIUS) oder MAB (MAC-Authentication-Bypass).\n- Funktionen:\n  1. **Authentifizierung** vor der Freigabe des Switch-Ports/WLANs\n  2. **Compliance-Prüfung** (Virenschutz/Patches aktuell?) und **dynamische VLAN-Zuweisung**, unbekannte Geräte in Quarantäne-/Gast-VLAN",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-segmentierung-01",
+      "type": "qa",
+      "front": "Erläutern Sie das Prinzip **Zero Trust** im Vergleich zum klassischen Perimeter-Modell.",
+      "back": "- **Perimeter-Modell:** „innen = vertrauenswürdig, außen = feindlich“ – einmal im LAN, hat ein Angreifer oft freie Bahn.\n- **Zero Trust:** **„Never trust, always verify“** – jeder Zugriff wird unabhängig vom Standort geprüft:\n  - starke Authentifizierung (MFA) von Benutzer **und** Gerät\n  - **Least Privilege**, Zugriff nur auf einzelne Anwendungen\n  - **Mikrosegmentierung** und kontinuierliche Überwachung",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ddos-01",
+      "type": "qa",
+      "front": "Was ist ein **DDoS-Angriff** und welche Schutzmaßnahmen gibt es? Nennen Sie zwei.",
+      "back": "- **Distributed Denial of Service:** Viele kompromittierte Systeme (Botnetz) überlasten ein Ziel mit Anfragen/Datenverkehr → **Verfügbarkeit** verletzt.\n- Schutz:\n  1. **DDoS-Schutzdienst** beim Provider bzw. CDN/Scrubbing-Center\n  2. **Rate Limiting**, SYN-Cookies, Geo-/IP-Filter, ausreichende Bandbreitenreserven, Anycast",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-mitm-01",
+      "type": "qa",
+      "front": "Was ist ein **Man-in-the-Middle-Angriff**? Nennen Sie zwei Techniken und eine Schutzmaßnahme.",
+      "back": "- Angreifer schaltet sich **unbemerkt zwischen zwei Kommunikationspartner**, liest und manipuliert den Verkehr.\n- Techniken: **ARP-Spoofing**, **Rogue-DHCP/Rogue-AP („Evil Twin“)**, DNS-Spoofing.\n- Schutz: **Ende-zu-Ende-Verschlüsselung mit Zertifikatsprüfung** (TLS, HSTS), Dynamic ARP Inspection/DHCP Snooping, 802.1X.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-waf-01",
+      "type": "qa",
+      "front": "Was ist eine **Web Application Firewall (WAF)** und wovor schützt sie?",
+      "back": "- Filtert **HTTP(S)-Anfragen auf Anwendungsebene** vor einem Webserver (oft im Reverse Proxy).\n- Schutz vor Angriffen auf Webanwendungen wie **SQL-Injection**, **Cross-Site-Scripting (XSS)**, Path Traversal (z. B. OWASP Top 10).\n- Ersetzt keine sichere Programmierung, ergänzt sie.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-firewall-logging-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum auch **verworfene Verbindungen** an der Firewall protokolliert werden sollten.",
+      "back": "- **Angriffs- und Scanversuche erkennen** (z. B. Portscans, Brute Force)\n- **Fehlersuche**: Warum funktioniert eine Anwendung nicht? (fehlende Regel)\n- **Nachweis/Forensik** nach einem Vorfall\n- Logs zentral speichern (SIEM), Datenmenge und Datenschutz beachten.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-tls-inspection-01",
+      "type": "qa",
+      "front": "Was ist **TLS-Inspection (SSL-Interception)** an einer Firewall und welche Bedenken gibt es?",
+      "back": "- Die Firewall **bricht TLS-Verbindungen auf** (eigenes Zertifikat einer internen CA, auf Clients als vertrauenswürdig verteilt), prüft den Inhalt auf Schadcode und verschlüsselt neu.\n- Bedenken:\n  - **Datenschutz/Mitbestimmung** (Einsicht in private Daten, z. B. Onlinebanking → Ausnahmen definieren, Betriebsrat einbinden)\n  - **Rechenaufwand** und Probleme mit Certificate Pinning\n  - Die Firewall wird zum attraktiven Angriffsziel.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
     }
   ]
 }

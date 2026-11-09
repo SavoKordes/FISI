@@ -1,0 +1,186 @@
+{
+  "area": "WISO",
+  "topic": "Arbeitsschutz, Umwelt & Nachhaltigkeit",
+  "cards": [
+    {
+      "id": "wiso-gefaehrdungsbeurteilung-01",
+      "type": "mc",
+      "front": "Wer ist für die Durchführung der **Gefährdungsbeurteilung** nach dem Arbeitsschutzgesetz verantwortlich?",
+      "choices": [
+        "der Betriebsrat",
+        "der Arbeitgeber",
+        "die Berufsgenossenschaft",
+        "jeder Mitarbeiter für sich"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Der **Arbeitgeber** (§ 5 ArbSchG).",
+      "explanation": "Er kann sich von der **Fachkraft für Arbeitssicherheit** und dem **Betriebsarzt** unterstützen lassen; die Verantwortung bleibt bei ihm. Auch psychische Belastungen sind zu berücksichtigen. Ergebnisse dokumentieren.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-sicherheitszeichen-01",
+      "type": "mc",
+      "front": "Welche Bedeutung hat ein **runder Sicherheitszeichen mit blauem Grund** und weißem Symbol?",
+      "choices": [
+        "Verbot",
+        "Gebot (z. B. Gehörschutz benutzen)",
+        "Warnung",
+        "Rettungsweg"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Gebotszeichen** – vorgeschriebenes Verhalten.",
+      "explanation": "Verbot: rund, rot umrandet, durchgestrichen. Warnung: gelbes Dreieck. Rettungszeichen: grünes Rechteck. Brandschutzzeichen: rotes Rechteck.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-dguv-v3-01",
+      "type": "mc",
+      "front": "Was regelt die **DGUV Vorschrift 3** im IT-Bereich?",
+      "choices": [
+        "die Datensicherung",
+        "die regelmäßige Prüfung elektrischer Anlagen und Betriebsmittel (z. B. PCs, Netzteile, Mehrfachsteckdosen)",
+        "die Bildschirmgröße",
+        "die Lizenzierung von Software"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die **regelmäßige Prüfung elektrischer Anlagen und Betriebsmittel** durch eine Elektrofachkraft.",
+      "explanation": "Prüffristen ergeben sich aus der Gefährdungsbeurteilung (für ortsveränderliche Geräte im Büro z. B. Richtwert 24 Monate). Die Prüfung wird dokumentiert, oft mit Prüfplakette.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-bildschirm-01",
+      "type": "mc",
+      "front": "Welche Anforderung an **Bildschirmarbeitsplätze** ergibt sich aus der Arbeitsstättenverordnung?",
+      "choices": [
+        "Bildschirmarbeit darf maximal 2 Stunden täglich dauern.",
+        "Der Arbeitgeber muss angemessene Untersuchungen der Augen anbieten und bei Bedarf eine spezielle Sehhilfe (Bildschirmbrille) bereitstellen.",
+        "Bildschirme müssen mindestens 32 Zoll groß sein.",
+        "Fenster sind an Bildschirmarbeitsplätzen verboten."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Angebotsvorsorge** (Augenuntersuchung, ArbMedVV) und ggf. **Bildschirmbrille** auf Kosten des Arbeitgebers.",
+      "explanation": "Weitere Anforderungen: ergonomische Möblierung, blendfreie Aufstellung (Blick parallel zum Fenster), Unterbrechung der Bildschirmarbeit durch Pausen oder Tätigkeitswechsel.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-brandklasse-01",
+      "type": "mc",
+      "front": "Ein Serverraum soll mit einem geeigneten Handfeuerlöscher ausgestattet werden. Welches Löschmittel eignet sich besonders für **elektrische Geräte**, ohne Rückstände zu hinterlassen?",
+      "choices": [
+        "Wasser",
+        "Schaum",
+        "Kohlendioxid (CO₂)",
+        "Pulver"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**CO₂-Löscher** – rückstandsfrei, nicht leitend.",
+      "explanation": "Pulver hinterlässt aggressive Rückstände, Wasser und Schaum sind für Elektronik ungeeignet. In Serverräumen werden oft zusätzlich **Gaslöschanlagen** oder Sauerstoffreduzierung eingesetzt. Achtung: CO₂ verdrängt Sauerstoff – Erstickungsgefahr in kleinen Räumen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-wegeunfall-01",
+      "type": "mc",
+      "front": "Ein Azubi verunglückt auf dem **direkten Weg** von der Wohnung zur Berufsschule. Wer ist zuständig?",
+      "choices": [
+        "seine Krankenkasse",
+        "die gesetzliche Unfallversicherung (Berufsgenossenschaft bzw. Unfallkasse)",
+        "seine private Haftpflichtversicherung",
+        "niemand, da es kein Arbeitsunfall ist"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die **gesetzliche Unfallversicherung** – es ist ein **Wegeunfall**.",
+      "explanation": "Versichert sind Arbeitsunfälle, Wegeunfälle (direkter Weg, bestimmte Umwege z. B. Kita) und Berufskrankheiten. Bei mehr als **3 Tagen** Arbeitsunfähigkeit muss der Arbeitgeber eine **Unfallanzeige** erstatten.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-sicherheitsbeauftragter-01",
+      "type": "mc",
+      "front": "Ab welcher Betriebsgröße muss ein Unternehmen in der Regel einen **Sicherheitsbeauftragten** bestellen?",
+      "choices": [
+        "ab 5 Beschäftigten",
+        "ab mehr als 20 Beschäftigten",
+        "ab 100 Beschäftigten",
+        "nie, das ist freiwillig"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Ab **mehr als 20 Beschäftigten** (§ 22 SGB VII; Anzahl regelt die Unfallversicherung).",
+      "explanation": "Der Sicherheitsbeauftragte ist ein **ehrenamtlich unterstützender Kollege** ohne Weisungsbefugnis; die **Fachkraft für Arbeitssicherheit** berät den Arbeitgeber fachlich.",
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-nachhaltigkeit-01",
+      "type": "mc",
+      "front": "Welche **drei Dimensionen** umfasst der Begriff **Nachhaltigkeit**?",
+      "choices": [
+        "Technik, Recht, Politik",
+        "Ökologie, Ökonomie, Soziales",
+        "Einkauf, Produktion, Absatz",
+        "Planung, Durchführung, Kontrolle"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Ökologische, ökonomische und soziale** Nachhaltigkeit (Drei-Säulen-Modell).",
+      "explanation": "Beispiele in der IT: energieeffiziente Hardware und Rechenzentren (ökologisch), längere Nutzungsdauer/Refurbished-Geräte (ökonomisch/ökologisch), faire Arbeitsbedingungen in der Lieferkette (sozial).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-abfallhierarchie-01",
+      "type": "mc",
+      "front": "Welche Maßnahme hat nach der **Abfallhierarchie** des Kreislaufwirtschaftsgesetzes **Vorrang**?",
+      "choices": [
+        "Recycling",
+        "energetische Verwertung (Verbrennung)",
+        "Vermeidung",
+        "Beseitigung (Deponie)"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Vermeidung** – an erster Stelle.",
+      "explanation": "Reihenfolge: **Vermeidung → Vorbereitung zur Wiederverwendung → Recycling → sonstige (z. B. energetische) Verwertung → Beseitigung**. Für Altgeräte gilt das **ElektroG** (Rücknahme, keine Entsorgung im Hausmüll); Datenträger vorher sicher löschen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-elektrog-01",
+      "type": "mc",
+      "front": "Wie müssen ausgediente **IT-Geräte** eines Unternehmens entsorgt werden?",
+      "choices": [
+        "im Restmüll",
+        "über zertifizierte Entsorger bzw. Rücknahmesysteme nach dem ElektroG – Datenträger vorher sicher löschen oder vernichten",
+        "im Gelben Sack",
+        "auf dem Wertstoffhof ohne Vorbereitung"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Über **zertifizierte Entsorger/Rücknahmesysteme** (ElektroG); vorher **Daten sicher löschen** (DSGVO).",
+      "explanation": "Elektroaltgeräte enthalten Schadstoffe und wertvolle Rohstoffe; das Symbol der **durchgestrichenen Mülltonne** zeigt, dass sie nicht in den Hausmüll gehören. Alternativ: Weiterverwendung/Refurbishing.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

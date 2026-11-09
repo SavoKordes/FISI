@@ -16,6 +16,132 @@
       "back": "Klappt die externe IP, aber nicht der Name, liegt das Problem bei **DNS** (prüfen mit `nslookup` / `dig`). Klappt das Gateway nicht → lokales Netz/VLAN/IP-Konfiguration prüfen (`ipconfig /all` bzw. `ip a`).",
       "difficulty": 1,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-tracert-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Funktionsweise von **traceroute/tracert**.",
+      "back": "- Sendet Pakete mit schrittweise **steigender TTL** (1, 2, 3 …).\n- Jeder Router verringert die TTL; bei **0** verwirft er das Paket und antwortet mit **ICMP „Time Exceeded“** → so wird jeder Hop mit Adresse und Laufzeit sichtbar.\n- Windows `tracert` nutzt ICMP Echo, Linux `traceroute` standardmäßig UDP.\n- `* * *` = Hop antwortet nicht (z. B. Firewall filtert ICMP).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ts-nslookup-01",
+      "type": "qa",
+      "front": "Ein Benutzer kann `intranet.firma.local` nicht aufrufen, `ping 10.0.1.20` (die IP des Intranet-Servers) funktioniert. Wie gehen Sie vor? Nennen Sie Befehle.",
+      "back": "- Da die IP erreichbar ist, liegt das Problem vermutlich bei der **Namensauflösung**.\n- `nslookup intranet.firma.local` bzw. `Resolve-DnsName` / `dig intranet.firma.local` → Welcher DNS-Server antwortet? Gibt es einen A-Record?\n- `ipconfig /all` → richtiger (interner) DNS-Server eingetragen?\n- DNS-Cache leeren: `ipconfig /flushdns`; Hosts-Datei prüfen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ts-netstat-01",
+      "type": "qa",
+      "front": "Mit welchem Befehl prüfen Sie unter Windows bzw. Linux, auf welchen **Ports ein Server lauscht** und welcher Prozess dahintersteht?",
+      "back": "- Windows: `netstat -ano` (PID) bzw. `Get-NetTCPConnection -State Listen`\n- Linux: **`ss -tulpen`** (t = TCP, u = UDP, l = lauschend, p = Prozess, n = numerisch) bzw. älter `netstat -tulpn`\n- Nutzen: Prüfen, ob ein Dienst läuft und auf der richtigen Adresse/dem richtigen Port lauscht (z. B. nur 127.0.0.1?).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-ipconfig-01",
+      "type": "qa",
+      "front": "Ein Client zeigt nach `ipconfig` die Adresse **169.254.23.4**. Was bedeutet das und wie gehen Sie vor?",
+      "back": "- **APIPA-Adresse:** Der Client hat **keine Antwort von einem DHCP-Server** erhalten.\n- Vorgehen:\n  1. Physische Verbindung/Link prüfen (Kabel, Switch-Port aktiv, richtiges VLAN, 802.1X?)\n  2. `ipconfig /release` und `/renew`\n  3. DHCP-Server prüfen: Dienst läuft, **Bereich voll?**, DHCP-Relay für das VLAN konfiguriert?",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ts-wireshark-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Wireshark-Anzeigefilter, mit denen Sie gezielt nach Problemen suchen, und erläutern Sie sie.",
+      "back": "- `dns` – nur DNS-Verkehr (Anfragen/Antworten prüfen)\n- `ip.addr == 10.0.1.20` – nur Pakete von/an diese Adresse\n- `tcp.port == 443` – nur HTTPS-Verkehr\n- `tcp.analysis.retransmission` – **Wiederholungen** → Hinweis auf Paketverluste\n- `dhcp` (bzw. `bootp`) – DHCP-Ablauf (DORA) prüfen\n\nRechtlich beachten: Mitschnitte enthalten ggf. personenbezogene Daten → nur mit Berechtigung.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-osi-vorgehen-01",
+      "type": "qa",
+      "front": "Beschreiben Sie die **Bottom-up-Fehlersuche** nach dem OSI-Modell an einem Beispiel „PC hat kein Netzwerk“.",
+      "back": "1. **Schicht 1:** Kabel gesteckt? Link-LED? Port am Switch aktiv?\n2. **Schicht 2:** Richtiges VLAN? MAC-Adresse in der Switch-Tabelle? Port Security/802.1X blockiert?\n3. **Schicht 3:** IP-Konfiguration (`ipconfig`), Gateway per `ping` erreichbar?\n4. **Schicht 4–7:** Ports/Firewall, DNS, Anwendung.\n\nVorteil: systematisch, keine Schritte vergessen. Alternativ Top-down oder „Divide and Conquer“ (Mitte beginnen, z. B. Ping).",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ts-duplex-01",
+      "type": "qa",
+      "front": "Ein Server ist über einen Switch angebunden, die Übertragung ist extrem langsam, an der Schnittstelle steigen **CRC-Fehler** und **Late Collisions**. Nennen Sie mögliche Ursachen.",
+      "back": "- **Duplex-Mismatch** (eine Seite fest auf Vollduplex, die andere auf Auto → Halbduplex)\n- **Defektes/minderwertiges Kabel** oder beschädigte Dose, zu lange Leitung, Störeinflüsse\n- Defekte Netzwerkkarte/Switch-Port\n- Abhilfe: beide Seiten auf **Autonegotiation**, Kabel tauschen/messen, anderen Port testen.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-mtr-01",
+      "type": "qa",
+      "front": "Was zeigt `pathping` (Windows) bzw. `mtr` (Linux) zusätzlich zu traceroute?",
+      "back": "- Kombiniert **traceroute und ping**: sendet über längere Zeit Pakete an **jeden Hop** und zeigt **Paketverlust und Latenz je Hop** statistisch an.\n- Damit lässt sich eingrenzen, **ab welchem Hop** Verluste oder hohe Latenzen auftreten (Hinweis: Router priorisieren ICMP-Antworten oft niedrig – Verluste nur an einem Zwischen-Hop sind nicht zwingend ein Problem).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-ts-arp-tabelle-01",
+      "type": "qa",
+      "front": "Wie zeigen Sie die **ARP-Tabelle** an und wann ist das bei der Fehlersuche hilfreich?",
+      "back": "- Windows/Linux: `arp -a`; Linux modern: `ip neigh`\n- Hilfreich, um zu prüfen, ob die **MAC-Adresse des Gateways** bzw. Zielhosts aufgelöst wird (Schicht 2 erreichbar?), um **IP-Konflikte** zu erkennen (zwei MACs für eine IP) oder **ARP-Spoofing** (Gateway-IP mit fremder MAC).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-port-test-01",
+      "type": "qa",
+      "front": "Wie prüfen Sie, ob ein **TCP-Port** (z. B. 443 auf `web01`) von einem Client aus erreichbar ist? Nennen Sie zwei Möglichkeiten.",
+      "back": "- Windows: `Test-NetConnection web01 -Port 443`\n- Linux: `nc -zv web01 443` oder `curl -v https://web01`\n- (Telnet-Client: `telnet web01 443`)\n\n`ping` reicht nicht: ICMP kann erlaubt sein, während die Firewall den TCP-Port blockiert – und umgekehrt.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ts-ip-konflikt-01",
+      "type": "qa",
+      "front": "Ein Drucker ist sporadisch nicht erreichbar, in der Ereignisanzeige eines PCs erscheint ein **IP-Adresskonflikt**. Nennen Sie Ursache und Lösung.",
+      "back": "- **Ursache:** Zwei Geräte nutzen dieselbe IP – z. B. der Drucker hat eine **statische IP innerhalb des DHCP-Bereichs**, die der DHCP-Server zusätzlich vergibt.\n- **Lösung:** Statische Adressen **außerhalb des DHCP-Pools** vergeben bzw. als **Ausschluss** eintragen oder den Drucker per **DHCP-Reservierung** versorgen; IP-Adressverwaltung dokumentieren.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-ping-ttl-01",
+      "type": "qa",
+      "front": "`ping 10.0.5.20` liefert „**Zielhost nicht erreichbar**“ von der Adresse **10.0.10.1** (Gateway). Was sagt diese Meldung aus?",
+      "back": "- Das **Gateway** (Router) meldet per **ICMP Destination Unreachable**, dass es das Ziel nicht zustellen kann – z. B. **keine Route** ins Zielnetz oder das Ziel antwortet nicht auf ARP (Host aus, falsches VLAN).\n- Im Unterschied zu „**Zeitüberschreitung**“ (keine Antwort) erhält man hier eine aktive Fehlermeldung → weiter am Router prüfen (Routingtabelle, ARP/Interface im Zielnetz).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-switchport-01",
+      "type": "qa",
+      "front": "Ein Benutzer meldet nach einem Umzug: „Mein PC hat zwar Link, bekommt aber eine Adresse aus dem falschen Netz.“ Was ist die wahrscheinliche Ursache?",
+      "back": "- Der neue **Switch-Port ist einem anderen VLAN zugeordnet** (Access-VLAN falsch) → DHCP aus dem falschen Bereich.\n- Lösung: Port dem richtigen VLAN zuweisen (oder 802.1X mit dynamischer VLAN-Zuweisung nutzen); Patchdokumentation aktualisieren.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ts-curl-01",
+      "type": "qa",
+      "front": "Wie können Sie mit `curl` prüfen, welches **TLS-Zertifikat** und welche **HTTP-Antwort** ein Webserver liefert?",
+      "back": "- `curl -vI https://www.firma.de` – `-v` zeigt den **TLS-Handshake** (Protokoll, Zertifikat, Aussteller, Gültigkeit), `-I` nur die **Header** (Statuscode, Weiterleitungen, Server).\n- Alternativ Zertifikatsdetails: `openssl s_client -connect www.firma.de:443 -servername www.firma.de`",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

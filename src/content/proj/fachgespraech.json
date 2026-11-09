@@ -25,6 +25,102 @@
       "back": "Typischer Rahmen (variiert je IHK):\n- ca. **15 Seiten** Bericht (ohne Deckblatt/Verzeichnisse) + **Anlagen**\n- Schriftgrad **11**, Zeilenabstand **1,3**, Abgabe als **PDF**\n- Deckblatt, Inhalts-, Abbildungs-, Tabellen-, Abkürzungs- und Quellenverzeichnis\n- **Eigenständigkeitserklärung**; Nutzung von **KI-Werkzeugen kennzeichnen**\n- Kundendokumentation/Auszüge als Anlage\n\n**Wichtig:** Die **Vorgaben der eigenen IHK haben Vorrang** – Merkblatt der zuständigen IHK lesen!",
       "difficulty": 1,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-fg-anders-01",
+      "type": "qa",
+      "front": "Im Fachgespräch kommt die Frage: **„Was würden Sie heute anders machen?“** Wie antworten Sie überzeugend?",
+      "back": "- **Konkreten Punkt** nennen (nicht „nichts“): z. B. „Ich würde die Kompatibilität der Hardware früher prüfen, weil der Treiberkonflikt 3 Stunden gekostet hat.“\n- **Begründen** und die **Lehre** daraus ziehen.\n- Zeigt Reflexionsfähigkeit; gleichzeitig die **getroffenen Entscheidungen grundsätzlich verteidigen** (nicht das ganze Projekt infrage stellen).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-datenschutz-01",
+      "type": "qa",
+      "front": "Fachgesprächsfrage: **„Wie haben Sie Datenschutz und IT-Sicherheit in Ihrem Projekt berücksichtigt?“** Nennen Sie Ansatzpunkte für eine gute Antwort.",
+      "back": "- **Schutzbedarf** der betroffenen Daten/Systeme benennen (z. B. personenbezogene Daten → hoch)\n- Konkrete **technische Maßnahmen**: Verschlüsselung (TLS, BitLocker), Zugriffsrechte/Least Privilege, MFA, Härtung, Backup, Logging\n- **Organisatorische Maßnahmen**: AVV mit Dienstleister, Einbindung des Datenschutzbeauftragten/Betriebsrats, Dokumentation, Löschkonzept\n- Mit **Bezug zum eigenen Projekt** antworten, nicht nur Lehrbuchwissen aufzählen.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-vorbereitung-01",
+      "type": "qa",
+      "front": "Nennen Sie **fünf** Tipps zur Vorbereitung auf das **Fachgespräch**.",
+      "back": "1. Eigene **Dokumentation genau kennen** (Zahlen, Entscheidungen, Begründungen)\n2. **Alternativen** zu jeder Entscheidung und deren Vor-/Nachteile parat haben\n3. **Angrenzendes Fachwissen** wiederholen (z. B. bei Backup-Projekt: RAID, 3-2-1, RPO/RTO, Deduplizierung)\n4. **Probe-Fachgespräch** mit Ausbilder/Kollegen üben (z. B. mit dem Fachgespräch-Simulator)\n5. Bei Unwissen **ehrlich** sein und laut mitdenken („Ich bin nicht sicher, aber ich würde …“)",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-fehler-antwort-01",
+      "type": "qa",
+      "front": "Sie kennen die Antwort auf eine Fachgesprächsfrage nicht. Wie verhalten Sie sich?",
+      "back": "- **Ruhe bewahren**, ggf. **Rückfrage** stellen, ob die Frage richtig verstanden wurde.\n- **Laut mitdenken**: vorhandenes Wissen strukturiert einbringen, Lösungsweg skizzieren („Ich würde zuerst … prüfen“).\n- **Ehrlich** sagen, wenn man etwas nicht weiß – nicht raten oder ausweichen.\n- Der Prüfungsausschuss bewertet auch **Problemlösefähigkeit** und Kommunikation, nicht nur Faktenwissen.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-fg-themen-01",
+      "type": "qa",
+      "front": "Ihr Projekt war „Einführung eines Monitoringsystems (Zabbix) für 30 Server“. Nennen Sie **vier** angrenzende Themen, zu denen im Fachgespräch Fragen kommen könnten.",
+      "back": "1. **SNMP** (Versionen, Ports, Traps vs. Polling, Sicherheit v3)\n2. **Verfügbarkeit/SLA** (Berechnung, MTBF/MTTR, Schwellwerte und Alarmierung)\n3. **Alternativen** (PRTG, Checkmk, Cloud-Monitoring) und Lizenzmodelle (Open Source)\n4. **Datenschutz/Betriebsrat** (Überwachung von Leistung/Verhalten?), Logging/Syslog, Rechtekonzept\n\n(weiter: Hochverfügbarkeit des Monitorings selbst, Datenbank, Virtualisierung)",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-praes-medien-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Tipps für die **Foliengestaltung** der Projektpräsentation.",
+      "back": "1. **Wenig Text**, Stichpunkte statt Fließtext (Faustregel: max. ca. 5–6 Punkte pro Folie)\n2. **Visualisieren**: Netzpläne, Diagramme (Nutzwertanalyse, Amortisation), Screenshots gezielt einsetzen\n3. **Einheitliches Layout**, gut lesbare Schriftgröße (≥ 18–20 pt), ausreichender Kontrast\n4. **Foliennummern** und Agenda (Orientierung, Rückfragen), keine überflüssigen Animationen\n\nCa. **1–2 Minuten pro Folie** → 10–15 Folien für 15 Minuten.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-praes-vortrag-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Hinweise zum **Vortragsverhalten** bei der Präsentation.",
+      "back": "1. **Frei sprechen** (Moderationskarten als Stütze), nicht ablesen\n2. **Blickkontakt** zum gesamten Prüfungsausschuss\n3. **Zeit einhalten** (12–15 Minuten) – vorher mit Stoppuhr üben\n4. Ruhige, deutliche **Sprache**, offene Körperhaltung, Fachbegriffe korrekt verwenden\n\nTechnik vorher testen (Adapter, Ersatz-PDF auf USB-Stick, nach IHK-Vorgaben).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-praes-zeit-01",
+      "type": "qa",
+      "front": "Ihre Präsentation dauert im Probedurchlauf **19 Minuten**, erlaubt sind **max. 15**. Was tun Sie?",
+      "back": "- **Kürzen statt schneller sprechen**: Schwerpunkt auf **Entscheidungen, Lösung und Ergebnis**, Details (z. B. Installationsschritte) streichen oder in die Doku/den Anhang verlagern.\n- Folien zusammenfassen, Wiederholungen entfernen.\n- Erneut mit Stoppuhr üben; Ziel ca. **13–14 Minuten** als Puffer.\n- Überschreitung kann zum **Abbruch** durch den Prüfungsausschuss und zu Punktabzug führen.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-warum-01",
+      "type": "qa",
+      "front": "Prüferfrage: **„Warum haben Sie sich für RAID 6 statt RAID 10 entschieden?“** (Projekt: neuer Dateiserver mit 8 × 8 TB). Formulieren Sie eine fundierte Antwort.",
+      "back": "- **Anforderung**: hohe Kapazität für Dateiablage bei überwiegend lesendem Zugriff, Ausfallsicherheit.\n- **RAID 6**: (8 − 2) × 8 TB = **48 TB** netto, **2 beliebige** Platten dürfen ausfallen → sicher auch während des langen Rebuilds großer Platten.\n- **RAID 10**: nur 8 ÷ 2 × 8 = **32 TB**, garantiert nur 1 Ausfall (zweiter im selben Spiegel = Datenverlust), aber bessere Schreibleistung.\n- Da **Schreibperformance zweitrangig** und **Kapazität/Kosten pro TB** wichtig waren, war RAID 6 die bessere Wahl. Backup ersetzt RAID nicht – deshalb zusätzlich 3-2-1-Sicherung.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-bewertung-01",
+      "type": "qa",
+      "front": "Wie setzt sich die Prüfungsleistung im Bereich **Projektarbeit** (AO 2020, FISI) zusammen und wie lange dauern Präsentation und Fachgespräch?",
+      "back": "- **Projektdokumentation**: 25 % des Gesamtergebnisses (bzw. 50 % des Projektbereichs)\n- **Präsentation** (ca. **12–15 Minuten**) und **Fachgespräch** (ca. 15–18 Minuten): zusammen **max. 30 Minuten**, je **12,5 %** des Gesamtergebnisses\n- Projektdauer: **40 Stunden**\n- Der Projektbereich muss wie alle AP2-Bereiche die Bestehensregeln erfüllen (mind. 3 Bereiche ≥ 50 %, keiner unter 30 %). **Vorgaben der eigenen IHK haben Vorrang.**",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-fg-zielgruppe-01",
+      "type": "qa",
+      "front": "Warum sollten Sie die Präsentation auf die **Zielgruppe Prüfungsausschuss** ausrichten und was bedeutet das konkret?",
+      "back": "- Der Ausschuss besteht aus **Fachleuten** (Arbeitgeber-, Arbeitnehmervertreter, Lehrkraft), die das Projekt nur aus der Doku kennen.\n- Konkret: **Fachbegriffe** korrekt verwenden, aber **Entscheidungen und Begründungen** in den Vordergrund stellen statt Grundlagen zu erklären; **eigene Leistung** deutlich machen; wirtschaftliche Aspekte und Qualitätssicherung zeigen.\n- Nicht: Werbung für das Unternehmen oder reine Bedienungsanleitung.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-fg-alternative-technik-01",
+      "type": "qa",
+      "front": "Prüferfrage zu Ihrem VPN-Projekt: **„Welche Alternative zu IPsec hätten Sie noch einsetzen können und warum nicht?“** Skizzieren Sie eine gute Antwort.",
+      "back": "- **Alternative nennen**: z. B. **WireGuard** oder **TLS-VPN (OpenVPN)**.\n- **Vergleich** anhand der Kriterien aus der Entscheidung: Kompatibilität mit vorhandener Firewall (IPsec nativ unterstützt), Clientverteilung, Integration in AD/MFA, Performance, Supportvertrag.\n- **Begründung**: „WireGuard wäre performanter, wird aber von unserer Firewall-Generation nicht unterstützt und bietet keine native AD-Anbindung – deshalb IPsec (IKEv2) mit Zertifikaten.“\n- Optional: **wann die Alternative besser wäre**.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

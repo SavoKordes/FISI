@@ -1,0 +1,113 @@
+{
+  "area": "KA",
+  "topic": "Server-Hardware & Green IT",
+  "cards": [
+    {
+      "id": "ka-hw-formfaktor-01",
+      "type": "compare",
+      "front": "Vergleichen Sie die Server-Formfaktoren **Tower**, **Rack** und **Blade** hinsichtlich Platzbedarf, Erweiterbarkeit und Einsatzgebiet.",
+      "back": "| | Tower | Rack (19″) | Blade |\n|---|---|---|---|\n| Platzbedarf | hoch, steht frei | genormt in Höheneinheiten (1 HE = 44,45 mm) | sehr gering, viele Server im Chassis |\n| Erweiterbarkeit | gut (viele Einschübe) | mittel | gering, Ressourcen über Chassis geteilt |\n| Infrastruktur | eigene Netzteile/Lüfter | eigene Netzteile, Rack-Verkabelung | Netzteile, Lüfter, Switches im Chassis gemeinsam |\n| Einsatz | Kleinbetrieb ohne Serverraum | Serverraum/RZ | große RZ mit hoher Dichte |",
+      "points": 6,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-ecc-01",
+      "type": "qa",
+      "front": "Erläutern Sie, wofür **ECC-RAM** in Servern eingesetzt wird.",
+      "back": "- **ECC (Error Correcting Code):** zusätzliche Prüfbits je Datenwort.\n- **1-Bit-Fehler** werden erkannt **und korrigiert**, **2-Bit-Fehler** erkannt.\n- Schützt vor stillen Datenfehlern (z. B. durch kosmische Strahlung) → höhere **Stabilität und Datenintegrität** im Dauerbetrieb.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-hw-redundanz-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Hardware-Maßnahmen, mit denen ein Server gegen Ausfälle einzelner Komponenten abgesichert werden kann.",
+      "back": "1. **Redundante, hot-swap-fähige Netzteile** an getrennten Stromkreisen/USVs\n2. **RAID** mit Hot Spare für die Festplatten\n3. **ECC-Arbeitsspeicher**\n4. **Redundante Netzwerkanbindung** (Teaming/LACP an zwei Switches)\n\n(weitere: redundante Lüfter, zwei CPUs, Out-of-Band-Management wie iDRAC/iLO zur Fernwartung)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-hw-oob-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Out-of-Band-Management** (z. B. iLO, iDRAC, IPMI) und welchen Vorteil bietet es?",
+      "back": "- Eigener Management-Controller mit **eigener Netzwerkschnittstelle**, unabhängig vom Betriebssystem.\n- Ermöglicht **Fernzugriff auf Konsole, BIOS, Ein-/Ausschalten, Sensoren und virtuelle Medien** – auch wenn das OS hängt oder der Server aus ist.\n- **Vorteil:** Fehlerbehebung ohne Anfahrt ins Rechenzentrum.\n- **Sicherheit:** Management-Port nur in einem separaten Management-VLAN betreiben.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-netzteil-01",
+      "type": "qa",
+      "front": "Ein Server besitzt zwei Netzteile mit je **800 W**, die **redundant (1+1)** betrieben werden. Die Last beträgt 650 W. Erläutern Sie, warum man beide Netzteile an **unterschiedliche Stromkreise** anschließt.",
+      "back": "- Bei 1+1-Redundanz kann **ein Netzteil allein die gesamte Last** (650 W < 800 W) tragen.\n- Hängen beide am **selben Stromkreis/derselben USV**, führt ein Ausfall dieses Kreises (Sicherung, USV-Defekt) trotzdem zum Serverausfall → **Single Point of Failure**.\n- Getrennte Kreise (A/B-Versorgung) sichern auch gegen Ausfälle der Stromverteilung ab.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-green-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Maßnahmen der **Green IT** im Serverbetrieb.",
+      "back": "1. **Virtualisierung/Konsolidierung** – weniger physische Server, höhere Auslastung\n2. **Energieeffiziente Hardware** (80-PLUS-Netzteile, effiziente CPUs, SSDs statt HDDs)\n3. **Optimierte Kühlung** (Kalt-/Warmgang-Einhausung, höhere Zulufttemperatur, freie Kühlung) → besserer PUE\n4. **Energiesparfunktionen** und Abschalten ungenutzter Systeme, Abwärmenutzung\n\n(weitere: Lebensdauer verlängern, zertifiziertes Recycling, Ökostrom, Kennzahl PUE überwachen)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-hw-pue-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Kennzahl **PUE** und berechnen Sie sie für ein Rechenzentrum, dessen IT **200 kW** verbraucht, während der Gesamtverbrauch **300 kW** beträgt.",
+      "back": "- **PUE (Power Usage Effectiveness)** = Gesamtenergie des Rechenzentrums ÷ Energie der IT-Geräte\n- 300 kW ÷ 200 kW = **1,5**\n- Bedeutung: Für 1 kW IT-Last werden zusätzlich 0,5 kW für Kühlung, USV-Verluste, Beleuchtung usw. benötigt. Idealwert = 1,0.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-ssd-hdd-01",
+      "type": "qa",
+      "front": "Nennen Sie je **zwei** Vor- und Nachteile von **SSDs** gegenüber **HDDs** im Server.",
+      "back": "**Vorteile SSD**\n1. Deutlich **höhere IOPS** und geringere Zugriffszeit (keine Mechanik)\n2. **Geringerer Energieverbrauch**, keine Erschütterungsempfindlichkeit\n\n**Nachteile SSD**\n1. **Höherer Preis pro TB**\n2. **Begrenzte Schreibzyklen** (TBW/DWPD beachten, Enterprise-SSDs wählen)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-he-01",
+      "type": "cloze",
+      "front": "Ein 19-Zoll-Rack wird in Höheneinheiten gemessen: 1 HE (U) entspricht {{44,45 mm}}. Ein typisches Server-Rack hat {{42}} HE.",
+      "back": "Beim Planen der Rack-Belegung auch Platz für Patchpanel, Switches, USV, Kabelführung und Luftzirkulation einrechnen.",
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-hw-nvme-01",
+      "type": "qa",
+      "front": "Erläutern Sie, warum **NVMe-SSDs** deutlich schneller sind als SATA-SSDs.",
+      "back": "- **NVMe** nutzt direkt **PCI Express** statt des SATA-Controllers (AHCI).\n- SATA ist auf ca. **600 MB/s** (6 Gbit/s) begrenzt, NVMe erreicht mehrere GB/s.\n- NVMe unterstützt **viele parallele Warteschlangen** (bis 64K Queues mit je 64K Befehlen) statt einer Queue mit 32 Befehlen → viel höhere IOPS und geringere Latenz.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-hw-entsorgung-01",
+      "type": "qa",
+      "front": "Ein Unternehmen tauscht alte Server aus. Beschreiben Sie, wie Sie mit den **Festplatten** datenschutzkonform umgehen.",
+      "back": "- Daten **sicher löschen** (mehrfaches Überschreiben bei HDD, Secure Erase/Crypto Erase bei SSD) **oder** Datenträger **physisch vernichten** (DIN 66399, passende Sicherheitsstufe).\n- Vernichtung durch zertifizierten Dienstleister mit **Vernichtungsprotokoll/Zertifikat**.\n- Vorgang dokumentieren (Seriennummern) – Nachweis nach DSGVO (Rechenschaftspflicht).\n- Einfaches Formatieren reicht **nicht**.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-hw-dimensionierung-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Kriterien, nach denen Sie einen neuen Server für eine Datenbankanwendung dimensionieren.",
+      "back": "1. **CPU** (Kerne/Takt, Lizenzierung pro Kern beachten)\n2. **Arbeitsspeicher** (Datenbank-Cache, ECC)\n3. **Speicher**: Kapazität, IOPS/Latenz (SSD/NVMe), RAID-Level, Wachstum\n4. **Netzwerk**: Bandbreite, Redundanz\n\n(weitere: Verfügbarkeitsanforderungen, Formfaktor, Garantie/Support, Energieverbrauch, Skalierbarkeit für 3–5 Jahre)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

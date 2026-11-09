@@ -51,6 +51,78 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-backup-archivierung-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Datensicherung (Backup)** und **Archivierung**.",
+      "back": "| | Backup | Archivierung |\n|---|---|---|\n| Zweck | **Wiederherstellung** nach Verlust/Defekt | **langfristige, unveränderbare Aufbewahrung** (z. B. gesetzliche Pflichten) |\n| Daten | Kopie aktueller Daten, Original bleibt | Daten werden oft aus dem Produktivsystem **ausgelagert** |\n| Aufbewahrung | Tage bis Monate (Generationen) | Jahre (z. B. 6–10 Jahre nach HGB/AO) |\n| Anforderung | schneller Restore | **Revisionssicherheit** (GoBD), Auffindbarkeit |",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-revisionssicher-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Anforderungen an eine **revisionssichere Archivierung** (z. B. nach GoBD).",
+      "back": "1. **Unveränderbarkeit** (Manipulationssicherheit, WORM)\n2. **Vollständigkeit** – nichts darf verloren gehen\n3. **Ordnungsmäßigkeit/Nachvollziehbarkeit** – Protokollierung aller Zugriffe und Änderungen\n4. **Auffindbarkeit und Lesbarkeit** über die gesamte Aufbewahrungsfrist\n\n(weitere: Zugriffsschutz, Einhaltung der Aufbewahrungsfristen, Löschung nach Fristende, Verfahrensdokumentation)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-backup-ransomware-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Maßnahmen, damit Backups bei einem **Ransomware**-Angriff nicht ebenfalls verschlüsselt werden.",
+      "back": "1. **Offline- oder Air-Gap-Kopie** (z. B. Band, ausgelagert)\n2. **Unveränderbare (immutable) Backups**, z. B. Object Lock/WORM, gehärtetes Linux-Repository\n3. **Backup-Infrastruktur getrennt** von der Domäne, eigene Zugangsdaten mit MFA, kein Zugriff über normale Freigaben\n\nZusätzlich: Wiederherstellung regelmäßig testen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-restoretest-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum **Wiederherstellungstests** regelmäßig durchgeführt werden müssen, und nennen Sie zwei Testformen.",
+      "back": "- Nur ein getesteter Restore beweist, dass Sicherungen **vollständig, lesbar und in der geforderten Zeit (RTO)** wiederherstellbar sind; Fehler (z. B. fehlende Ordner, defekte Medien, vergessene Kennwörter) fallen sonst erst im Ernstfall auf.\n- Testformen:\n  1. **Einzeldatei-Restore** stichprobenartig\n  2. **Vollständiger System-Restore** in einer isolierten Testumgebung (Disaster-Recovery-Übung)",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-medien-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Sicherungsmedien/-ziele und je einen Vorteil.",
+      "back": "1. **LTO-Band:** günstig pro TB, lange Haltbarkeit, offline lagerbar (Air Gap)\n2. **NAS/Backup-Appliance mit Festplatten:** schneller Zugriff und Restore, Deduplizierung\n3. **Cloud-/Objektspeicher:** automatisch offsite, skalierbar, Immutability möglich\n\n(weiter: externe USB-Festplatten – einfach, aber fehleranfällig im Handling)",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-backup-snapshot-vss-01",
+      "type": "qa",
+      "front": "Wozu dient der **Volumeschattenkopie-Dienst (VSS)** bei der Sicherung unter Windows?",
+      "back": "- Erstellt eine **konsistente Momentaufnahme** eines Volumes, während Anwendungen weiterlaufen.\n- **VSS-Writer** von Anwendungen (z. B. SQL Server, Exchange, AD) bringen ihre Daten vorher in einen konsistenten Zustand.\n- Die Sicherung liest dann aus der Schattenkopie → auch **geöffnete Dateien** und Datenbanken werden konsistent gesichert.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-backup-baas-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Backup as a Service (BaaS)**? Nennen Sie einen Vor- und einen Nachteil.",
+      "back": "- Datensicherung wird als **Dienstleistung eines Anbieters** bezogen; Daten werden verschlüsselt in dessen Rechenzentrum gesichert.\n- **Vorteil:** automatische Offsite-Kopie, kein eigenes Backup-Ziel nötig, Betrieb durch Experten.\n- **Nachteil:** Restore-Geschwindigkeit hängt von der **Internetbandbreite** ab; Abhängigkeit/Datenschutz (AVV) beachten.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-backup-konzept-01",
+      "type": "qa",
+      "front": "Nennen Sie **sechs** Inhalte eines **Datensicherungskonzepts**.",
+      "back": "1. Zu sichernde **Daten/Systeme** und deren Priorität\n2. **Sicherungsart** und **Zeitplan** (Voll/diff/inkr., Uhrzeiten)\n3. **Aufbewahrung/Generationen** (z. B. GFS)\n4. **Medien und Speicherorte** (3-2-1)\n5. **RPO/RTO**-Vorgaben und **Wiederherstellungsverfahren**\n6. **Verantwortlichkeiten**, Protokollierung, **Restore-Tests**, Verschlüsselung",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
     }
   ]
 }

@@ -41,6 +41,221 @@
         "jahreswert"
       ],
       "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-sv-traeger-01",
+      "type": "mc",
+      "front": "Ordnen Sie zu: Wer ist Träger der **gesetzlichen Arbeitslosenversicherung**?",
+      "choices": [
+        "Deutsche Rentenversicherung",
+        "Bundesagentur für Arbeit",
+        "Berufsgenossenschaft",
+        "Krankenkasse"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die **Bundesagentur für Arbeit**.",
+      "explanation": "Träger: Kranken- und Pflegeversicherung – Krankenkassen/Pflegekassen; Rentenversicherung – Deutsche Rentenversicherung; Unfallversicherung – Berufsgenossenschaften/Unfallkassen.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-sv-prinzipien-01",
+      "type": "mc",
+      "front": "Was besagt das **Solidaritätsprinzip** der Sozialversicherung?",
+      "choices": [
+        "Jeder zahlt den gleichen Beitrag in Euro.",
+        "Die Beiträge richten sich nach dem Einkommen, die Leistungen nach dem Bedarf.",
+        "Nur Kranke zahlen Beiträge.",
+        "Der Staat übernimmt alle Kosten."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Beiträge nach **Leistungsfähigkeit (Einkommen)**, Leistungen nach **Bedarf** – die Gemeinschaft trägt die Risiken des Einzelnen.",
+      "explanation": "Weitere Prinzipien: **Versicherungspflicht**, **Selbstverwaltung** durch Vertreter von Arbeitgebern und Versicherten, in der Rentenversicherung das **Umlageverfahren** (Generationenvertrag).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-sv-generationenvertrag-01",
+      "type": "mc",
+      "front": "Was versteht man in der Rentenversicherung unter dem **Generationenvertrag**?",
+      "choices": [
+        "Jeder spart für die eigene Rente auf einem Konto.",
+        "Die heutigen Beitragszahler finanzieren die Renten der heutigen Rentner.",
+        "Kinder müssen die Rente ihrer Eltern zahlen.",
+        "Die Rente wird vollständig aus Steuern finanziert."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Umlageverfahren**: Die Beiträge der Erwerbstätigen werden direkt für die aktuellen Renten verwendet.",
+      "explanation": "Problem: demografischer Wandel – weniger Beitragszahler pro Rentner. Ergänzend: betriebliche und private Altersvorsorge (Drei-Säulen-Modell). Zusätzlich fließt ein Bundeszuschuss aus Steuermitteln.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-sv-bbg-01",
+      "type": "mc",
+      "front": "Was bedeutet die **Beitragsbemessungsgrenze**?",
+      "choices": [
+        "Bis zu diesem Einkommen ist man nicht versichert.",
+        "Bis zu diesem Einkommen werden Beiträge erhoben; darüber liegendes Einkommen ist beitragsfrei.",
+        "Ab diesem Einkommen gibt es keine Rente.",
+        "Sie ist die Grenze für Minijobs."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Beiträge werden nur **bis zu dieser Einkommensgrenze** berechnet; der darüber liegende Teil ist beitragsfrei.",
+      "explanation": "Stand 2026 (monatlich): Kranken-/Pflegeversicherung **5.812,50 €**, Renten-/Arbeitslosenversicherung **8.450 €**. Davon zu unterscheiden ist die **Versicherungspflichtgrenze** (2026: 77.400 €/Jahr) für den Wechsel in die private Krankenversicherung.",
+      "difficulty": 2,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-sv-minijob-01",
+      "type": "mc",
+      "front": "Bis zu welchem monatlichen Verdienst liegt im Jahr **2026** ein **Minijob** (geringfügige Beschäftigung) vor?",
+      "choices": [
+        "520 €",
+        "556 €",
+        "603 €",
+        "2.000 €"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**603 €** pro Monat (Stand 2026).",
+      "explanation": "Die Grenze ist an den Mindestlohn gekoppelt (13,90 € × 130 ÷ 3, gerundet) und steigt 2027 auf 633 €. Darüber beginnt bis 2.000 € der **Übergangsbereich (Midijob)** mit reduzierten Arbeitnehmerbeiträgen.",
+      "difficulty": 1,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-sv-pflege-01",
+      "type": "mc",
+      "front": "Wie hoch ist 2026 der **Beitragssatz zur Pflegeversicherung** (ohne Kinderlosenzuschlag) und wer trägt den **Zuschlag für Kinderlose**?",
+      "choices": [
+        "2,6 %; Arbeitgeber",
+        "3,6 %; Arbeitnehmer allein",
+        "14,6 %; je zur Hälfte",
+        "3,6 %; Arbeitgeber allein"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**3,6 %**; den Zuschlag von **0,6 %** für Kinderlose ab 23 Jahren trägt der **Arbeitnehmer allein** (Stand 2026).",
+      "explanation": "Eltern mit mehreren Kindern unter 25 erhalten Abschläge. In Sachsen tragen Arbeitnehmer einen höheren Anteil, da dort der Buß- und Bettag als Feiertag erhalten blieb.",
+      "difficulty": 2,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-sv-zusatzbeitrag-01",
+      "type": "mc",
+      "front": "Wie wird der **Zusatzbeitrag** der gesetzlichen Krankenversicherung finanziert?",
+      "choices": [
+        "allein vom Arbeitnehmer",
+        "allein vom Arbeitgeber",
+        "je zur Hälfte von Arbeitgeber und Arbeitnehmer",
+        "vom Staat"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Je zur Hälfte** (paritätisch) von Arbeitgeber und Arbeitnehmer.",
+      "explanation": "Allgemeiner Beitragssatz 14,6 %; der Zusatzbeitrag wird von jeder Krankenkasse selbst festgelegt – der **durchschnittliche Zusatzbeitrag** lag 2026 bei **2,9 %**.",
+      "difficulty": 2,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-entgelt-netto-01",
+      "type": "mc",
+      "front": "Welche Abzüge werden vom **Bruttoentgelt** einbehalten, um das Nettoentgelt zu ermitteln? (2 richtige)",
+      "choices": [
+        "Lohnsteuer (ggf. Solidaritätszuschlag, Kirchensteuer)",
+        "Arbeitgeberanteil zur Rentenversicherung",
+        "Arbeitnehmeranteile zur Sozialversicherung",
+        "Beitrag zur Unfallversicherung"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "back": "**Steuern** und **Arbeitnehmeranteile zur Sozialversicherung**.",
+      "explanation": "Die Arbeitgeberanteile und die Unfallversicherung zahlt der Arbeitgeber **zusätzlich** zum Bruttoentgelt. Vom Netto können noch z. B. vermögenswirksame Leistungen oder Vorschüsse abgezogen werden → Auszahlungsbetrag.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-steuerklasse-01",
+      "type": "mc",
+      "front": "Welche **Lohnsteuerklasse** haben ledige Arbeitnehmer ohne Kinder?",
+      "choices": [
+        "I",
+        "II",
+        "III",
+        "V"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "**Steuerklasse I**.",
+      "explanation": "II: Alleinerziehende (Entlastungsbetrag), III/V oder IV/IV: Verheiratete/eingetragene Lebenspartner, VI: Zweit- und Nebenjob.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-sv-azubi-gering-01",
+      "type": "mc",
+      "front": "Ein Auszubildender verdient monatlich **300 €** brutto (Geringverdiener). Wer zahlt die Sozialversicherungsbeiträge?",
+      "choices": [
+        "der Azubi allein",
+        "Arbeitgeber und Azubi je zur Hälfte",
+        "der Arbeitgeber allein",
+        "es fallen keine Beiträge an"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "Der **Arbeitgeber allein** – bis zur Geringverdienergrenze von **325 €** monatlich.",
+      "explanation": "Bei Ausbildungsvergütungen über 325 € gilt die normale Aufteilung. Da die Mindestausbildungsvergütung höher liegt, betrifft das heute v. a. Sonderfälle (z. B. Praktikanten mit Ausbildungscharakter).",
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-sv-arbeitslosengeld-01",
+      "type": "mc",
+      "front": "Wie hoch ist das **Arbeitslosengeld I** für einen Arbeitslosen **ohne Kind**?",
+      "choices": [
+        "50 % des letzten Bruttos",
+        "60 % des pauschalierten Nettoentgelts",
+        "67 % des pauschalierten Nettoentgelts",
+        "100 % für 6 Wochen"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**60 %** des pauschalierten Nettoentgelts (mit Kind **67 %**).",
+      "explanation": "Voraussetzungen: arbeitslos gemeldet, Anwartschaftszeit (mindestens 12 Monate versicherungspflichtig in den letzten 30 Monaten). Sich spätestens 3 Monate vor Ende des Arbeitsverhältnisses arbeitsuchend melden (bzw. innerhalb von 3 Tagen nach Kenntnis), sonst droht eine Sperrzeit.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

@@ -96,6 +96,295 @@
         "jahreswert"
       ],
       "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-kschg-01",
+      "type": "mc",
+      "front": "Wann gilt das **Kündigungsschutzgesetz** für einen Arbeitnehmer?",
+      "choices": [
+        "ab dem ersten Arbeitstag in jedem Betrieb",
+        "wenn das Arbeitsverhältnis länger als 6 Monate besteht und der Betrieb regelmäßig mehr als 10 Arbeitnehmer beschäftigt",
+        "nur für Arbeitnehmer über 50 Jahre",
+        "nur in Betrieben mit Betriebsrat"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Mehr als **6 Monate** Betriebszugehörigkeit und Betrieb mit **mehr als 10 Arbeitnehmern** (Teilzeitkräfte anteilig).",
+      "explanation": "Dann muss eine ordentliche Kündigung **sozial gerechtfertigt** sein: personen-, verhaltens- oder betriebsbedingt. Kündigungsschutzklage innerhalb von **3 Wochen** nach Zugang.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-kuendigung-form-01",
+      "type": "mc",
+      "front": "In welcher Form muss eine Kündigung eines Arbeitsverhältnisses erfolgen?",
+      "choices": [
+        "mündlich genügt",
+        "per E-Mail genügt",
+        "schriftlich mit eigenhändiger Unterschrift",
+        "per WhatsApp mit Lesebestätigung"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Schriftform** mit eigenhändiger Unterschrift (§ 623 BGB) – die elektronische Form ist ausgeschlossen.",
+      "explanation": "Eine Kündigung per E-Mail, Fax oder Messenger ist **unwirksam**. Die Frist beginnt mit dem **Zugang** beim Empfänger.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-kuendigungsgruende-01",
+      "type": "mc",
+      "front": "Welcher Kündigungsgrund ist **betriebsbedingt**?",
+      "choices": [
+        "häufiges Zuspätkommen trotz Abmahnung",
+        "dauerhafte Erkrankung, die die Arbeit unmöglich macht",
+        "Wegfall des Arbeitsplatzes wegen Schließung einer Abteilung",
+        "Diebstahl im Betrieb"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Wegfall des Arbeitsplatzes** durch unternehmerische Entscheidung.",
+      "explanation": "Verhaltensbedingt: Pflichtverletzungen (Zuspätkommen, meist nach Abmahnung). Personenbedingt: Gründe in der Person (z. B. lang andauernde Krankheit). Bei betriebsbedingter Kündigung ist eine **Sozialauswahl** (Dauer, Alter, Unterhaltspflichten, Schwerbehinderung) vorzunehmen.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-abmahnung-01",
+      "type": "mc",
+      "front": "Welche Funktion hat eine **Abmahnung**?",
+      "choices": [
+        "Sie ersetzt die Kündigung.",
+        "Sie rügt ein konkretes Fehlverhalten und warnt vor arbeitsrechtlichen Konsequenzen im Wiederholungsfall.",
+        "Sie kürzt automatisch das Gehalt.",
+        "Sie muss immer vom Betriebsrat genehmigt werden."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Hinweis- und Warnfunktion**: konkretes Fehlverhalten benennen und Konsequenzen (Kündigung) androhen.",
+      "explanation": "Vor einer **verhaltensbedingten Kündigung** ist in der Regel eine Abmahnung erforderlich. Eine bestimmte Form ist nicht vorgeschrieben, Schriftform ist aber zu Beweiszwecken üblich.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-kuendigungsfrist-ag-01",
+      "type": "mc",
+      "front": "Ein Arbeitnehmer ist seit **8 Jahren** im Unternehmen. Welche gesetzliche Kündigungsfrist muss der **Arbeitgeber** einhalten (§ 622 BGB)?",
+      "choices": [
+        "4 Wochen zum 15. oder Monatsende",
+        "2 Monate zum Monatsende",
+        "3 Monate zum Monatsende",
+        "7 Monate zum Monatsende"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**3 Monate zum Ende eines Kalendermonats.**",
+      "explanation": "Staffelung für den Arbeitgeber: ab 2 Jahren 1 Monat, 5 Jahre 2 Monate, **8 Jahre 3 Monate**, 10 Jahre 4, 12 Jahre 5, 15 Jahre 6, 20 Jahre 7 Monate – jeweils zum Monatsende. Für den Arbeitnehmer gilt gesetzlich weiter die Grundkündigungsfrist.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-fristlos-01",
+      "type": "mc",
+      "front": "Welche Aussage zur **außerordentlichen (fristlosen) Kündigung** ist richtig?",
+      "choices": [
+        "Sie ist ohne Grund jederzeit möglich.",
+        "Sie erfordert einen wichtigen Grund und muss innerhalb von 2 Wochen nach Kenntnis erklärt werden.",
+        "Sie muss immer 4 Wochen vorher angekündigt werden.",
+        "Sie ist nur für Arbeitnehmer möglich."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Wichtiger Grund** (Fortsetzung unzumutbar) und Erklärung innerhalb von **2 Wochen** nach Kenntnis (§ 626 BGB).",
+      "explanation": "Beispiele: Diebstahl, Tätlichkeiten, beharrliche Arbeitsverweigerung; für Arbeitnehmer z. B. ausbleibender Lohn über längere Zeit.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-besonderer-kuendigungsschutz-01",
+      "type": "mc",
+      "front": "Welche Personengruppen genießen **besonderen Kündigungsschutz**? (2 richtige)",
+      "choices": [
+        "Schwangere Arbeitnehmerinnen",
+        "Arbeitnehmer in der Probezeit",
+        "Mitglieder des Betriebsrats",
+        "Werkstudenten"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "back": "**Schwangere** (MuSchG) und **Betriebsratsmitglieder** (KSchG/BetrVG).",
+      "explanation": "Weitere: Beschäftigte in **Elternzeit**, **schwerbehinderte** Menschen (Zustimmung des Integrationsamts), Azubis nach der Probezeit, JAV-Mitglieder.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-befristung-01",
+      "type": "mc",
+      "front": "Wie lange darf ein Arbeitsvertrag **ohne sachlichen Grund** höchstens befristet werden (TzBfG, ohne Sonderfälle)?",
+      "choices": [
+        "6 Monate",
+        "1 Jahr",
+        "2 Jahre mit höchstens dreimaliger Verlängerung",
+        "5 Jahre"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "Bis zu **2 Jahre**, innerhalb dieser Zeit **höchstens dreimal verlängerbar** (§ 14 Abs. 2 TzBfG).",
+      "explanation": "Nicht zulässig, wenn mit demselben Arbeitgeber bereits zuvor ein Arbeitsverhältnis bestand. Die Befristungsabrede muss **schriftlich** vor Arbeitsbeginn vereinbart werden. Ausnahmen: Neugründungen (4 Jahre), ältere Arbeitnehmer.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-entgeltfortzahlung-01",
+      "type": "mc",
+      "front": "Ab wann hat ein neu eingestellter Arbeitnehmer Anspruch auf **Entgeltfortzahlung im Krankheitsfall**?",
+      "choices": [
+        "ab dem ersten Tag",
+        "nach 4 Wochen ununterbrochener Beschäftigung",
+        "nach 6 Monaten",
+        "nach Ende der Probezeit"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Nach **4 Wochen** ununterbrochenem Bestehen des Arbeitsverhältnisses (§ 3 Abs. 3 EFZG); dann bis zu **6 Wochen** 100 % Entgelt.",
+      "explanation": "In den ersten 4 Wochen zahlt die Krankenkasse Krankengeld. Eine AU-Bescheinigung ist spätestens ab dem 4. Kalendertag nötig (Arbeitgeber darf sie früher verlangen); sie wird heute elektronisch (eAU) abgerufen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-mutterschutz-01",
+      "type": "mc",
+      "front": "Wie lange dauert die **Schutzfrist nach der Entbindung** in der Regel?",
+      "choices": [
+        "6 Wochen",
+        "8 Wochen",
+        "12 Wochen",
+        "14 Wochen"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**8 Wochen** (bei Früh- und Mehrlingsgeburten sowie Behinderung des Kindes 12 Wochen).",
+      "explanation": "Vor der Entbindung: 6 Wochen (Beschäftigung nur auf ausdrücklichen Wunsch). Nach der Geburt besteht ein **absolutes Beschäftigungsverbot**. Kündigungsschutz ab Beginn der Schwangerschaft bis 4 Monate nach der Entbindung.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-elternzeit-01",
+      "type": "mc",
+      "front": "Welche Aussage zur **Elternzeit** ist richtig?",
+      "choices": [
+        "Sie steht nur der Mutter zu.",
+        "Jeder Elternteil kann bis zu 3 Jahre Elternzeit bis zum 8. Geburtstag des Kindes nehmen.",
+        "Während der Elternzeit darf gar nicht gearbeitet werden.",
+        "Elternzeit ist dasselbe wie Elterngeld."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Bis zu **3 Jahre je Elternteil**, aufteilbar bis zum **8. Geburtstag** des Kindes.",
+      "explanation": "Teilzeitarbeit bis 32 Wochenstunden ist erlaubt. Anmeldung spätestens **7 Wochen** vorher (für Zeit bis zum 3. Geburtstag). **Elterngeld** ist die staatliche Geldleistung, Elternzeit der arbeitsrechtliche Freistellungsanspruch.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-jarbschg-urlaub-01",
+      "type": "mc",
+      "front": "Ein Azubi ist zu Beginn des Kalenderjahres **16 Jahre** alt. Wie viele Urlaubstage stehen ihm nach dem JArbSchG mindestens zu?",
+      "choices": [
+        "24 Werktage",
+        "25 Werktage",
+        "27 Werktage",
+        "30 Werktage"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**27 Werktage** (noch nicht 17 Jahre alt zu Beginn des Kalenderjahres).",
+      "explanation": "JArbSchG § 19: noch nicht 16 → 30 Werktage, noch nicht 17 → **27**, noch nicht 18 → 25 Werktage. Ab 18 gilt das BUrlG (24 Werktage).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-zeugnis-arbeit-01",
+      "type": "mc",
+      "front": "Welche Aussage zum **Arbeitszeugnis** ist richtig?",
+      "choices": [
+        "Der Arbeitgeber muss nur auf Wunsch ein Zeugnis ausstellen; es darf negative Formulierungen enthalten.",
+        "Der Arbeitnehmer hat bei Beendigung Anspruch auf ein schriftliches Zeugnis, das wahr und wohlwollend sein muss.",
+        "Ein qualifiziertes Zeugnis enthält nur Art und Dauer der Tätigkeit.",
+        "Zeugnisse dürfen Angaben zu Krankheitstagen enthalten."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Anspruch auf ein **schriftliches**, **wahres** und **wohlwollendes** Zeugnis (§ 109 GewO).",
+      "explanation": "Einfaches Zeugnis: Art und Dauer. **Qualifiziertes** Zeugnis (auf Verlangen): zusätzlich **Leistung und Verhalten**. Verschlüsselte negative Formulierungen („Geheimcodes“) sind unzulässig; Krankheiten gehören nicht hinein.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-arbeitsvertrag-pflichten-01",
+      "type": "mc",
+      "front": "Welche ist eine **Hauptpflicht des Arbeitgebers** aus dem Arbeitsvertrag?",
+      "choices": [
+        "Arbeitspflicht",
+        "Vergütungspflicht",
+        "Verschwiegenheitspflicht",
+        "Wettbewerbsverbot"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die **Vergütungspflicht** (Zahlung des vereinbarten Entgelts).",
+      "explanation": "Hauptpflicht des Arbeitnehmers: **Arbeitspflicht**. Nebenpflichten des AG: Fürsorge (z. B. Arbeitsschutz), Beschäftigung, Zeugnis; des AN: Treue/Verschwiegenheit, Wettbewerbsverbot während des Arbeitsverhältnisses.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-nachweisgesetz-01",
+      "type": "mc",
+      "front": "Was regelt das **Nachweisgesetz**?",
+      "choices": [
+        "die Pflicht, die wesentlichen Vertragsbedingungen schriftlich bzw. in vorgeschriebener Form nachzuweisen",
+        "die Pflicht zur Zeiterfassung per Stempeluhr",
+        "den Nachweis von Krankheitstagen",
+        "die Nachweispflicht von Weiterbildungen gegenüber der IHK"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Der Arbeitgeber muss die **wesentlichen Arbeitsbedingungen** (Parteien, Beginn, Tätigkeit, Arbeitsort, Entgelt, Arbeitszeit, Urlaub, Kündigungsfristen …) dokumentieren und aushändigen.",
+      "explanation": "Seit 2025 ist dafür in vielen Fällen auch die **Textform** (z. B. E-Mail) zulässig, sofern der Arbeitnehmer das Dokument speichern und ausdrucken kann; in einigen Branchen bleibt Schriftform Pflicht.",
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-arbzg-sonntag-01",
+      "type": "mc",
+      "front": "Welche Aussage zum Arbeitszeitgesetz ist richtig?",
+      "choices": [
+        "Sonntagsarbeit ist grundsätzlich verboten, es gibt aber gesetzliche Ausnahmen (z. B. IT-Notdienste, Krankenhäuser).",
+        "Sonntagsarbeit ist ohne Einschränkungen erlaubt.",
+        "Für Sonntagsarbeit gibt es keinen Ersatzruhetag.",
+        "Das ArbZG gilt nicht für IT-Berufe."
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Grundsätzlich **Sonn- und Feiertagsruhe** (§ 9 ArbZG), mit Ausnahmen (§ 10), z. B. für Not- und Rettungsdienste oder zur Vermeidung von Schäden an Daten-/IT-Systemen.",
+      "explanation": "Für Sonntagsarbeit ist ein **Ersatzruhetag** innerhalb von 2 Wochen zu gewähren; mindestens 15 Sonntage im Jahr müssen beschäftigungsfrei bleiben.",
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

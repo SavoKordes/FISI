@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import { IconCalc, IconCards, IconChart, IconHome, IconSettings, IconSpark } from '../components/icons';
@@ -19,9 +20,15 @@ function UpdatePrompt() {
     offlineReady: [offlineReady, setOfflineReady],
     updateServiceWorker,
   } = useRegisterSW();
+  // „offline nutzbar“ ist nur ein Hinweis – nach ein paar Sekunden ausblenden
+  useEffect(() => {
+    if (!offlineReady) return;
+    const t = setTimeout(() => setOfflineReady(false), 4000);
+    return () => clearTimeout(t);
+  }, [offlineReady, setOfflineReady]);
   if (!needRefresh && !offlineReady) return null;
   return (
-    <div className="fixed inset-x-3 bottom-20 z-40 mx-auto flex max-w-md items-center gap-3 rounded-xl bg-slate-900 p-3 text-sm text-white shadow-lg lg:bottom-4 dark:bg-slate-700">
+    <div className="fixed inset-x-3 top-[calc(env(safe-area-inset-top)+0.75rem)] z-40 mx-auto flex max-w-md items-center gap-3 rounded-xl bg-slate-900 p-3 text-sm text-white shadow-lg lg:top-auto lg:bottom-4 dark:bg-slate-700">
       <span className="flex-1">{needRefresh ? 'Neue Version verfügbar.' : 'App ist jetzt offline nutzbar.'}</span>
       {needRefresh && (
         <Button className="min-h-9 py-1" onClick={() => updateServiceWorker(true)}>

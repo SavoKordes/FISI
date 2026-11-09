@@ -10,6 +10,94 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-wasserfall-agil-01",
+      "type": "compare",
+      "front": "Vergleichen Sie das **Wasserfallmodell** mit einem **agilen Vorgehen** (z. B. Scrum).",
+      "back": "| | Wasserfall | agil (Scrum) |\n|---|---|---|\n| Ablauf | **sequenzielle Phasen**, jede wird abgeschlossen | **iterativ** in kurzen Sprints (1–4 Wochen) |\n| Anforderungen | zu Beginn vollständig festgelegt | dürfen sich ändern, Backlog wird priorisiert |\n| Kundeneinbindung | v. a. am Anfang und bei der Abnahme | kontinuierlich (Review nach jedem Sprint) |\n| Eignung | klare, stabile Anforderungen (z. B. Infrastrukturprojekt) | unklare/veränderliche Anforderungen |\n\nIHK-Projekte (40 h) folgen meist einem **phasenorientierten** Vorgehen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-gantt-01",
+      "type": "qa",
+      "front": "Was ist ein **Gantt-Diagramm** und welche Informationen liefert es?",
+      "back": "- **Balkendiagramm** über eine Zeitachse: jeder Vorgang als Balken mit **Start, Dauer und Ende**.\n- Zeigt **Abhängigkeiten**, **Meilensteine** (Rauten), Überschneidungen und den Projektfortschritt (Soll/Ist).\n- Gut verständlich für Auftraggeber; weniger geeignet, um Puffer und kritischen Pfad exakt zu berechnen (dafür **Netzplan**).",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-meilenstein-01",
+      "type": "qa",
+      "front": "Was ist ein **Meilenstein**? Nennen Sie zwei Beispiele aus einem Serverprojekt.",
+      "back": "- Ein **Ereignis mit Dauer 0**, das einen wichtigen Zwischenstand markiert und an dem der Fortschritt **überprüft** wird (oft mit Entscheidung über das weitere Vorgehen).\n- Beispiele: **„Soll-Konzept vom Auftraggeber freigegeben“**, **„Hardware geliefert“**, „Testbetrieb erfolgreich abgeschlossen“, „Abnahme erteilt“.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-risiko-01",
+      "type": "qa",
+      "front": "Beschreiben Sie das Vorgehen bei einer **Risikoanalyse** im Projekt und nennen Sie ein Beispiel mit Gegenmaßnahme.",
+      "back": "1. **Risiken identifizieren** (Brainstorming, Erfahrungen)\n2. **Bewerten**: Eintrittswahrscheinlichkeit × Schadensausmaß → Risikomatrix\n3. **Maßnahmen** festlegen: vermeiden, vermindern, übertragen (z. B. Versicherung, Dienstleister) oder bewusst tragen\n4. **Überwachen**\n\nBeispiel: **Lieferverzögerung der Hardware** (mittel/hoch) → frühzeitig bestellen, Alternativlieferant, Testumgebung virtuell vorbereiten.\nBeispiel: **Datenverlust bei der Migration** → vollständiges Backup und Restore-Test vorher, Rollback-Plan.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-stakeholder-01",
+      "type": "qa",
+      "front": "Was ist eine **Stakeholder-Analyse**? Nennen Sie für ein Projekt „Einführung einer neuen Telefonanlage“ vier Stakeholder.",
+      "back": "- Ermittlung aller **Personen/Gruppen, die vom Projekt betroffen sind oder es beeinflussen**, mit ihren Interessen, ihrem Einfluss und ihrer Haltung → Maßnahmen zur Einbindung/Kommunikation.\n- Beispiele: **Geschäftsführung** (Auftraggeber, Kosten), **Mitarbeiter/Nutzer** (Bedienbarkeit), **Betriebsrat** (Mitbestimmung bei Auswertungsmöglichkeiten, Gesprächsdaten), **IT-Abteilung** (Betrieb), **Lieferant/Telefonie-Provider**, Datenschutzbeauftragter.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-kritischer-pfad-01",
+      "type": "qa",
+      "front": "Was bedeutet es, wenn ein Vorgang auf dem **kritischen Pfad** liegt, und wie können Sie reagieren, wenn er sich verzögert?",
+      "back": "- Vorgänge auf dem kritischen Pfad haben **keinen Puffer (GP = 0)** – jede Verzögerung **verschiebt das Projektende**.\n- Reaktionen: **zusätzliche Ressourcen** einsetzen, Vorgänge **parallelisieren** (Fast Tracking), Umfang reduzieren (mit dem Auftraggeber abstimmen), Puffer anderer Vorgänge nutzen/umplanen.\n- In der Doku: Soll-Ist-Vergleich und Begründung von Abweichungen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-phasen-zeitplan-01",
+      "type": "qa",
+      "front": "Erstellen Sie eine plausible **Zeitplanung (40 h)** für das Projekt „Einführung einer zentralen Backup-Lösung für 5 Server“.",
+      "back": "| Phase | Stunden |\n|---|---|\n| Ist-Analyse (Systeme, Datenmengen, Anforderungen RPO/RTO) | 4 |\n| Soll-Konzept, Marktanalyse, Nutzwertanalyse, Kosten | 7 |\n| Implementierung (Installation, Jobs, Aufbewahrung, Verschlüsselung, Offsite-Kopie) | 13 |\n| Tests (Sicherung, Restore-Test, Fehlerfälle) | 6 |\n| Abnahme, Übergabe, Einweisung | 2 |\n| Dokumentation (Projekt- und Kundendoku) | 8 |\n| **Summe** | **40** |\n\nDie Aufteilung ist ein Beispiel; wichtig sind **alle Phasen**, realistische Anteile und ein Soll-Ist-Vergleich am Ende.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-scrum-rollen-01",
+      "type": "qa",
+      "front": "Nennen Sie die drei **Rollen in Scrum** und ihre Aufgaben.",
+      "back": "- **Product Owner:** verantwortet das **Product Backlog** (Anforderungen, Priorisierung), vertritt Kunden/Stakeholder\n- **Scrum Master:** sorgt für die **Einhaltung des Prozesses**, beseitigt Hindernisse, coacht das Team\n- **Developers (Entwicklungsteam):** setzen die Backlog-Einträge im **Sprint** selbstorganisiert um\n\nEreignisse: Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "proj-projektmerkmale-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Merkmale, die ein Vorhaben zu einem **Projekt** machen (DIN 69901).",
+      "back": "1. **Einmaligkeit** der Bedingungen\n2. **Klare Zielvorgabe**\n3. **Zeitliche, finanzielle und personelle Begrenzung** (Anfang und Ende)\n4. **Abgrenzung** gegenüber anderen Vorhaben, projektspezifische **Organisation**\n\n(oft auch: Komplexität, Risiko, interdisziplinär)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-abweichung-01",
+      "type": "qa",
+      "front": "Ihr Projekt dauert **6 Stunden länger** als geplant. Wie gehen Sie in der Dokumentation damit um?",
+      "back": "- **Ehrlich darstellen** im **Soll-Ist-Vergleich** (Tabelle Plan vs. tatsächliche Stunden je Phase).\n- **Ursachen** erklären (z. B. unerwartete Treiberprobleme, Lieferverzug) und **Gegenmaßnahmen** (z. B. Zeit bei der Dokumentation eingespart, Umfang angepasst – nach Absprache).\n- **Lessons Learned** ableiten (z. B. Puffer einplanen, Kompatibilität früher prüfen).\n- Abweichungen sind normal – entscheidend ist der **professionelle Umgang** damit. Die tatsächliche Projektzeit sollte trotzdem im vorgegebenen Rahmen bleiben.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
     }
   ]
 }

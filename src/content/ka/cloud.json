@@ -1,0 +1,96 @@
+{
+  "area": "KA",
+  "topic": "Cloud Computing",
+  "cards": [
+    {
+      "id": "ka-cloud-servicemodelle-01",
+      "type": "compare",
+      "front": "Erläutern Sie die Servicemodelle **IaaS**, **PaaS** und **SaaS** mit je einem Beispiel und nennen Sie, wofür der Kunde jeweils selbst verantwortlich ist.",
+      "back": "| Modell | Anbieter stellt bereit | Kunde verantwortet | Beispiel |\n|---|---|---|---|\n| **IaaS** | Rechenleistung, Speicher, Netz (virtuell) | Betriebssystem, Patches, Middleware, Anwendung, Daten | VM in Azure/AWS/Hetzner Cloud |\n| **PaaS** | zusätzlich OS und Laufzeitumgebung | Anwendung und Daten | Azure App Service, verwaltete Datenbank |\n| **SaaS** | komplette Anwendung | Daten, Benutzer/Rechte, Konfiguration | Microsoft 365, Salesforce |\n\n**Shared Responsibility Model:** Daten und Zugriffe bleiben immer in der Verantwortung des Kunden.",
+      "points": 6,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-cloud-bereitstellung-01",
+      "type": "compare",
+      "front": "Unterscheiden Sie die Bereitstellungsmodelle **Public**, **Private**, **Hybrid** und **Community Cloud**.",
+      "back": "| Modell | Beschreibung |\n|---|---|\n| **Public** | Ressourcen eines Anbieters werden von vielen Kunden geteilt, über das Internet nutzbar |\n| **Private** | Cloud-Infrastruktur exklusiv für **eine Organisation** (eigenes RZ oder gehostet) |\n| **Hybrid** | Kombination aus Private/On-Premises und Public Cloud mit Datenaustausch (z. B. Lastspitzen in die Public Cloud) |\n| **Community** | von **mehreren Organisationen mit gleichen Anforderungen** gemeinsam genutzt (z. B. Behörden, Kliniken) |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-cloud-vorteile-01",
+      "type": "qa",
+      "front": "Nennen Sie je **zwei** Vor- und Nachteile, die Migration eines Mailservers in die Public Cloud (SaaS) für ein KMU hat.",
+      "back": "**Vorteile**\n1. **Kein eigener Betrieb/Patching** des Servers; hohe Verfügbarkeit des Anbieters (SLA)\n2. **Planbare Kosten** (OPEX pro Benutzer), schnell skalierbar\n\n**Nachteile**\n1. **Abhängigkeit vom Anbieter und von der Internetverbindung** (Vendor Lock-in)\n2. **Datenschutz**: Verarbeitung durch Dritte (AVV, Serverstandort, Drittlandübermittlung prüfen)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-cloud-dsgvo-01",
+      "type": "qa",
+      "front": "Ein Unternehmen will personenbezogene Kundendaten bei einem Cloud-Anbieter speichern. Nennen Sie **drei** datenschutzrechtliche Punkte, die zu prüfen sind.",
+      "back": "1. **Auftragsverarbeitungsvertrag (AVV)** nach Art. 28 DSGVO abschließen\n2. **Speicherort/Drittlandübermittlung**: EU-Rechenzentrum bevorzugen; bei USA z. B. Zertifizierung unter dem EU-US Data Privacy Framework bzw. Standardvertragsklauseln\n3. **TOM des Anbieters** prüfen (Zertifikate wie ISO 27001, BSI C5, Verschlüsselung, Zugriffskontrolle)\n\n(weitere: Löschkonzept, Exportmöglichkeit, Unterauftragnehmer)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-cloud-merkmale-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** wesentliche Merkmale von Cloud Computing (nach NIST).",
+      "back": "1. **On-Demand Self-Service** – Ressourcen selbst bereitstellen ohne Anbieterkontakt\n2. **Broad Network Access** – Zugriff über das Netz mit Standardprotokollen\n3. **Resource Pooling** – geteilte Ressourcen für viele Kunden (Mandantenfähigkeit)\n4. **Rapid Elasticity** – schnelle Skalierung nach oben und unten\n5. **Measured Service** – nutzungsabhängige Abrechnung (Pay per Use)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-cloud-migration-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Migrationsstrategien in die Cloud und erläutern Sie sie kurz.",
+      "back": "1. **Rehost („Lift and Shift“)**: VMs unverändert in IaaS übernehmen – schnell, aber wenig Cloud-Vorteile.\n2. **Replatform**: kleine Anpassungen, z. B. eigene Datenbank durch verwalteten Datenbankdienst (PaaS) ersetzen.\n3. **Refactor**: Anwendung cloud-nativ neu entwickeln (Container, Serverless).\n4. **Repurchase**: auf SaaS-Produkt wechseln.\n(je zwei genügen)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-cloud-lockin-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Vendor Lock-in** in der Cloud und wie kann man das Risiko verringern?",
+      "back": "- **Abhängigkeit** von einem Anbieter durch proprietäre Dienste, Datenformate oder hohe Ausstiegskosten (Datenexport, Egress-Gebühren).\n- Gegenmaßnahmen: **offene Standards** (Container, Kubernetes, S3-kompatibler Speicher, Terraform), **Exit-Strategie** und Datenexport vertraglich regeln, ggf. Multi-Cloud.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-cloud-iac-01",
+      "type": "qa",
+      "front": "Was ist **Infrastructure as Code (IaC)**? Nennen Sie zwei Vorteile und ein Werkzeug.",
+      "back": "- Infrastruktur (VMs, Netze, Firewallregeln) wird **in Code-Dateien beschrieben** und automatisiert erstellt.\n- Vorteile: **Reproduzierbarkeit** (gleiche Umgebung für Test und Produktion), **Versionierung und Nachvollziehbarkeit** in Git, schnelle Wiederherstellung.\n- Werkzeuge: **Terraform/OpenTofu**, Ansible, Bicep/ARM, CloudFormation.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-cloud-saas-backup-01",
+      "type": "qa",
+      "front": "Ein Kunde meint: „Unsere Daten liegen in Microsoft 365 – der Anbieter sichert alles.“ Nehmen Sie Stellung.",
+      "back": "- Nach dem **Shared Responsibility Model** sorgt der Anbieter für die **Verfügbarkeit der Plattform**, nicht für die Wiederherstellbarkeit der Kundendaten über lange Zeiträume.\n- Papierkorb/Aufbewahrung sind **zeitlich begrenzt**; versehentliches Löschen, Ransomware-Verschlüsselung über synchronisierte Clients oder böswillige Admins sind nicht abgedeckt.\n- Empfehlung: **eigenes SaaS-Backup** (Drittanbieter) mit eigener Aufbewahrung, ggf. außerhalb des Anbieters.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-cloud-kosten-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Unterschied zwischen **CAPEX** und **OPEX** im Zusammenhang mit Cloud-Entscheidungen.",
+      "back": "- **CAPEX (Capital Expenditure):** Investitionsausgaben, z. B. Kauf eigener Server – hohe Anfangskosten, Abschreibung über Jahre.\n- **OPEX (Operational Expenditure):** laufende Betriebsausgaben, z. B. monatliche Cloud-Gebühren.\n- Cloud verlagert Kosten von CAPEX zu OPEX → weniger Kapitalbindung, aber über lange Laufzeit nicht zwingend günstiger (TCO-Vergleich).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

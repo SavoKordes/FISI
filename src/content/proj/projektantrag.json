@@ -25,6 +25,55 @@
       "back": "Achte darauf, dass die **Zeitplanung im Antrag** genau diese Phasen mit Stunden abbildet (Summe 40 h) und die Dokumentation später derselben Gliederung folgt.",
       "difficulty": 1,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-antrag-inhalt-01",
+      "type": "qa",
+      "front": "Nennen Sie die typischen **Bestandteile eines Projektantrags** für die IHK-Abschlussprüfung (FISI).",
+      "back": "1. **Projektbezeichnung** (aussagekräftiger Titel)\n2. **Ausgangssituation/Ist-Zustand** und Problem\n3. **Projektziel/Soll-Zustand** (Sach-, Zeit-, Kostenziel)\n4. **Projektumfeld**, Schnittstellen, ggf. Abgrenzung (was gehört nicht dazu)\n5. **Zeitplanung** mit Phasen und Stunden (Summe 40 h)\n6. Geplante **Dokumentation/Anlagen**, eingesetzte Mittel\n\n**Vorgaben der eigenen IHK** (Formular, Online-Portal) haben Vorrang.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-antrag-ablehnung-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** typische Gründe, warum ein Projektantrag vom Prüfungsausschuss **abgelehnt** oder mit Auflagen versehen wird.",
+      "back": "1. **Zu geringer fachlicher Anspruch** (z. B. reine Installation nach Anleitung, „Next-Next-Finish“) – keine eigene Planungs- und Entscheidungsleistung erkennbar\n2. **Zeitplanung unrealistisch** oder nicht 40 h bzw. Phasen fehlen (z. B. keine Analyse/Tests/Doku)\n3. **Kein betrieblicher Auftrag/Kundenbezug** oder Thema passt nicht zur Fachrichtung (z. B. reine Softwareentwicklung bei FISI)\n\n(weiter: unklare Ziele, Projekt bereits abgeschlossen, zu großer Umfang)",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-antrag-smart-01",
+      "type": "qa",
+      "front": "Formulieren Sie das Ziel „Das Netzwerk soll sicherer werden“ nach der **SMART**-Regel um.",
+      "back": "Beispiel: **„Bis zum 30.04. werden die 45 Clients der Verwaltung in ein eigenes VLAN verlegt und der Zugriff auf das Server-VLAN über die Firewall auf die Ports 443, 445 und 53 beschränkt; die Umsetzung wird durch Verbindungstests dokumentiert.“**\n\n- **S**pezifisch (VLAN, Firewallregeln), **M**essbar (45 Clients, Ports, Tests), **A**kzeptiert/attraktiv, **R**ealistisch (im Projektrahmen), **T**erminiert (30.04.)",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-antrag-ist-soll-01",
+      "type": "qa",
+      "front": "Erläutern Sie, warum die **Ist-Analyse** im Projekt besonders wichtig ist und welche Inhalte sie umfasst.",
+      "back": "- Sie bildet die **Grundlage für alle Entscheidungen** und macht den Handlungsbedarf nachvollziehbar.\n- Inhalte: bestehende **Hardware/Software/Netz** (Inventar, Netzplan), **Prozesse und Probleme** (z. B. Ausfälle, Kosten, Sicherheitslücken), **Anforderungen der Beteiligten** (Interviews), Rahmenbedingungen (Budget, Termine, Vorgaben).\n- Ergebnis: **Schwachstellen** → Anforderungen/Lastenheft → Soll-Konzept.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-lasten-pflicht-01",
+      "type": "compare",
+      "front": "Unterscheiden Sie **Lastenheft** und **Pflichtenheft**.",
+      "back": "| | Lastenheft | Pflichtenheft |\n|---|---|---|\n| Ersteller | **Auftraggeber** | **Auftragnehmer** |\n| Frage | **WAS** soll erreicht werden? (Anforderungen) | **WIE** und **WOMIT** wird es umgesetzt? |\n| Inhalt | Ausgangssituation, Ziele, funktionale/nicht-funktionale Anforderungen | konkrete technische Lösung, Komponenten, Zeitplan, Abnahmekriterien |\n\nDas Pflichtenheft wird oft Vertragsbestandteil und Grundlage der **Abnahme**.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-antrag-abgrenzung-01",
+      "type": "qa",
+      "front": "Warum sollten Sie im Projektantrag eine **Projektabgrenzung** vornehmen? Geben Sie ein Beispiel.",
+      "back": "- Macht klar, **was nicht** zum Prüfungsprojekt gehört → schützt vor **Umfangsausweitung (Scope Creep)** und unrealistischen Erwartungen.\n- Zeigt, dass der Prüfling seine **Eigenleistung** abgrenzen kann (z. B. von Kollegen oder Dienstleistern erbrachte Teile).\n- Beispiel: „Die Verkabelung der Etage erfolgt durch einen Elektrobetrieb und ist nicht Teil des Projekts; das Projekt umfasst Planung, Konfiguration und Inbetriebnahme der Switches und des WLANs.“",
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

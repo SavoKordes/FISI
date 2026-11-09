@@ -1,0 +1,150 @@
+{
+  "area": "WISO",
+  "topic": "Organisation im Unternehmen",
+  "cards": [
+    {
+      "id": "wiso-aufbau-ablauf-01",
+      "type": "mc",
+      "front": "Was regelt die **Ablauforganisation**?",
+      "choices": [
+        "den hierarchischen Aufbau mit Stellen und Abteilungen",
+        "die zeitliche und räumliche Abfolge von Arbeitsprozessen",
+        "die Rechtsform des Unternehmens",
+        "die Höhe der Gehälter"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die **Arbeitsabläufe/Prozesse** (wer macht was wann wo in welcher Reihenfolge).",
+      "explanation": "Die **Aufbauorganisation** legt Stellen, Abteilungen, Weisungsbefugnisse und Kommunikationswege fest (Organigramm).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-einlinien-01",
+      "type": "mc",
+      "front": "Welches Merkmal hat das **Einliniensystem**?",
+      "choices": [
+        "Jeder Mitarbeiter hat mehrere Vorgesetzte.",
+        "Jeder Mitarbeiter erhält Weisungen von genau einem Vorgesetzten; klare Zuständigkeiten, aber lange Dienstwege.",
+        "Es gibt keine Hierarchie.",
+        "Spezialisten beraten die Leitung ohne Weisungsbefugnis."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Genau ein** direkter Vorgesetzter (Einheit der Auftragserteilung).",
+      "explanation": "Vorteile: klare Verantwortung; Nachteile: lange Dienstwege, Überlastung der Leitung. **Mehrliniensystem**: mehrere Fachvorgesetzte. **Stabliniensystem**: Einliniensystem plus **Stabsstellen** (beratend, ohne Weisungsbefugnis, z. B. Datenschutzbeauftragter).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-stab-01",
+      "type": "mc",
+      "front": "Der **Datenschutzbeauftragte** berät die Geschäftsleitung, darf aber keine Weisungen an die Abteilungen erteilen. Welche Art von Stelle ist das?",
+      "choices": [
+        "Linienstelle",
+        "Stabsstelle",
+        "Instanz",
+        "Matrixstelle"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Eine **Stabsstelle** – beratend und unterstützend, **ohne Weisungsbefugnis**.",
+      "explanation": "Stabsstellen entlasten die Leitung durch Fachwissen (z. B. Recht, Controlling, IT-Sicherheit).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-matrix-01",
+      "type": "mc",
+      "front": "Ein IT-Mitarbeiter ist fachlich dem Leiter „Infrastruktur“ und gleichzeitig dem Leiter des Produkts „Onlineshop“ unterstellt. Welche Organisationsform liegt vor?",
+      "choices": [
+        "Einliniensystem",
+        "Spartenorganisation",
+        "Matrixorganisation",
+        "Stabliniensystem"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Matrixorganisation** – Überlagerung zweier Leitungsdimensionen (Funktion × Produkt/Projekt).",
+      "explanation": "Vorteil: Fachwissen und Produktsicht verbinden, flexibel. Nachteil: **Kompetenzkonflikte** zwischen den Leitern, hoher Abstimmungsaufwand.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-sparte-01",
+      "type": "mc",
+      "front": "Ein Konzern gliedert sich in die Geschäftsbereiche „Hardware“, „Software“ und „Services“ mit jeweils eigener Verantwortung für Ergebnis und Ressourcen. Welche Organisationsform ist das?",
+      "choices": [
+        "funktionale Organisation",
+        "Spartenorganisation (divisionale Organisation)",
+        "Matrixorganisation",
+        "Projektorganisation"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Spartenorganisation** – Gliederung nach **Produkten/Märkten/Regionen**, Sparten oft als Profit-Center.",
+      "explanation": "Bei der **funktionalen** Organisation wird nach Tätigkeiten gegliedert (Einkauf, Produktion, Vertrieb, IT).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-projektorg-01",
+      "type": "mc",
+      "front": "Welche Projektorganisationsform eignet sich für ein **großes, langes und strategisch wichtiges** Projekt, für das Mitarbeiter vollständig freigestellt werden?",
+      "choices": [
+        "Einfluss-Projektorganisation (Stab)",
+        "Matrix-Projektorganisation",
+        "reine (autonome) Projektorganisation",
+        "gar keine Organisation"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "Die **reine Projektorganisation**: eigenes Team mit voller Weisungsbefugnis des Projektleiters.",
+      "explanation": "Einfluss-Projektorganisation: Projektleiter nur koordinierend (kleine Projekte). Matrix-Projektorganisation: Mitarbeiter bleiben in ihren Abteilungen und arbeiten anteilig im Projekt (häufigste Form).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-leitungsspanne-01",
+      "type": "mc",
+      "front": "Was versteht man unter der **Leitungsspanne (Kontrollspanne)**?",
+      "choices": [
+        "die Zahl der Hierarchieebenen",
+        "die Zahl der Mitarbeiter, die einem Vorgesetzten direkt unterstellt sind",
+        "die Dauer eines Arbeitsvertrags",
+        "den Gehaltsunterschied zwischen Ebenen"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Anzahl der einer Instanz **direkt unterstellten** Mitarbeiter.",
+      "explanation": "Große Leitungsspanne → flache Hierarchie, kurze Wege, aber hohe Belastung der Führungskraft; kleine Leitungsspanne → steile Hierarchie.",
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-fuehrungsstil-01",
+      "type": "mc",
+      "front": "Eine Teamleiterin bezieht ihr Team in Entscheidungen ein und delegiert Verantwortung. Welcher Führungsstil liegt vor?",
+      "choices": [
+        "autoritär",
+        "kooperativ (demokratisch)",
+        "Laissez-faire",
+        "patriarchalisch"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Kooperativer** Führungsstil – Mitarbeiter werden beteiligt, Verantwortung wird delegiert.",
+      "explanation": "Vorteile: Motivation, bessere Ideen; Nachteil: Entscheidungen dauern länger. **Autoritär**: Vorgesetzter entscheidet allein; **Laissez-faire**: kaum Führung.",
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    }
+  ]
+}

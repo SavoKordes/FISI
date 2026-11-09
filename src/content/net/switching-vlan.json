@@ -10,6 +10,114 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-switch-mac-01",
+      "type": "qa",
+      "front": "Beschreiben Sie, wie ein Switch Frames weiterleitet (MAC-Adresstabelle).",
+      "back": "1. Switch **lernt** die **Quell-MAC** jedes eingehenden Frames und speichert sie mit dem Port in der MAC-Tabelle (CAM).\n2. Ist die **Ziel-MAC bekannt**, wird der Frame **nur an diesen Port** weitergeleitet.\n3. Ist sie **unbekannt** oder ein Broadcast, wird der Frame an **alle Ports** (außer dem Eingangsport) des VLANs geflutet.\n4. Einträge altern nach einiger Zeit (z. B. 300 s) aus.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-vlan-vorteile-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Vorteile von **VLANs**.",
+      "back": "1. **Sicherheit:** logische Trennung von Bereichen (z. B. Gäste, VoIP, Server) auf derselben Hardware; Verkehr zwischen VLANs nur über Router/Firewall\n2. **Kleinere Broadcast-Domänen** → bessere Performance\n3. **Flexibilität:** Zuordnung unabhängig vom Standort/Kabel, weniger Hardware nötig",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-vlan-routing-01",
+      "type": "qa",
+      "front": "Zwei VLANs (10 und 20) sollen miteinander kommunizieren. Nennen Sie **zwei** Möglichkeiten.",
+      "back": "1. **Router-on-a-Stick:** Router/Firewall mit einem **Trunk** zum Switch und **Subinterfaces** je VLAN (802.1Q) – Routing/Filterung zentral, aber Engpass am Trunk.\n2. **Layer-3-Switch:** **SVIs** (VLAN-Interfaces) je VLAN, Routing in Hardware – sehr schnell, Filter über ACLs.\n\nIn beiden Fällen ist die jeweilige Schnittstellen-IP das **Default-Gateway** der Clients im VLAN.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-vlan-konfig-01",
+      "type": "qa",
+      "front": "Ein Switch-Port soll einen IP-Telefon-Anschluss bedienen: Das Telefon nutzt **VLAN 30 (Voice)**, der dahinter angeschlossene PC **VLAN 20 (Daten)**. Wie konfigurieren Sie den Port?",
+      "back": "- PC-Datenverkehr **untagged** im **VLAN 20** (Access-/Native-VLAN des Ports)\n- Telefon-Verkehr **tagged** im **VLAN 30** (Voice-VLAN, das Telefon lernt die VLAN-ID meist per **LLDP-MED** oder DHCP-Option)\n- Port mit **PoE** für das Telefon; QoS für das Voice-VLAN.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-stp-01",
+      "type": "qa",
+      "front": "Erläutern Sie das Problem, das das **Spanning Tree Protocol (STP)** löst, und wie es funktioniert.",
+      "back": "- Redundante Verbindungen zwischen Switches erzeugen **Schleifen** → **Broadcast-Stürme**, instabile MAC-Tabellen, Netzausfall.\n- STP wählt eine **Root Bridge** (niedrigste Bridge-ID) und berechnet einen **schleifenfreien Baum**; redundante Ports werden **blockiert**.\n- Fällt eine Verbindung aus, wird ein blockierter Port **aktiviert**.\n- **RSTP (802.1w)** konvergiert in Sekunden statt ca. 30–50 s beim klassischen STP.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-stp-portfast-01",
+      "type": "qa",
+      "front": "Was bewirken **PortFast (Edge-Port)** und **BPDU Guard** an Access-Ports?",
+      "back": "- **PortFast/Edge:** Port geht **sofort in den Forwarding-Zustand** (keine STP-Wartezeit) → Clients erhalten schneller DHCP-Adresse, PXE funktioniert.\n- **BPDU Guard:** empfängt der Port eine **BPDU** (also ist dort ein Switch angeschlossen), wird er **deaktiviert** (err-disabled) → schützt vor Schleifen und manipulierten STP-Topologien.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-lacp-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Link Aggregation (LACP, IEEE 802.3ad/802.1AX)** und nennen Sie zwei Vorteile.",
+      "back": "- Mehrere physische Verbindungen werden zu **einer logischen Verbindung** gebündelt (Port-Channel/Trunk/LAG).\n- Vorteile:\n  1. **Höhere Gesamtbandbreite** (z. B. 4 × 1 Gbit/s)\n  2. **Redundanz** – fällt ein Kabel aus, läuft der Verkehr über die übrigen weiter\n- Hinweis: Eine **einzelne** Verbindung (Flow) nutzt nur einen Link (Hash-Verteilung).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-poe-01",
+      "type": "qa",
+      "front": "Nennen Sie die PoE-Standards **802.3af, 802.3at und 802.3bt** mit der jeweils maximalen Leistung am Endgerät und ein Einsatzbeispiel.",
+      "back": "| Standard | Bezeichnung | am Endgerät (ca.) | Beispiel |\n|---|---|---|---|\n| 802.3af | PoE | **12,95 W** (15,4 W am Port) | IP-Telefon |\n| 802.3at | PoE+ | **25,5 W** (30 W am Port) | Access Point, PTZ-Kamera |\n| 802.3bt | PoE++ Typ 3/4 | **51 W / 71,3 W** (60/90 W am Port) | Wi-Fi-7-APs, Displays, Thin Clients |\n\nBei der Switch-Auswahl das **PoE-Gesamtbudget** beachten.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-poe-budget-01",
+      "type": "qa",
+      "front": "Ein Switch hat ein **PoE-Budget von 370 W**. Angeschlossen werden **12 Telefone à 7 W** und **8 Access Points à 25 W**. Reicht das Budget? Berechnen Sie die Reserve.",
+      "back": "- Telefone: 12 × 7 W = 84 W\n- Access Points: 8 × 25 W = 200 W\n- Summe: **284 W** ≤ 370 W → **reicht**\n- Reserve: 370 − 284 = **86 W** (≈ 23 %)\n\nHinweis: Mit den Klassen-Maximalwerten statt realem Verbrauch zu planen ist sicherer.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-l3-switch-01",
+      "type": "qa",
+      "front": "Worin unterscheidet sich ein **Layer-3-Switch** von einem Router? Nennen Sie zwei Punkte.",
+      "back": "1. **L3-Switch:** Routing zwischen VLANs **in Hardware (ASICs)** mit Wire-Speed und vielen Ethernet-Ports – ideal im **Core/Distribution** des LANs.\n2. **Router:** mehr **WAN-Funktionen** (verschiedene Schnittstellen, NAT, VPN, umfangreiche Routingprotokolle/BGP, Firewall-Funktionen), meist weniger Ports.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-portsecurity-01",
+      "type": "qa",
+      "front": "Was bewirkt **Port Security** auf einem Switch und welche Aktionen sind bei einer Verletzung möglich?",
+      "back": "- Begrenzt die **erlaubten MAC-Adressen pro Port** (fest konfiguriert oder „sticky“ gelernt, z. B. max. 1–2).\n- Verletzung (fremde MAC): **Shutdown** (Port deaktiviert), **Restrict** (Frames verwerfen + protokollieren) oder **Protect** (nur verwerfen).\n- Schutz vor unbefugt angeschlossenen Geräten und MAC-Flooding. Stärker: **802.1X**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-hierarchie-01",
+      "type": "qa",
+      "front": "Beschreiben Sie das **hierarchische Netzwerkdesign** mit drei Schichten.",
+      "back": "- **Access Layer:** Anschluss der Endgeräte, VLAN-Zuordnung, PoE, Port Security/802.1X\n- **Distribution Layer:** Zusammenführung der Access-Switches, **Inter-VLAN-Routing**, Richtlinien/ACLs, Redundanz\n- **Core Layer:** schneller, hochverfügbarer **Backbone** zwischen Distribution-Blöcken und RZ\n\nKleinere Netze: **Collapsed Core** (Core und Distribution zusammengelegt).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

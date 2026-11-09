@@ -1,0 +1,96 @@
+{
+  "area": "NET",
+  "topic": "Routing",
+  "cards": [
+    {
+      "id": "net-routing-statisch-dynamisch-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **statisches** und **dynamisches Routing**.",
+      "back": "| | statisch | dynamisch |\n|---|---|---|\n| Konfiguration | Routen manuell eingetragen | Router tauschen Routen über ein **Protokoll** aus (OSPF, BGP …) |\n| Anpassung bei Ausfall | keine automatische | **automatisch**, alternative Wege |\n| Ressourcen | keine CPU/Bandbreite für Updates | Protokoll-Overhead |\n| Einsatz | kleine Netze, Default Route, Stub-Netze | größere/redundante Netze |\n| Sicherheit | vorhersehbar | Authentifizierung der Nachbarn nötig |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-routingtabelle-01",
+      "type": "qa",
+      "front": "Ein Router hat folgende Routingtabelle. Über welchen Next Hop wird ein Paket an **10.1.5.20** gesendet? Begründen Sie.\n\n| Ziel | Next Hop |\n|---|---|\n| 0.0.0.0/0 | 203.0.113.1 |\n| 10.1.0.0/16 | 10.0.0.2 |\n| 10.1.5.0/24 | 10.0.0.3 |\n| 10.1.5.0/25 | 10.0.0.4 |",
+      "back": "- 10.1.5.20 passt auf /0, /16, /24 **und** /25 (10.1.5.0–10.1.5.127).\n- Es gilt das **Longest-Prefix-Match**: die **spezifischste** Route mit dem längsten Präfix gewinnt.\n- → **/25 → Next Hop 10.0.0.4**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-default-route-01",
+      "type": "qa",
+      "front": "Was ist eine **Default Route** und wofür wird sie eingesetzt? Geben Sie sie in CIDR-Schreibweise für IPv4 und IPv6 an.",
+      "back": "- Route für **alle Ziele, für die keine spezifischere Route existiert** („Gateway of last resort“).\n- Typisch: Verkehr ins **Internet** über den Provider-Router.\n- IPv4: **0.0.0.0/0**, IPv6: **::/0**",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ospf-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Merkmale des Routingprotokolls **OSPF**.",
+      "back": "1. **Link-State-Protokoll:** jeder Router kennt die komplette Topologie (LSDB) und berechnet mit dem **Dijkstra-Algorithmus** (SPF) die kürzesten Wege\n2. **Metrik = Kosten**, abhängig von der **Bandbreite**\n3. Gliederung in **Areas** (Backbone Area 0) für Skalierbarkeit\n4. Schnelle Konvergenz, Updates nur bei Änderungen, Multicast 224.0.0.5/6, Interior Gateway Protocol\n\n(drei genügen)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-igp-egp-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **IGP** und **EGP** und nennen Sie je ein Protokoll.",
+      "back": "- **IGP (Interior Gateway Protocol):** Routing **innerhalb eines autonomen Systems** (Firmen-/Providernetz) – z. B. **OSPF**, IS-IS, (RIP, EIGRP).\n- **EGP (Exterior Gateway Protocol):** Routing **zwischen autonomen Systemen** im Internet – **BGP**.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ad-metrik-01",
+      "type": "qa",
+      "front": "Ein Router kennt dasselbe Ziel über eine **statische Route** und über **OSPF**. Welche wird verwendet? Erläutern Sie die Begriffe **administrative Distanz** und **Metrik**.",
+      "back": "- **Administrative Distanz:** Vertrauenswürdigkeit der **Routenquelle** – kleiner ist besser (z. B. Cisco: direkt verbunden 0, statisch 1, OSPF 110). → Die **statische Route** wird verwendet.\n- **Metrik:** Bewertung **innerhalb eines Protokolls**, um zwischen mehreren Wegen zum gleichen Ziel zu wählen (OSPF: Kosten, RIP: Hops).\n- Nutzung: „Floating Static Route“ mit höherer AD als Backup-Route.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-rip-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Nachteile des Distance-Vector-Protokolls **RIP**, die seinen Einsatz heute einschränken.",
+      "back": "1. **Maximal 15 Hops** (16 = unerreichbar) – nur für kleine Netze\n2. **Langsame Konvergenz** und Gefahr von Routing-Schleifen (Count-to-Infinity), periodische Updates (alle 30 s) der gesamten Tabelle\n3. Metrik berücksichtigt **nur Hops**, nicht die Bandbreite",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-routing-ablauf-01",
+      "type": "qa",
+      "front": "Ein PC (192.168.1.10/24) sendet ein Paket an 8.8.8.8. Beschreiben Sie, wie er entscheidet, wohin das Paket geht.",
+      "back": "1. PC prüft per **Subnetzmaske**, ob das Ziel **im eigenen Netz** liegt → nein.\n2. Paket wird an das **Default-Gateway** gesendet; dazu ermittelt der PC per **ARP** die **MAC-Adresse des Gateways**.\n3. Frame: Ziel-MAC = Gateway, **Ziel-IP = 8.8.8.8** (bleibt unverändert, außer durch NAT).\n4. Der Router entscheidet anhand seiner **Routingtabelle** über den nächsten Hop, verringert die TTL.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-routing-sdwan-01",
+      "type": "qa",
+      "front": "Was versteht man unter **SD-WAN**? Nennen Sie zwei Vorteile.",
+      "back": "- **Software-Defined WAN:** zentrale, softwaregesteuerte Verwaltung der Standortvernetzung über **mehrere Leitungen** (Internet, MPLS, LTE/5G).\n- Vorteile:\n  1. **Anwendungsbasierte Wegewahl** und automatisches Failover (z. B. VoIP über die Leitung mit geringster Latenz)\n  2. **Kostenersparnis** durch Nutzung günstiger Internetleitungen statt teurer MPLS, zentrale Konfiguration/Zero-Touch-Provisioning",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-statisch-route-01",
+      "type": "qa",
+      "front": "Router R1 (Netz 10.10.10.0/24) soll das Netz **172.16.20.0/24** hinter Router R2 (10.10.10.2) erreichen. Formulieren Sie die statische Route (allgemein und z. B. unter Linux).",
+      "back": "- Allgemein: **Ziel 172.16.20.0/24 über Next Hop 10.10.10.2**\n- Linux: `ip route add 172.16.20.0/24 via 10.10.10.2`\n- Cisco: `ip route 172.16.20.0 255.255.255.0 10.10.10.2`\n- Nicht vergessen: **Rückroute** auf R2 (bzw. dort Default Route), sonst kommen Antworten nicht zurück.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

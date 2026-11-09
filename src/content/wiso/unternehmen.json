@@ -37,6 +37,258 @@
       "explanation": "Die Prokura deckt alle Geschäfte, die der Betrieb **irgendeines** Handelsgewerbes mit sich bringt. Ausgeschlossen sind u. a. außerdem: Bilanz und Steuererklärung unterschreiben, Insolvenz anmelden, Prokura erteilen, Geschäft verkaufen. Die Prokura muss ins **Handelsregister** eingetragen werden.",
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ohg-01",
+      "type": "mc",
+      "front": "Wie haften die Gesellschafter einer **OHG**?",
+      "choices": [
+        "nur mit ihrer Einlage",
+        "unbeschränkt, unmittelbar und solidarisch (gesamtschuldnerisch)",
+        "gar nicht",
+        "nur der Geschäftsführer"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Unbeschränkt** (auch mit Privatvermögen), **unmittelbar** (Gläubiger können direkt jeden Gesellschafter in Anspruch nehmen) und **solidarisch** (jeder für die gesamte Schuld).",
+      "explanation": "Ein Gesellschafter, der zahlt, kann bei den anderen anteilig Rückgriff nehmen.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-kg-01",
+      "type": "mc",
+      "front": "Welche Aussage zur **KG** ist richtig?",
+      "choices": [
+        "Alle Gesellschafter haften beschränkt.",
+        "Der Komplementär haftet unbeschränkt, der Kommanditist nur bis zur Höhe seiner Einlage.",
+        "Der Kommanditist führt die Geschäfte.",
+        "Eine KG benötigt 25.000 € Mindestkapital."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Komplementär** (Vollhafter, Geschäftsführung) und **Kommanditist** (Teilhafter, Haftung bis zur Einlage, kein Geschäftsführungsrecht, nur Kontrollrechte).",
+      "explanation": "Sonderform **GmbH & Co. KG**: Komplementär ist eine GmbH → die Haftung ist faktisch beschränkt.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-gmbh-organe-01",
+      "type": "mc",
+      "front": "Welche **Organe** hat eine GmbH mindestens?",
+      "choices": [
+        "Vorstand und Hauptversammlung",
+        "Geschäftsführer und Gesellschafterversammlung",
+        "Komplementär und Kommanditist",
+        "Aufsichtsrat und Betriebsrat"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Geschäftsführer** (Leitung/Vertretung) und **Gesellschafterversammlung** (Beschlussorgan).",
+      "explanation": "Ein **Aufsichtsrat** ist erst ab mehr als 500 Arbeitnehmern Pflicht (Drittelbeteiligungsgesetz). Die AG hat Vorstand, Aufsichtsrat und Hauptversammlung.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ag-01",
+      "type": "mc",
+      "front": "Welche Aussage zur **Aktiengesellschaft (AG)** ist richtig?",
+      "choices": [
+        "Das Mindestgrundkapital beträgt 50.000 €; die Aktionäre haften nur mit ihrer Einlage.",
+        "Die Aktionäre haften unbeschränkt.",
+        "Die AG wird vom Aufsichtsrat geleitet.",
+        "Eine AG kann nur von 5 Personen gegründet werden."
+      ],
+      "correct": [
+        0
+      ],
+      "back": "**50.000 €** Grundkapital, Haftung auf das Gesellschaftsvermögen beschränkt.",
+      "explanation": "Organe: **Vorstand** (Leitung), **Aufsichtsrat** (Überwachung, bestellt Vorstand), **Hauptversammlung** (Aktionäre, u. a. Gewinnverwendung, Wahl der Anteilseignervertreter im Aufsichtsrat). Gründung auch durch eine Person möglich.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ug-01",
+      "type": "mc",
+      "front": "Welche Besonderheit gilt für die **UG (haftungsbeschränkt)**?",
+      "choices": [
+        "Sie muss mindestens 25.000 € Stammkapital haben.",
+        "Sie muss 25 % ihres Jahresüberschusses in eine Rücklage einstellen, bis 25.000 € erreicht sind.",
+        "Die Gesellschafter haften unbeschränkt.",
+        "Sie darf keine Mitarbeiter beschäftigen."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Pflicht zur **Rücklage von 25 %** des Jahresüberschusses, bis das Stammkapital einer GmbH erreicht ist.",
+      "explanation": "Gründung ab **1 €** Stammkapital möglich; danach kann sie in eine GmbH umfirmieren. Der Zusatz „haftungsbeschränkt“ ist Pflicht.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ek-01",
+      "type": "mc",
+      "front": "Was trifft auf den **eingetragenen Kaufmann (e. K.)** zu?",
+      "choices": [
+        "Er haftet nur mit dem Betriebsvermögen.",
+        "Er ist im Handelsregister eingetragen und haftet unbeschränkt auch mit seinem Privatvermögen.",
+        "Er benötigt mindestens zwei Gesellschafter.",
+        "Er muss 12.500 € Mindestkapital einzahlen."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Einzelunternehmer, **im Handelsregister eingetragen**, **unbeschränkte Haftung**, alleinige Entscheidung, Gewinn steht ihm allein zu.",
+      "explanation": "Firmenzusatz „e. K.“, „e. Kfm.“ bzw. „e. Kffr.“. Kein Mindestkapital.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-gbr-01",
+      "type": "mc",
+      "front": "Zwei Freiberufler gründen eine gemeinsame IT-Beratung ohne Handelsregistereintrag und ohne Vertrag über die Haftung. Welche Rechtsform liegt vor und wie haften sie?",
+      "choices": [
+        "GmbH – beschränkt",
+        "GbR – unbeschränkt und gesamtschuldnerisch",
+        "OHG – nur mit Einlage",
+        "e. K. – nur einer haftet"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Eine **GbR** (Gesellschaft bürgerlichen Rechts); die Gesellschafter haften **persönlich, unbeschränkt und gesamtschuldnerisch**.",
+      "explanation": "Seit 2024 (MoPeG) kann sich eine GbR in das **Gesellschaftsregister** eintragen lassen (eGbR). Für ein Handelsgewerbe wäre die OHG die passende Form.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-handlungsvollmacht-01",
+      "type": "mc",
+      "front": "Welche Aussage zur **Handlungsvollmacht** ist richtig?",
+      "choices": [
+        "Sie wird ins Handelsregister eingetragen.",
+        "Sie kann als allgemeine, Art- oder Einzelvollmacht erteilt werden; der Bevollmächtigte zeichnet mit „i. V.“.",
+        "Sie ist umfassender als die Prokura.",
+        "Sie erlaubt den Verkauf von Grundstücken."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Arten: **allgemeine Handlungsvollmacht** (alle gewöhnlichen Geschäfte des Betriebs), **Artvollmacht** (bestimmte Art von Geschäften, z. B. Einkauf), **Einzelvollmacht** (ein einzelnes Geschäft). Zeichnung **„i. V.“**.",
+      "explanation": "Keine Eintragung ins Handelsregister. Weniger umfassend als die **Prokura** (Zeichnung „ppa.“). „i. A.“ = im Auftrag (nur Weitergabe einer Erklärung).",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-prokura-arten-01",
+      "type": "mc",
+      "front": "Ein Unternehmen erteilt zwei Mitarbeitern Prokura, die das Unternehmen **nur gemeinsam** vertreten dürfen. Wie nennt man diese Form?",
+      "choices": [
+        "Einzelprokura",
+        "Gesamtprokura",
+        "Filialprokura",
+        "Handlungsvollmacht"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Gesamtprokura** (Vier-Augen-Prinzip).",
+      "explanation": "**Filialprokura**: auf eine Niederlassung beschränkt. Prokura kann nur ein Kaufmann **ausdrücklich** erteilen; sie ist ins Handelsregister einzutragen (deklaratorisch) und erlischt z. B. durch Widerruf jederzeit.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-handelsregister-01",
+      "type": "mc",
+      "front": "Welche Aussage zum **Handelsregister** ist richtig?",
+      "choices": [
+        "Es ist nicht öffentlich einsehbar.",
+        "Es ist ein öffentliches Verzeichnis beim Amtsgericht, in dem u. a. Firma, Rechtsform, Inhaber/Geschäftsführer und Prokuristen eingetragen sind.",
+        "Es wird vom Finanzamt geführt.",
+        "Nur Freiberufler müssen sich eintragen."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Öffentliches Verzeichnis, geführt beim **Amtsgericht**, online einsehbar.",
+      "explanation": "Abteilung A: Einzelkaufleute und Personengesellschaften (e. K., OHG, KG); Abteilung B: Kapitalgesellschaften (GmbH, UG, AG). Eintragungen sind öffentlich bekannt (Publizität).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-unternehmensziele-01",
+      "type": "mc",
+      "front": "Welche Unternehmensziele stehen typischerweise in einem **Zielkonflikt**?",
+      "choices": [
+        "Gewinnmaximierung und Kostensenkung",
+        "Umweltschutz durch teure Filteranlagen und kurzfristige Gewinnmaximierung",
+        "Umsatzsteigerung und Marktanteilsgewinn",
+        "Mitarbeiterzufriedenheit und geringere Fluktuation"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Ökologische Ziele** (teure Umweltschutzmaßnahmen) und **kurzfristige ökonomische Ziele** (Gewinn) konkurrieren.",
+      "explanation": "Zielarten: ökonomisch (Gewinn, Umsatz), ökologisch (Ressourcenschonung) und sozial (sichere Arbeitsplätze). Ziele können **komplementär** (fördern sich), **konkurrierend** oder **indifferent** sein.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-kennzahlen-01",
+      "type": "mc",
+      "front": "Ein Unternehmen erzielt einen Gewinn von **60.000 €** bei einem Eigenkapital von **400.000 €**. Wie hoch ist die **Eigenkapitalrentabilität**?",
+      "choices": [
+        "6,7 %",
+        "15 %",
+        "40 %",
+        "0,15 %"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**15 %** = 60.000 € ÷ 400.000 € × 100.",
+      "explanation": "**Rentabilität** = Gewinn ÷ Kapital × 100. **Wirtschaftlichkeit** = Ertrag ÷ Aufwand (> 1 = wirtschaftlich). **Produktivität** = Ausbringungsmenge ÷ Einsatzmenge (mengenbezogen).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-oekonomisches-prinzip-01",
+      "type": "mc",
+      "front": "Ein IT-Dienstleister will **mit einem festen Budget von 20.000 €** möglichst viele Arbeitsplätze modernisieren. Nach welchem Prinzip handelt er?",
+      "choices": [
+        "Minimalprinzip",
+        "Maximalprinzip",
+        "Solidaritätsprinzip",
+        "Günstigkeitsprinzip"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Maximalprinzip**: mit gegebenen Mitteln einen **möglichst großen Erfolg** erzielen.",
+      "explanation": "**Minimalprinzip**: ein festgelegtes Ziel mit **möglichst geringem Mitteleinsatz** erreichen (z. B. 50 Arbeitsplätze so günstig wie möglich modernisieren).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-gmbh-haftung-01",
+      "type": "mc",
+      "front": "Ein Kunde hat eine Forderung gegen eine **GmbH**, die zahlungsunfähig ist. Kann er auf das Privatvermögen der Gesellschafter zugreifen?",
+      "choices": [
+        "ja, immer",
+        "nein, grundsätzlich haftet nur das Gesellschaftsvermögen",
+        "ja, aber nur bis 25.000 €",
+        "nur bei Gesellschaftern mit Prokura"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Nein** – die GmbH ist eine juristische Person, gegenüber Gläubigern haftet nur das **Gesellschaftsvermögen**.",
+      "explanation": "Ausnahmen: nicht vollständig eingezahlte Einlage, persönliche Bürgschaft des Gesellschafters, Pflichtverletzungen des Geschäftsführers (z. B. Insolvenzverschleppung).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
     }
   ]
 }

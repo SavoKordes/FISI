@@ -28,6 +28,96 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-vorteile-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Vorteile der Servervirtualisierung.",
+      "back": "1. **Bessere Hardwareauslastung/Konsolidierung** → weniger Server, Strom, Platz\n2. **Schnelle Bereitstellung** neuer Server (Vorlagen/Templates)\n3. **Hochverfügbarkeit**: Live-Migration, automatischer Neustart auf anderem Host\n4. **Einfache Sicherung/Wiederherstellung** ganzer VMs, Snapshots vor Änderungen\n\n(weitere: Hardwareunabhängigkeit, Testumgebungen, Isolation von Diensten)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-livemigration-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Live-Migration** und nennen Sie zwei Voraussetzungen.",
+      "back": "- Verschieben einer **laufenden VM** von einem Host auf einen anderen **ohne Unterbrechung** (Arbeitsspeicher wird im laufenden Betrieb kopiert, am Ende kurzer Umschaltmoment).\n- Voraussetzungen:\n  1. **Gemeinsamer Speicher** (SAN/NAS/vSAN) oder zusätzliche Storage-Migration\n  2. **Kompatible CPUs** (gleicher Hersteller, ggf. Kompatibilitätsmodus/EVC) und gleiche **Netzwerkkonfiguration** (VLANs/vSwitch-Namen) auf beiden Hosts\n- Einsatz: Wartung von Hosts, Lastausgleich.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-ha-cluster-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Hochverfügbarkeit (HA)** und **Fault Tolerance (FT)** in einem Virtualisierungscluster.",
+      "back": "- **HA:** Fällt ein Host aus, werden seine VMs **auf anderen Hosts neu gestartet** → kurze Ausfallzeit (Minuten), Datenverlust des RAM-Zustands.\n- **FT:** Eine **Schatten-VM läuft synchron** auf einem zweiten Host mit; bei Ausfall übernimmt sie **ohne Unterbrechung**.\n- FT benötigt doppelte Ressourcen und hat Einschränkungen (z. B. Anzahl vCPUs) → nur für besonders kritische VMs.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-virt-overcommit-01",
+      "type": "qa",
+      "front": "Was bedeutet **Overcommitment** bei Arbeitsspeicher oder CPU in der Virtualisierung? Nennen Sie ein Risiko.",
+      "back": "- Den VMs wird **insgesamt mehr vCPU/RAM zugewiesen**, als physisch vorhanden ist – in der Annahme, dass nicht alle VMs gleichzeitig Volllast haben.\n- **Risiko:** Bei gleichzeitiger Last **Leistungseinbruch** (CPU-Ready-Zeiten, RAM-Ballooning/Swapping auf dem Host).\n- Überwachen und Reserven für Hostausfall (N+1) einplanen.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-virt-vswitch-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Aufgabe eines **virtuellen Switches** und nennen Sie die drei Typen in Hyper-V.",
+      "back": "- Verbindet VMs untereinander und mit dem physischen Netz, unterstützt **VLAN-Tagging**.\n- Hyper-V-Typen:\n  - **Extern:** an physische Netzwerkkarte gebunden → Zugriff aufs LAN\n  - **Intern:** Kommunikation zwischen VMs **und dem Host**\n  - **Privat:** nur zwischen den VMs (isoliert, z. B. Testnetz)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-virt-docker-begriffe-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Docker-Begriffe **Image**, **Container**, **Volume** und **Registry**.",
+      "back": "- **Image:** unveränderliche Vorlage (Schichten) mit Anwendung und Abhängigkeiten, beschrieben im **Dockerfile**.\n- **Container:** laufende Instanz eines Images mit eigener beschreibbarer Schicht; flüchtig.\n- **Volume:** persistenter Speicher außerhalb des Containers – Daten bleiben beim Löschen/Aktualisieren des Containers erhalten.\n- **Registry:** Ablage für Images (z. B. Docker Hub, interne Harbor-/GitLab-Registry).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-dockerfile-01",
+      "type": "qa",
+      "front": "Erläutern Sie das folgende Dockerfile Zeile für Zeile:\n\n```dockerfile\nFROM python:3.12-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nCOPY . .\nEXPOSE 8000\nCMD [\"python\", \"app.py\"]\n```",
+      "back": "- `FROM` – Basis-Image (schlankes Python 3.12)\n- `WORKDIR` – Arbeitsverzeichnis im Container\n- `COPY requirements.txt` + `RUN pip install` – Abhängigkeiten zuerst installieren (nutzt den **Layer-Cache**, solange sich requirements nicht ändern)\n- `COPY . .` – Anwendungscode kopieren\n- `EXPOSE 8000` – dokumentiert den genutzten Port (veröffentlicht ihn nicht; dafür `docker run -p 8000:8000`)\n- `CMD` – Startbefehl des Containers",
+      "points": 5,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-virt-compose-01",
+      "type": "qa",
+      "front": "Wozu dient **Docker Compose**? Nennen Sie ein Beispiel.",
+      "back": "- Beschreibt **mehrere zusammengehörige Container** (Dienste, Netzwerke, Volumes, Umgebungsvariablen) deklarativ in einer `compose.yaml`.\n- Start/Stopp aller Dienste mit `docker compose up -d` / `down`.\n- Beispiel: **Webanwendung + Datenbank + Reverse Proxy** – reproduzierbar auf jedem Host.\n- Für viele Hosts/Skalierung: Orchestrierung mit **Kubernetes**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-virt-kubernetes-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Aufgaben, die ein Container-Orchestrierer wie **Kubernetes** übernimmt.",
+      "back": "1. **Scheduling:** Container (Pods) auf passende Knoten verteilen\n2. **Selbstheilung:** abgestürzte Container neu starten, bei Knotenausfall verschieben\n3. **Skalierung** und **Lastverteilung** (Services/Ingress), Rolling Updates ohne Ausfall\n\n(weitere: Konfigurations- und Secret-Verwaltung, Speicheranbindung)",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-virt-lastverteilung-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Zweck eines **Load Balancers** und nennen Sie zwei Verfahren zur Verteilung der Anfragen.",
+      "back": "- Verteilt eingehende Anfragen auf **mehrere Server** → höhere Leistung und Verfügbarkeit; defekte Server werden per **Health Check** aus dem Pool genommen.\n- Verfahren:\n  1. **Round Robin** – reihum\n  2. **Least Connections** – Server mit den wenigsten aktiven Verbindungen\n  (weitere: gewichtet, IP-Hash/Session-Persistenz)\n- Der Load Balancer selbst sollte redundant sein (Aktiv/Passiv).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

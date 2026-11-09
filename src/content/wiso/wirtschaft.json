@@ -1,0 +1,258 @@
+{
+  "area": "WISO",
+  "topic": "Markt & Wirtschaftsordnung",
+  "cards": [
+    {
+      "id": "wiso-markt-preis-01",
+      "type": "mc",
+      "front": "Auf einem Markt steigt die **Nachfrage** nach Grafikkarten bei unverändertem Angebot. Was ist zu erwarten?",
+      "choices": [
+        "Der Gleichgewichtspreis sinkt.",
+        "Der Gleichgewichtspreis steigt.",
+        "Die Angebotsmenge sinkt.",
+        "Der Preis bleibt gleich."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Der **Gleichgewichtspreis steigt** (Nachfrageüberhang).",
+      "explanation": "Am **Gleichgewichtspreis** stimmen angebotene und nachgefragte Menge überein. Steigt das Angebot bei gleicher Nachfrage, sinkt der Preis.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-marktformen-01",
+      "type": "mc",
+      "front": "Wenige große Anbieter stehen vielen Nachfragern gegenüber (z. B. Mobilfunkmarkt). Welche Marktform liegt vor?",
+      "choices": [
+        "Polypol",
+        "Angebotsoligopol",
+        "Angebotsmonopol",
+        "Nachfragemonopol"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Angebotsoligopol**.",
+      "explanation": "Polypol: viele Anbieter und viele Nachfrager (vollständige Konkurrenz). Monopol: ein einziger Anbieter. Im Oligopol beobachten sich die Anbieter gegenseitig (Gefahr von Preisabsprachen → Kartellverbot).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-soziale-marktwirtschaft-01",
+      "type": "mc",
+      "front": "Welches Merkmal gehört zur **sozialen Marktwirtschaft** in Deutschland?",
+      "choices": [
+        "Der Staat legt alle Preise und Produktionsmengen fest.",
+        "Freie Preisbildung am Markt, ergänzt durch staatliche Eingriffe für sozialen Ausgleich und Wettbewerbsschutz",
+        "Es gibt kein Privateigentum an Produktionsmitteln.",
+        "Der Staat greift nie in die Wirtschaft ein."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Freier Markt** (Privateigentum, Vertragsfreiheit, Wettbewerb) **plus sozialer Ausgleich** (Sozialversicherung, Arbeitnehmerschutz, progressive Steuer) und **Wettbewerbsschutz** (Bundeskartellamt).",
+      "explanation": "Gegenmodelle: freie Marktwirtschaft (keine Eingriffe), Zentralverwaltungswirtschaft (staatliche Planung).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-kreislauf-01",
+      "type": "mc",
+      "front": "Im **einfachen Wirtschaftskreislauf** fließen von den Haushalten zu den Unternehmen …",
+      "choices": [
+        "Konsumausgaben und Produktionsfaktoren (z. B. Arbeitsleistung)",
+        "Löhne und Gehälter",
+        "Steuern und Subventionen",
+        "Güter und Dienstleistungen"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Haushalte geben **Konsumausgaben** (Geldstrom) und stellen **Faktorleistungen** wie Arbeit bereit (Güterstrom).",
+      "explanation": "Umgekehrt fließen von den Unternehmen **Einkommen** (Löhne, Zinsen, Gewinne) und **Güter/Dienstleistungen** an die Haushalte. Der erweiterte Kreislauf ergänzt Staat, Banken und Ausland.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-konjunktur-01",
+      "type": "mc",
+      "front": "Welches Merkmal ist typisch für die Konjunkturphase **Hochkonjunktur (Boom)**?",
+      "choices": [
+        "hohe Arbeitslosigkeit und sinkende Preise",
+        "Vollbeschäftigung, hohe Auslastung und steigende Preise",
+        "sinkende Investitionen und Kurzarbeit",
+        "niedrige Zinsen und volle Lager"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Vollbeschäftigung**, voll ausgelastete Kapazitäten, steigende Preise und Löhne.",
+      "explanation": "Phasen: Aufschwung (Expansion) → **Hochkonjunktur (Boom)** → Abschwung (Rezession) → Tiefstand (Depression). Konjunkturindikatoren: Auftragseingänge, ifo-Geschäftsklima, BIP-Wachstum, Arbeitslosenquote.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-magisches-viereck-01",
+      "type": "mc",
+      "front": "Welches Ziel gehört **nicht** zum **magischen Viereck** des Stabilitätsgesetzes?",
+      "choices": [
+        "Stabilität des Preisniveaus",
+        "hoher Beschäftigungsstand",
+        "außenwirtschaftliches Gleichgewicht",
+        "gerechte Einkommensverteilung"
+      ],
+      "correct": [
+        3
+      ],
+      "back": "Die **gerechte Einkommensverteilung** (gehört zum erweiterten „magischen Sechseck“, ebenso der Umweltschutz).",
+      "explanation": "Magisches Viereck (StabG 1967): **Preisniveaustabilität**, **hoher Beschäftigungsstand**, **außenwirtschaftliches Gleichgewicht**, **stetiges und angemessenes Wirtschaftswachstum**. „Magisch“, weil sich die Ziele nicht gleichzeitig vollständig erreichen lassen.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-inflation-01",
+      "type": "mc",
+      "front": "Was bedeutet eine **Inflationsrate von 3 %**?",
+      "choices": [
+        "Die Löhne steigen um 3 %.",
+        "Das allgemeine Preisniveau ist innerhalb eines Jahres um 3 % gestiegen; die Kaufkraft des Geldes sinkt.",
+        "Die Zinsen steigen um 3 %.",
+        "Die Wirtschaft wächst um 3 %."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Der **Verbraucherpreisindex** ist um 3 % gestiegen → für dasselbe Geld bekommt man weniger.",
+      "explanation": "Die **Europäische Zentralbank** strebt mittelfristig eine Inflationsrate von **2 %** an und steuert vor allem über den Leitzins. **Reallohn** = Nominallohn bereinigt um die Inflation.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-bip-01",
+      "type": "mc",
+      "front": "Was misst das **Bruttoinlandsprodukt (BIP)**?",
+      "choices": [
+        "das Vermögen aller Bürger",
+        "den Wert aller im Inland in einem Zeitraum erstellten Güter und Dienstleistungen (abzüglich Vorleistungen)",
+        "die Staatsverschuldung",
+        "die Exporte eines Landes"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Den **Wert aller im Inland produzierten Waren und Dienstleistungen** (Wertschöpfung) eines Zeitraums.",
+      "explanation": "**Reales BIP-Wachstum** (preisbereinigt) ist der wichtigste Maßstab für das Wirtschaftswachstum. Kritik: misst keine Lebensqualität, Umweltschäden oder unbezahlte Arbeit.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-produktionsfaktoren-01",
+      "type": "mc",
+      "front": "Welche sind die **volkswirtschaftlichen Produktionsfaktoren**?",
+      "choices": [
+        "Arbeit, Boden, Kapital",
+        "Gewinn, Umsatz, Kosten",
+        "Angebot, Nachfrage, Preis",
+        "Werkstoffe, Betriebsmittel, Leitung"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "**Arbeit, Boden** (inkl. Rohstoffe) und **Kapital** (Sachkapital wie Maschinen); oft ergänzt um **Wissen/Bildung**.",
+      "explanation": "Die **betriebswirtschaftlichen** Faktoren sind ausführende Arbeit, Betriebsmittel, Werkstoffe und dispositive Arbeit (Leitung).",
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-geschaeftsfaehigkeit-01",
+      "type": "mc",
+      "front": "Ein **16-jähriger** Azubi kauft ohne Zustimmung der Eltern ein Smartphone auf Raten. Wie ist der Vertrag zu beurteilen?",
+      "choices": [
+        "voll wirksam",
+        "schwebend unwirksam bis zur Genehmigung der Eltern",
+        "nichtig",
+        "wirksam, weil er Geld verdient"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Schwebend unwirksam** – beschränkte Geschäftsfähigkeit (7–17 Jahre); wirksam erst mit Genehmigung der gesetzlichen Vertreter.",
+      "explanation": "Ausnahme **Taschengeldparagraf** (§ 110 BGB): sofort mit eigenen Mitteln bewirkte Leistung – nicht bei Ratenkauf. Unter 7 Jahren: geschäftsunfähig; ab 18: voll geschäftsfähig.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-kaufvertrag-mangel-01",
+      "type": "mc",
+      "front": "Ein Unternehmen kauft ein Notebook, das nach 3 Monaten einen Defekt hat (Sachmangel). Welches Recht muss der Käufer **zuerst** geltend machen?",
+      "choices": [
+        "Rücktritt vom Vertrag",
+        "Nacherfüllung (Reparatur oder Ersatzlieferung)",
+        "Minderung des Preises",
+        "Schadensersatz"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Nacherfüllung** – Nachbesserung oder Ersatzlieferung (Vorrang der Nacherfüllung).",
+      "explanation": "Erst wenn sie fehlschlägt (in der Regel nach 2 Versuchen), verweigert wird oder unzumutbar ist: **Rücktritt**, **Minderung**, ggf. Schadensersatz. Gesetzliche Gewährleistung: **2 Jahre**; die **Garantie** ist eine freiwillige Zusatzleistung des Herstellers/Händlers.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-vertrag-zustande-01",
+      "type": "mc",
+      "front": "Wie kommt ein **Kaufvertrag** zustande?",
+      "choices": [
+        "durch die Lieferung der Ware",
+        "durch zwei übereinstimmende Willenserklärungen (Antrag und Annahme)",
+        "durch die Zahlung",
+        "immer nur schriftlich"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Durch **Antrag (Angebot)** und **Annahme** – zwei übereinstimmende Willenserklärungen.",
+      "explanation": "Eine Werbeanzeige oder ein Onlineshop-Angebot ist meist nur eine **Aufforderung zur Abgabe eines Angebots**. Für die meisten Kaufverträge besteht **Formfreiheit**.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-widerruf-01",
+      "type": "mc",
+      "front": "Ein Verbraucher bestellt privat im Onlineshop. Wie lange hat er in der Regel ein **Widerrufsrecht**?",
+      "choices": [
+        "7 Tage",
+        "14 Tage",
+        "30 Tage",
+        "gar keins"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**14 Tage** (Fernabsatzvertrag, ab Erhalt der Ware bei ordnungsgemäßer Belehrung).",
+      "explanation": "Gilt nur für Verbraucher (B2C), **nicht** zwischen Unternehmen (B2B). Ausnahmen u. a. für entsiegelte Software oder nach Kundenwunsch angefertigte Waren.",
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "wiso-bedarf-01",
+      "type": "mc",
+      "front": "Wie nennt man ein **Bedürfnis**, das mit Kaufkraft verbunden ist und am Markt wirksam wird?",
+      "choices": [
+        "Wunsch",
+        "Bedarf bzw. Nachfrage",
+        "Luxusbedürfnis",
+        "Kollektivbedürfnis"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Bedürfnis + Kaufkraft = **Bedarf**; wird er am Markt wirksam, entsteht **Nachfrage**.",
+      "explanation": "Bedürfnisarten nach Dringlichkeit: Existenz-, Kultur- und Luxusbedürfnisse; nach Träger: Individual- und Kollektivbedürfnisse.",
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    }
+  ]
+}

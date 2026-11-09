@@ -37,6 +37,184 @@
       "explanation": "Die JAV hat kein eigenes Mitbestimmungsrecht gegenüber dem Arbeitgeber; sie bringt ihre Anliegen über den Betriebsrat ein und kann an Betriebsratssitzungen teilnehmen. Amtszeit: 2 Jahre.",
       "difficulty": 2,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-tarifautonomie-01",
+      "type": "mc",
+      "front": "Was versteht man unter **Tarifautonomie**?",
+      "choices": [
+        "Der Staat legt die Löhne fest.",
+        "Gewerkschaften und Arbeitgeber(verbände) handeln Tarifverträge ohne staatliche Einmischung aus.",
+        "Jeder Arbeitnehmer verhandelt seinen Lohn allein.",
+        "Der Betriebsrat legt die Löhne für alle Betriebe fest."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Das Recht der **Tarifvertragsparteien**, Arbeitsbedingungen **eigenverantwortlich ohne staatlichen Eingriff** zu regeln (Art. 9 Abs. 3 GG).",
+      "explanation": "Tarifvertragsparteien: **Gewerkschaften** auf der einen, **Arbeitgeberverbände oder einzelne Arbeitgeber** (Haus-/Firmentarifvertrag) auf der anderen Seite. Der gesetzliche Mindestlohn ist eine staatliche Untergrenze.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-tarifvertrag-arten-01",
+      "type": "mc",
+      "front": "Welcher Tarifvertrag regelt typischerweise **Arbeitszeit, Urlaub und Kündigungsfristen** und hat eine längere Laufzeit?",
+      "choices": [
+        "Lohn- und Gehaltstarifvertrag",
+        "Manteltarifvertrag",
+        "Betriebsvereinbarung",
+        "Arbeitsvertrag"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Der **Manteltarifvertrag** (Rahmentarifvertrag) – allgemeine Arbeitsbedingungen, mehrjährige Laufzeit.",
+      "explanation": "Der **Lohn-/Gehaltstarifvertrag** regelt die Höhe der Entgelte (kürzere Laufzeit), der **Lohnrahmentarifvertrag** die Lohn-/Gehaltsgruppen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-friedenspflicht-01",
+      "type": "mc",
+      "front": "Was bedeutet **Friedenspflicht**?",
+      "choices": [
+        "Arbeitnehmer dürfen sich nicht streiten.",
+        "Während der Laufzeit eines Tarifvertrags sind Arbeitskampfmaßnahmen zu den darin geregelten Punkten verboten.",
+        "Der Betriebsrat darf nicht streiken.",
+        "Streiks sind in Deutschland generell verboten."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Während der **Laufzeit** eines Tarifvertrags dürfen die Tarifparteien über dessen Inhalte **keine Arbeitskämpfe** führen.",
+      "explanation": "Nach Ablauf/Kündigung des Tarifvertrags sind z. B. **Warnstreiks** während der Verhandlungen möglich.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-tarifverhandlung-01",
+      "type": "order",
+      "front": "Bringen Sie den typischen Ablauf einer **Tarifauseinandersetzung** mit Streik in die richtige Reihenfolge.",
+      "choices": [
+        "Kündigung des Tarifvertrags und Verhandlungen",
+        "Scheitern der Verhandlungen (ggf. Schlichtung)",
+        "Urabstimmung der Gewerkschaftsmitglieder über den Streik",
+        "Streik (ggf. Aussperrung durch Arbeitgeber)",
+        "Neue Verhandlungen und Einigung",
+        "Urabstimmung über das Verhandlungsergebnis und neuer Tarifvertrag"
+      ],
+      "back": "Für einen Streik ist in vielen Gewerkschaftssatzungen eine Zustimmung von **mindestens 75 %** bei der Urabstimmung nötig, für die Annahme des Ergebnisses meist **mindestens 25 %**.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-guenstigkeit-01",
+      "type": "mc",
+      "front": "Ein tarifgebundener Arbeitsvertrag sieht **28 Urlaubstage** vor, der Tarifvertrag **30 Tage**. Wie viele Urlaubstage hat der Arbeitnehmer?",
+      "choices": [
+        "28 Tage",
+        "30 Tage",
+        "24 Tage nach BUrlG",
+        "29 Tage (Mittelwert)"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**30 Tage** – vom Tarifvertrag darf nur **zugunsten** des Arbeitnehmers abgewichen werden (**Günstigkeitsprinzip**).",
+      "explanation": "Rangfolge (Mindeststandards): Gesetz → Tarifvertrag → Betriebsvereinbarung → Arbeitsvertrag; günstigere Regelungen auf unterer Ebene sind erlaubt.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-mitbestimmung-87-01",
+      "type": "mc",
+      "front": "Bei welcher Maßnahme hat der Betriebsrat ein **echtes Mitbestimmungsrecht** nach § 87 BetrVG?",
+      "choices": [
+        "Einführung einer Software, die Leistung und Verhalten der Mitarbeiter überwachen kann",
+        "Kauf eines neuen Firmenwagens für die Geschäftsführung",
+        "Festlegung der Verkaufspreise",
+        "Wahl des Steuerberaters"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Einführung und Anwendung **technischer Einrichtungen, die zur Überwachung von Verhalten oder Leistung geeignet sind** (§ 87 Abs. 1 Nr. 6) – z. B. Zeiterfassung, Ticketsystem mit Auswertung, Microsoft 365, Videoüberwachung.",
+      "explanation": "Weitere echte Mitbestimmung: Beginn/Ende der Arbeitszeit und Pausen, Urlaubsgrundsätze, Ordnung im Betrieb, Entlohnungsgrundsätze. Ohne Zustimmung entscheidet die **Einigungsstelle**. Für IT-Projekte daher den Betriebsrat früh einbinden!",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-mitwirkung-kuendigung-01",
+      "type": "mc",
+      "front": "Der Arbeitgeber kündigt einem Mitarbeiter, **ohne den Betriebsrat anzuhören**. Welche Folge hat das?",
+      "choices": [
+        "keine",
+        "Die Kündigung ist unwirksam.",
+        "Die Kündigungsfrist verlängert sich um 4 Wochen.",
+        "Der Betriebsrat muss die Kündigung nachträglich genehmigen."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Die Kündigung ist **unwirksam** (§ 102 BetrVG).",
+      "explanation": "Der Betriebsrat hat bei Kündigungen ein **Anhörungsrecht** (Mitwirkung), kein Zustimmungsrecht. Er kann einer ordentlichen Kündigung innerhalb einer Woche widersprechen.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-betriebsvereinbarung-01",
+      "type": "mc",
+      "front": "Wer schließt eine **Betriebsvereinbarung** ab?",
+      "choices": [
+        "Gewerkschaft und Arbeitgeberverband",
+        "Betriebsrat und Arbeitgeber",
+        "Arbeitnehmer und Arbeitgeber einzeln",
+        "IHK und Arbeitgeber"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Betriebsrat und Arbeitgeber**.",
+      "explanation": "Sie gilt unmittelbar für alle Arbeitnehmer des Betriebs, z. B. zur Nutzung von E-Mail/Internet, Homeoffice oder Gleitzeit. Sie darf Tarifverträge nicht verschlechtern.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-aussperrung-01",
+      "type": "mc",
+      "front": "Was ist eine **Aussperrung**?",
+      "choices": [
+        "ein Kampfmittel der Gewerkschaft",
+        "ein Kampfmittel der Arbeitgeber, bei dem Arbeitnehmer von der Arbeit ausgeschlossen werden und kein Entgelt erhalten",
+        "eine fristlose Kündigung aller Streikenden",
+        "ein Hausverbot für Betriebsratsmitglieder"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Kampfmittel der **Arbeitgeberseite**: Arbeitnehmer werden vorübergehend von der Arbeit ausgeschlossen, die Lohnzahlung ruht.",
+      "explanation": "Streikende Gewerkschaftsmitglieder erhalten **Streikgeld** von ihrer Gewerkschaft. Das Arbeitsverhältnis wird durch Streik oder Aussperrung nicht beendet.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-betriebsversammlung-01",
+      "type": "mc",
+      "front": "Wie oft muss der Betriebsrat in der Regel eine **Betriebsversammlung** einberufen?",
+      "choices": [
+        "einmal im Jahr",
+        "einmal im Kalendervierteljahr",
+        "einmal im Monat",
+        "nur bei Neuwahlen"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Einmal im Kalendervierteljahr** (§ 43 BetrVG); dort erstattet der Betriebsrat seinen Tätigkeitsbericht.",
+      "explanation": "Die Teilnahme gilt als Arbeitszeit und wird vergütet.",
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

@@ -53,6 +53,78 @@
       "back": "iSCSI = SCSI-Befehle über TCP/IP (Standard-Port 3260). Vorteil gegenüber Fibre Channel: nutzt vorhandene Ethernet-Infrastruktur, günstiger. Empfehlung: eigenes VLAN/Netz für iSCSI.",
       "difficulty": 2,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-raid-0-01",
+      "type": "qa",
+      "front": "Für welchen Einsatz eignet sich **RAID 0** und warum ist es für einen Dateiserver ungeeignet?",
+      "back": "- RAID 0 (**Striping**): Daten werden auf alle Platten verteilt → **hohe Lese-/Schreibleistung**, volle Kapazität.\n- **Keine Redundanz:** Fällt eine Platte aus, sind **alle Daten verloren**; das Ausfallrisiko steigt mit jeder Platte.\n- Geeignet nur für temporäre Daten, z. B. Scratch/Render-Cache.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-raid-10-01",
+      "type": "qa",
+      "front": "Ein RAID 10 aus **8 Platten** ist gegeben. Wie viele Platten dürfen **maximal** und wie viele **garantiert** ausfallen? Begründen Sie.",
+      "back": "- RAID 10 = **Stripe über Spiegelpaare** (hier 4 Paare).\n- **Garantiert:** **1** Platte – fällt die zweite Platte desselben Spiegelpaares aus, ist der Verbund verloren.\n- **Maximal:** **4** Platten – wenn aus jedem Spiegelpaar genau eine ausfällt.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-raid-rebuild-01",
+      "type": "qa",
+      "front": "Erläutern Sie, warum bei großen Festplatten (z. B. 20 TB) der **Rebuild** eines RAID 5 ein Risiko darstellt.",
+      "back": "- Der Rebuild muss **alle übrigen Platten vollständig lesen** – bei großen Platten dauert das **viele Stunden bis Tage**.\n- In dieser Zeit besteht **keine Redundanz**, die Platten werden stark belastet (oft gleiches Alter/gleiche Charge).\n- Ein zweiter Ausfall oder ein **nicht lesbarer Sektor (URE)** führt zum Datenverlust.\n- Abhilfe: **RAID 6/RAID 10**, Hot Spare, Platten aus unterschiedlichen Chargen, Backup.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-raid-hw-sw-01",
+      "type": "qa",
+      "front": "Vergleichen Sie **Hardware-RAID** und **Software-RAID** anhand von zwei Kriterien.",
+      "back": "| | Hardware-RAID | Software-RAID |\n|---|---|---|\n| Berechnung | eigener Controller mit Cache (BBU/Flash-geschützt) | CPU des Servers |\n| Abhängigkeit | an Controller-Modell gebunden | betriebssystemabhängig (mdadm, Storage Spaces, ZFS) |\n| Kosten | höher | gering |\n| Boot/OS-unabhängig | ja | eingeschränkt |",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-speicher-dedup-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Deduplizierung** und **Kompression** und nennen Sie je einen typischen Einsatz.",
+      "back": "- **Deduplizierung:** identische Datenblöcke/Dateien werden **nur einmal gespeichert**, Duplikate durch Verweise ersetzt. Einsatz: **Backup-Speicher**, VDI (viele gleiche VMs).\n- **Kompression:** Daten werden durch Kodierung **verkleinert** (z. B. LZ4, zstd). Einsatz: Dateisysteme, Archive, Datenbanken, Logdaten.\n- Bereits komprimierte/verschlüsselte Daten (Videos, JPG) lassen sich kaum weiter reduzieren.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-speicher-nfs-smb-01",
+      "type": "qa",
+      "front": "Vergleichen Sie die Freigabeprotokolle **SMB** und **NFS**.",
+      "back": "| | SMB | NFS |\n|---|---|---|\n| Herkunft/Clients | Windows (Linux über Samba) | Unix/Linux, VMware-Datastores |\n| Port | TCP 445 | TCP/UDP 2049 |\n| Authentifizierung | Benutzer/Kerberos (AD), NTLM | v3: Host/UID-basiert; v4: Kerberos möglich |\n| Rechte | NTFS-ACLs | Unix-Rechte, NFSv4-ACLs |\n\nBeide sind **dateibasiert** (NAS).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-speicher-fc-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Vor- und **einen** Nachteil von **Fibre Channel** gegenüber iSCSI.",
+      "back": "**Vorteile**\n1. **Eigenes, verlustfreies Speichernetz** mit sehr geringer Latenz\n2. Hohe, planbare Leistung, Speicherverkehr vom LAN getrennt\n\n**Nachteil**\n- **Teure eigene Infrastruktur** (FC-Switches, HBAs) und spezielles Know-how",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-speicher-tiering-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Storage Tiering**?",
+      "back": "- Daten werden je nach **Zugriffshäufigkeit** automatisch auf unterschiedlich schnelle/teure Speicherklassen verteilt:\n  - **Hot:** NVMe/SSD für häufig genutzte Daten\n  - **Warm:** HDD\n  - **Cold/Archiv:** Band, Objektspeicher (Cloud Archive)\n- Ziel: gutes Verhältnis aus **Leistung und Kosten**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

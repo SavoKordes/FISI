@@ -1,0 +1,114 @@
+{
+  "area": "NET",
+  "topic": "Überwachung, Redundanz, QoS & VoIP",
+  "cards": [
+    {
+      "id": "net-fhrp-01",
+      "type": "qa",
+      "front": "Erläutern Sie das Prinzip von **VRRP/HSRP** (First Hop Redundancy).",
+      "back": "- Zwei (oder mehr) Router/Firewalls bilden eine Gruppe mit einer **gemeinsamen virtuellen IP- (und MAC-)Adresse**.\n- Clients tragen diese **virtuelle IP als Default-Gateway** ein.\n- Ein Router ist **aktiv (Master)**, der andere **Standby**; fällt der aktive aus (keine Hello-Nachrichten mehr), übernimmt der Standby die virtuelle Adresse.\n- → **Gateway-Ausfall ohne Umkonfiguration der Clients** abgefangen. HSRP = Cisco-proprietär, VRRP = offener Standard.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-qos-01",
+      "type": "qa",
+      "front": "Was ist **Quality of Service (QoS)** und warum ist es für **VoIP** wichtig?",
+      "back": "- QoS **priorisiert** bestimmten Datenverkehr bei Engpässen (Klassifizierung, Markierung, Warteschlangen, ggf. Bandbreitenreservierung).\n- VoIP ist **echtzeitkritisch**: empfindlich gegenüber **Latenz** (≤ 150 ms Einweg), **Jitter** (≤ 30 ms) und **Paketverlust** (≤ 1 %); Wiederholungen nützen nichts.\n- Sprachpakete werden markiert (z. B. **DSCP 46 / EF**, 802.1p CoS 5) und bevorzugt weitergeleitet.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-voip-sip-rtp-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Aufgaben von **SIP** und **RTP** bei VoIP und nennen Sie die typischen Ports.",
+      "back": "- **SIP (Session Initiation Protocol):** **Signalisierung** – Verbindungsaufbau, -steuerung und -abbau (INVITE, RINGING, BYE), Registrierung an der Telefonanlage; Port **5060** (UDP/TCP), **5061** mit TLS.\n- **RTP (Real-time Transport Protocol):** Transport der **Sprachdaten** über **UDP**, dynamischer Portbereich (z. B. 10000–20000); verschlüsselt als **SRTP**.\n- Codec bestimmt die Bandbreite (z. B. G.711 ≈ 64 kbit/s + Overhead).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-voip-bandbreite-01",
+      "type": "qa",
+      "front": "Für **20 gleichzeitige Gespräche** mit dem Codec **G.711** wird eine Bandbreite von ca. **87 kbit/s pro Gespräch und Richtung** (inkl. IP/UDP/RTP-Overhead) angesetzt. Berechnen Sie die benötigte Bandbreite je Richtung.",
+      "back": "- 20 × 87 kbit/s = **1.740 kbit/s ≈ 1,74 Mbit/s** je Richtung (Upload und Download)\n- Plus Reserve für Signalisierung und andere Daten; mit QoS absichern.\n- Mit Codec G.729 (≈ 31 kbit/s) wären es nur ca. 0,62 Mbit/s – bei geringerer Sprachqualität.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-voip-sbc-01",
+      "type": "qa",
+      "front": "Wozu dient ein **Session Border Controller (SBC)** bei VoIP?",
+      "back": "- Steht an der **Grenze** zwischen internem VoIP-Netz und Provider/Internet (SIP-Trunk).\n- Aufgaben: **Sicherheit** (Schutz vor Angriffen/Gebührenbetrug, Topologie verbergen), **NAT-Traversal** für SIP/RTP, Protokoll-/Codec-Anpassung (Interworking), Verschlüsselung (SIP-TLS/SRTP).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-monitoring-kennzahlen-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Kennzahlen, die bei der Überwachung eines Netzwerks erfasst werden sollten.",
+      "back": "1. **Verfügbarkeit** von Geräten und Diensten (Up/Down)\n2. **Auslastung** der Schnittstellen (Bandbreite, In/Out)\n3. **Fehler/Discards** an Schnittstellen (CRC-Fehler, Paketverluste)\n4. **Latenz/Jitter** (z. B. zu Standorten, für VoIP), CPU/RAM der Netzwerkgeräte, Temperatur, Lizenz-/Zertifikatsablauf",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-netflow-01",
+      "type": "qa",
+      "front": "Was liefert **NetFlow/sFlow/IPFIX** im Vergleich zu SNMP-Schnittstellenzählern?",
+      "back": "- SNMP zeigt nur, **wie viel** Verkehr über eine Schnittstelle läuft.\n- NetFlow/IPFIX/sFlow liefern **Verbindungsdaten**: **wer mit wem** (Quell-/Ziel-IP), über welche Ports/Protokolle, wie viel.\n- Nutzen: **Top-Talker** und Anwendungen erkennen, Kapazitätsplanung, Anomalie-/Angriffserkennung.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-redundanz-uplink-01",
+      "type": "qa",
+      "front": "Ein Etagen-Switch ist nur mit **einem Kabel** an den Core-Switch angebunden. Schlagen Sie eine redundante Anbindung vor und nennen Sie, was zusätzlich beachtet werden muss.",
+      "back": "- **Zwei Uplinks** – idealerweise an **zwei verschiedene Core-Switches** (Stack/MLAG/vPC), über getrennte Kabelwege.\n- Als **LACP-Bündel** (aktive Nutzung beider Leitungen) oder mit **(R)STP** (zweiter Link blockiert bis zum Ausfall).\n- Beachten: Schleifen vermeiden (STP aktiv lassen), Konfiguration der VLANs auf beiden Uplinks identisch, Monitoring beider Links.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-voip-poe-usv-01",
+      "type": "qa",
+      "front": "Nach einem kurzen Stromausfall funktionieren die IP-Telefone nicht, obwohl die Telefonanlage an einer USV hängt. Erklären Sie die Ursache.",
+      "back": "- Die IP-Telefone werden per **PoE vom Switch** versorgt – hängt der **Switch nicht an der USV**, fallen alle Telefone aus.\n- Lösung: **PoE-Switches** (sowie Router/Firewall für SIP-Trunk) ebenfalls an die USV anschließen und die USV entsprechend dimensionieren.\n- Wichtig für die **Notruferreichbarkeit**.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-hochverfuegbar-firewall-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Unterschied zwischen einem **Aktiv/Passiv-** und einem **Aktiv/Aktiv-Cluster** bei Firewalls.",
+      "back": "- **Aktiv/Passiv:** Eine Firewall arbeitet, die zweite synchronisiert Konfiguration und **Verbindungszustände** und übernimmt bei Ausfall (Failover in Sekunden) – einfach, die Leistung einer Firewall reicht.\n- **Aktiv/Aktiv:** **beide verarbeiten Verkehr** gleichzeitig (Lastverteilung) – höhere Gesamtleistung, aber komplexer; bei Ausfall muss eine allein die gesamte Last tragen können.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-lldp-01",
+      "type": "qa",
+      "front": "Wozu dienen **LLDP** bzw. CDP in einem Netzwerk?",
+      "back": "- Netzwerkgeräte senden regelmäßig Informationen über sich (Gerätename, Port, Modell, IP, VLAN, Fähigkeiten) an **direkt angeschlossene Nachbarn**.\n- Nutzen: **Topologie ermitteln**, Fehlersuche („an welchem Switch-Port hängt dieser AP?“), Netzwerkdokumentation; **LLDP-MED** teilt IP-Telefonen das Voice-VLAN und PoE-Bedarf mit.\n- LLDP = offener Standard (802.1AB), CDP = Cisco.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-uebertragung-latenz-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Bandbreite**, **Latenz** und **Jitter**.",
+      "back": "- **Bandbreite/Datenrate:** Datenmenge pro Zeit (z. B. 100 Mbit/s)\n- **Latenz:** **Verzögerung** eines Pakets vom Sender zum Empfänger (ms), gemessen z. B. als Round-Trip-Time mit `ping`\n- **Jitter:** **Schwankung** der Latenz zwischen aufeinanderfolgenden Paketen – stört Echtzeitanwendungen (VoIP, Video), wird durch Jitter-Buffer ausgeglichen",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

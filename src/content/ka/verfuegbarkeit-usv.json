@@ -19,6 +19,60 @@
       "points": 6,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-verf-mtbf-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Begriffe **MTBF** und **MTTR** und deren Zusammenhang mit der Verfügbarkeit.",
+      "back": "- **MTBF (Mean Time Between Failures):** mittlere Betriebszeit zwischen zwei Ausfällen.\n- **MTTR (Mean Time To Repair):** mittlere Zeit bis zur Wiederherstellung.\n- **Verfügbarkeit = MTBF ÷ (MTBF + MTTR)**\n- Verfügbarkeit steigt durch zuverlässigere Komponenten (MTBF ↑) **oder** schnellere Reparatur (MTTR ↓, z. B. Ersatzteile vor Ort, Hot Spare).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-verf-spof-01",
+      "type": "qa",
+      "front": "Was ist ein **Single Point of Failure (SPoF)**? Nennen Sie zwei Beispiele in einer kleinen Serverumgebung.",
+      "back": "- Eine Komponente, deren **Ausfall allein das gesamte System lahmlegt**, weil sie nicht redundant ist.\n- Beispiele:\n  1. **Einziger Core-Switch** bzw. einzige Firewall\n  2. **Ein einziger Internetanschluss** oder ein einziger Domänencontroller\n  (weitere: ein Netzteil, eine USV, ein Storage ohne Redundanz)",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-verf-sla-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** typische Inhalte eines **Service Level Agreements (SLA)**.",
+      "back": "1. **Leistungsbeschreibung** des Dienstes\n2. **Verfügbarkeit** (z. B. 99,9 % im Monat) und Servicezeiten\n3. **Reaktions- und Lösungszeiten** je Priorität\n4. **Messung/Reporting** und **Vertragsstrafen** (Pönalen) bei Nichteinhaltung\n\n(weitere: Ansprechpartner, Eskalationswege, Wartungsfenster, Laufzeit)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-usv-dimension-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Kriterien bei der Auswahl einer USV für einen Serverraum.",
+      "back": "1. **Leistung** in VA **und** W (Summe der Lasten + Reserve, cos φ beachten)\n2. **Überbrückungszeit** – reicht sie für ein geordnetes Herunterfahren bzw. bis zum Start des Notstromaggregats?\n3. **USV-Klasse** (für Server: **VFI/Online**), Bauform (Rack), **Netzwerkkarte/Software** für automatischen Shutdown\n\n(weitere: Akkutausch im Betrieb, Bypass, Wartungsvertrag)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-usv-shutdown-01",
+      "type": "qa",
+      "front": "Erläutern Sie, warum eine USV mit den Servern **kommunizieren** sollte (z. B. per Netzwerkkarte/NUT/PowerChute).",
+      "back": "- Die USV überbrückt nur eine **begrenzte Zeit**.\n- Bei langem Stromausfall meldet sie den Akkustand an eine Management-Software, die die **Server/VMs geordnet herunterfährt**, bevor der Akku leer ist.\n- Verhindert **Datenverlust und inkonsistente Dateisysteme/Datenbanken**; nach Rückkehr des Stroms automatischer Neustart möglich.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-verf-dr-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Hochverfügbarkeit** und **Disaster Recovery**.",
+      "back": "- **Hochverfügbarkeit (HA):** Ausfälle **einzelner Komponenten** werden durch Redundanz am Standort automatisch abgefangen (Cluster, RAID, redundante Netzteile) → kaum Ausfallzeit.\n- **Disaster Recovery (DR):** Wiederherstellung nach einem **Großschadensereignis** (Brand, Flut, Ransomware), oft an einem **anderen Standort** – geplant über RPO/RTO, Notfallhandbuch, Ausweich-RZ.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

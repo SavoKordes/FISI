@@ -1,0 +1,96 @@
+{
+  "area": "KA",
+  "topic": "SQL & Datenbanken",
+  "cards": [
+    {
+      "id": "ka-sql-select-01",
+      "type": "qa",
+      "front": "Gegeben ist die Tabelle `geraete(id, hostname, typ, standort, kaufdatum)`. Schreiben Sie eine SQL-Abfrage, die alle **Notebooks** am Standort **Köln** ausgibt, sortiert nach Kaufdatum (älteste zuerst).",
+      "back": "```sql\nSELECT hostname, kaufdatum\nFROM geraete\nWHERE typ = 'Notebook' AND standort = 'Köln'\nORDER BY kaufdatum ASC;\n```",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-sql-groupby-01",
+      "type": "qa",
+      "front": "Ermitteln Sie aus der Tabelle `geraete(id, hostname, typ, standort)` die **Anzahl der Geräte je Standort**, aber nur für Standorte mit **mehr als 20** Geräten.",
+      "back": "```sql\nSELECT standort, COUNT(*) AS anzahl\nFROM geraete\nGROUP BY standort\nHAVING COUNT(*) > 20;\n```\n\n**WHERE** filtert Zeilen **vor** der Gruppierung, **HAVING** filtert **Gruppen** danach.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-sql-join-01",
+      "type": "qa",
+      "front": "Gegeben: `mitarbeiter(id, name, abteilung_id)` und `abteilung(id, bezeichnung)`. Geben Sie alle Mitarbeiter mit dem Namen ihrer Abteilung aus – auch Mitarbeiter **ohne** Abteilung.",
+      "back": "```sql\nSELECT m.name, a.bezeichnung\nFROM mitarbeiter m\nLEFT JOIN abteilung a ON m.abteilung_id = a.id;\n```\n\n- `LEFT JOIN`: alle Zeilen der linken Tabelle, fehlende Partner werden mit **NULL** aufgefüllt.\n- Ein `INNER JOIN` würde Mitarbeiter ohne Abteilung weglassen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-sql-update-01",
+      "type": "qa",
+      "front": "Alle Geräte am Standort **„Bonn“** ziehen nach **„Köln“** um. Formulieren Sie die SQL-Anweisung und nennen Sie die Gefahr bei falscher Anwendung.",
+      "back": "```sql\nUPDATE geraete\nSET standort = 'Köln'\nWHERE standort = 'Bonn';\n```\n\n**Gefahr:** Ohne `WHERE` werden **alle** Datensätze geändert. Vorher mit `SELECT … WHERE …` prüfen bzw. in einer **Transaktion** ausführen (`BEGIN … COMMIT/ROLLBACK`).",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-sql-keys-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Primärschlüssel** und **Fremdschlüssel** und ihren Zweck.",
+      "back": "- **Primärschlüssel (PK):** identifiziert jeden Datensatz einer Tabelle **eindeutig**, darf nicht NULL sein (z. B. `id`).\n- **Fremdschlüssel (FK):** Spalte, die auf den PK einer anderen Tabelle verweist (z. B. `mitarbeiter.abteilung_id → abteilung.id`).\n- Zweck: **Beziehungen** abbilden und **referenzielle Integrität** sichern (keine Verweise auf nicht vorhandene Datensätze).",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-sql-normalisierung-01",
+      "type": "qa",
+      "front": "Was ist das Ziel der **Normalisierung** und was besagt die **1. Normalform**?",
+      "back": "- Ziel: **Redundanzen und Anomalien** (Einfüge-, Änderungs-, Löschanomalien) vermeiden, Daten konsistent halten.\n- **1. NF:** Alle Attribute sind **atomar** – keine Mehrfachwerte/Listen in einem Feld (z. B. nicht „Telefon: 0221…, 0170…“ in einer Spalte) und keine Wiederholungsgruppen.\n- 2. NF: zusätzlich volle funktionale Abhängigkeit vom gesamten Schlüssel; 3. NF: keine transitiven Abhängigkeiten.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-sql-create-01",
+      "type": "qa",
+      "front": "Legen Sie per SQL eine Tabelle `lizenz` mit den Spalten **id** (Primärschlüssel, automatisch hochzählend), **produkt** (Text, Pflicht), **anzahl** (Ganzzahl) und **ablauf** (Datum) an.",
+      "back": "```sql\nCREATE TABLE lizenz (\n  id INT AUTO_INCREMENT PRIMARY KEY,   -- PostgreSQL: id SERIAL PRIMARY KEY\n  produkt VARCHAR(100) NOT NULL,\n  anzahl INT,\n  ablauf DATE\n);\n```",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-sql-acid-01",
+      "type": "qa",
+      "front": "Erläutern Sie die **ACID**-Eigenschaften von Transaktionen.",
+      "back": "- **Atomicity:** ganz oder gar nicht – bei Fehler Rollback\n- **Consistency:** Transaktion überführt die Datenbank von einem konsistenten Zustand in einen anderen (Regeln/Constraints bleiben erfüllt)\n- **Isolation:** parallele Transaktionen beeinflussen sich nicht\n- **Durability:** bestätigte Änderungen bleiben dauerhaft erhalten (auch nach Absturz, z. B. durch Transaktionslog)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-sql-backup-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Möglichkeiten, eine laufende Datenbank **konsistent** zu sichern.",
+      "back": "1. **Datenbankeigene Dump-/Backup-Werkzeuge**, z. B. `mysqldump --single-transaction`, `pg_dump`, SQL-Server-Backup inkl. **Transaktionsprotokoll-Sicherung** (Point-in-Time-Restore)\n2. **Snapshot mit Anwendungskonsistenz**, z. B. über **VSS-Writer** bzw. Backup-Software mit Datenbank-Plug-in\n\nNicht ausreichend: einfaches Kopieren der Datenbankdateien im laufenden Betrieb.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-sql-injection-01",
+      "type": "qa",
+      "front": "Erläutern Sie **SQL-Injection** und nennen Sie die wichtigste Gegenmaßnahme.",
+      "back": "- Angreifer schleust über ungeprüfte Eingaben **eigenen SQL-Code** ein, z. B. Benutzername `' OR '1'='1` → Anmeldung ohne Kennwort, Daten auslesen/löschen.\n- **Gegenmaßnahme:** **Prepared Statements/parametrisierte Abfragen** – Eingaben werden nie als SQL-Code interpretiert.\n- Zusätzlich: Eingabevalidierung, Datenbankkonto mit minimalen Rechten, WAF.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

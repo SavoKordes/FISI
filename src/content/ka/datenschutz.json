@@ -1,0 +1,78 @@
+{
+  "area": "KA",
+  "topic": "Datenschutz (DSGVO) & TOM",
+  "cards": [
+    {
+      "id": "ka-ds-personenbezogen-01",
+      "type": "qa",
+      "front": "Was sind **personenbezogene Daten** nach DSGVO? Nennen Sie drei Beispiele und eine besondere Kategorie.",
+      "back": "- Alle Informationen, die sich auf eine **identifizierte oder identifizierbare natürliche Person** beziehen (Art. 4 DSGVO).\n- Beispiele: Name, E-Mail-Adresse, **IP-Adresse**, Personalnummer, Standortdaten.\n- **Besondere Kategorien (Art. 9):** z. B. **Gesundheitsdaten**, biometrische Daten, religiöse Überzeugung, Gewerkschaftszugehörigkeit – besonders hohe Anforderungen.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ds-grundsaetze-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Grundsätze der Datenverarbeitung nach Art. 5 DSGVO.",
+      "back": "1. **Rechtmäßigkeit, Treu und Glauben, Transparenz**\n2. **Zweckbindung** – nur für festgelegte Zwecke\n3. **Datenminimierung** – nur so viel wie nötig\n4. **Richtigkeit**\n5. **Speicherbegrenzung** – löschen, wenn nicht mehr erforderlich\n6. **Integrität und Vertraulichkeit** (Sicherheit)\n7. **Rechenschaftspflicht**",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ds-tom-01",
+      "type": "qa",
+      "front": "Nennen Sie **sechs** technisch-organisatorische Maßnahmen (TOM) nach Art. 32 DSGVO mit je einem Beispiel.",
+      "back": "1. **Zutrittskontrolle:** Serverraum mit Chipkarte\n2. **Zugangskontrolle:** Anmeldung mit Kennwort + MFA\n3. **Zugriffskontrolle:** Berechtigungskonzept, Least Privilege\n4. **Weitergabekontrolle:** Verschlüsselung (TLS, VPN)\n5. **Eingabekontrolle:** Protokollierung, wer Daten geändert hat\n6. **Verfügbarkeitskontrolle:** Backup, USV, RAID\n\n(Art. 32 nennt außerdem: Pseudonymisierung/Verschlüsselung, Belastbarkeit, Wiederherstellbarkeit, regelmäßige Überprüfung)",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ds-avv-01",
+      "type": "qa",
+      "front": "Wann ist ein **Auftragsverarbeitungsvertrag (AVV)** nötig? Nennen Sie zwei Beispiele aus der IT.",
+      "back": "- Wenn ein Dienstleister **personenbezogene Daten im Auftrag und nach Weisung** des Verantwortlichen verarbeitet (Art. 28 DSGVO).\n- Beispiele: **Cloud-Hosting/SaaS** (z. B. Microsoft 365, Backup-Dienst), **externer IT-Dienstleister mit Fernwartungszugriff**, Aktenvernichtung, Lohnabrechnung.\n- Inhalt u. a.: Gegenstand/Dauer, TOM, Unterauftragnehmer, Weisungsrecht, Löschung nach Vertragsende.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ds-betroffenenrechte-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Rechte betroffener Personen nach DSGVO.",
+      "back": "1. **Auskunft** (Art. 15)\n2. **Berichtigung** (Art. 16)\n3. **Löschung** – „Recht auf Vergessenwerden“ (Art. 17)\n4. **Einschränkung der Verarbeitung** (Art. 18)\n5. **Datenübertragbarkeit** (Art. 20)\n6. **Widerspruch** (Art. 21)\n\nAnfragen müssen grundsätzlich **innerhalb eines Monats** beantwortet werden.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ds-datenpanne-01",
+      "type": "qa",
+      "front": "Auf einem gestohlenen, **unverschlüsselten** USB-Stick befanden sich Kundendaten. Was muss das Unternehmen nach DSGVO tun?",
+      "back": "- **Meldung an die Aufsichtsbehörde innerhalb von 72 Stunden** nach Bekanntwerden (Art. 33), sofern ein Risiko für die Betroffenen besteht.\n- Bei **hohem Risiko** zusätzlich **Benachrichtigung der Betroffenen** (Art. 34).\n- Vorfall **dokumentieren**, Datenschutzbeauftragten einbinden, Maßnahmen ableiten (z. B. USB-Verschlüsselung erzwingen).\n- Bei wirksamer Verschlüsselung wäre das Risiko i. d. R. gering gewesen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ds-pseudo-anonym-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Pseudonymisierung** und **Anonymisierung**.",
+      "back": "- **Pseudonymisierung:** Identifizierende Merkmale werden durch ein Kennzeichen ersetzt; mit **Zusatzwissen (Zuordnungstabelle) ist ein Personenbezug wiederherstellbar** → bleibt personenbezogen, DSGVO gilt weiter (aber geringeres Risiko).\n- **Anonymisierung:** Personenbezug wird **dauerhaft entfernt**, eine Zuordnung ist nicht mehr möglich → DSGVO gilt nicht mehr.\n- Beispiel: Logdateien – IP-Adressen kürzen (anonym) vs. durch Hash ersetzen (pseudonym).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ds-dsb-01",
+      "type": "qa",
+      "front": "Ab wann muss ein Unternehmen in Deutschland einen **Datenschutzbeauftragten** benennen? Nennen Sie eine seiner Aufgaben.",
+      "back": "- Nach § 38 BDSG, wenn **in der Regel mindestens 20 Personen ständig mit der automatisierten Verarbeitung** personenbezogener Daten beschäftigt sind – oder unabhängig davon, z. B. bei Verarbeitung besonderer Kategorien als Kerntätigkeit bzw. bei Pflicht zur Datenschutz-Folgenabschätzung.\n- Aufgaben: **Beraten und Überwachen** der Einhaltung, **Schulung** der Mitarbeiter, Ansprechpartner für Aufsichtsbehörde und Betroffene.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

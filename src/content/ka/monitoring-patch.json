@@ -1,0 +1,96 @@
+{
+  "area": "KA",
+  "topic": "Monitoring, Logging & Patchmanagement",
+  "cards": [
+    {
+      "id": "ka-mon-ziele-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Ziele bzw. Vorteile eines zentralen **Monitorings** der IT-Infrastruktur.",
+      "back": "1. **Störungen früh erkennen** (proaktiv, bevor Benutzer anrufen) und alarmieren\n2. **Kapazitätsplanung** anhand von Trends (Speicher, CPU, Bandbreite)\n3. **Nachweis von SLAs** (Verfügbarkeitsreports)\n4. **Ursachenanalyse** über historische Daten und Abhängigkeiten\n\nTools: Zabbix, PRTG, Checkmk, Icinga, Prometheus/Grafana.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-mon-schwellwert-01",
+      "type": "qa",
+      "front": "Erläutern Sie, warum beim Monitoring **Warn- und Kritisch-Schwellwerte** definiert werden. Geben Sie ein Beispiel.",
+      "back": "- **Warnung:** frühzeitiger Hinweis, Handlungsbedarf absehbar (z. B. Festplatte **80 %** belegt).\n- **Kritisch:** sofortige Reaktion nötig (z. B. **95 %**), Alarmierung an Bereitschaft.\n- Vermeidet Alarmflut und gibt Zeit zum Reagieren. Schwellwerte regelmäßig anpassen, um **Fehlalarme** zu verringern.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-mon-syslog-zentral-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum Logdaten **zentral** gesammelt werden sollten (z. B. Syslog-Server, SIEM).",
+      "back": "- **Korrelation** von Ereignissen über viele Systeme (Angriffe über mehrere Hosts erkennen)\n- **Manipulationsschutz**: Angreifer können lokale Logs löschen, zentrale Kopie bleibt\n- **Zeitsparend**: Suche/Auswertung an einem Ort, Alarmregeln\n- **Aufbewahrung/Nachweis** für Revision und Forensik (Datenschutz bei Benutzerdaten beachten)\n\nVoraussetzung: **synchrone Uhrzeit** (NTP).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-patch-prozess-01",
+      "type": "qa",
+      "front": "Beschreiben Sie einen sinnvollen **Patchmanagement-Prozess** in vier Schritten.",
+      "back": "1. **Informieren/Inventarisieren:** neue Updates und betroffene Systeme ermitteln (Herstellerhinweise, CVEs, BSI-Warnungen)\n2. **Bewerten/Priorisieren:** Kritikalität (CVSS, aktiv ausgenutzt?) und Schutzbedarf der Systeme\n3. **Testen:** zuerst in Testumgebung bzw. Pilotgruppe, vorher Backup/Snapshot\n4. **Verteilen und kontrollieren:** gestaffelter Rollout im Wartungsfenster, Erfolg überwachen, dokumentieren, Rollback-Plan",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-patch-wsus-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Vorteile eines zentralen Update-Servers (z. B. **WSUS** oder Intune) gegenüber direkten Updates von Microsoft.",
+      "back": "1. **Kontrolle:** Updates werden erst nach **Freigabe** verteilt (Test- und Produktivgruppen)\n2. **Bandbreite sparen:** Download einmal zentral statt von jedem Client\n3. **Übersicht/Reporting:** welcher Rechner welche Updates hat bzw. wo Fehler auftreten",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-softwareverteilung-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Vorteile einer zentralen **Softwareverteilung** (z. B. Intune, SCCM, OPSI) gegenüber manueller Installation.",
+      "back": "1. **Zeitersparnis** – viele Rechner gleichzeitig, auch außerhalb der Arbeitszeit\n2. **Einheitliche Konfiguration**/Standardisierung, weniger Fehler\n3. **Lizenz- und Inventarübersicht**, Nachvollziehbarkeit\n\n(weitere: Benutzer brauchen keine Adminrechte, Self-Service-Portal, schnelle Updates)",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-imaging-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Imaging** bei der Client-Bereitstellung und welche Rolle spielt **Sysprep** unter Windows?",
+      "back": "- **Imaging:** Ein vorbereitetes Referenzsystem wird als **Abbild** gesichert und auf viele Rechner verteilt (z. B. per PXE/WDS, MDT, FOG).\n- **Sysprep** generalisiert das Referenzsystem vor dem Erstellen des Images: entfernt rechnerspezifische Daten (**SID**, Computername, Treiberbindung), sodass jedes Zielsystem eindeutig wird.\n- Moderne Alternative: **Windows Autopilot** (Provisionierung über Cloud statt Image).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-mon-snmp-traps-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie beim Monitoring **Polling** und **Traps** (SNMP).",
+      "back": "- **Polling:** Das Monitoring-System **fragt in Intervallen aktiv** Werte ab (SNMP GET, UDP 161) → regelmäßige Messwerte/Trends; Verzögerung bis zum nächsten Abruf.\n- **Trap:** Das Gerät **meldet selbstständig** ein Ereignis (UDP **162**) → sofortige Benachrichtigung, z. B. Link down, Lüfterausfall.\n- In der Praxis kombiniert.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-mon-inventar-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Informationen, die eine **IT-Inventarisierung (CMDB)** für jedes Gerät enthalten sollte.",
+      "back": "1. **Gerätebezeichnung, Typ, Hersteller, Seriennummer**\n2. **Standort und verantwortliche Person/Abteilung**\n3. **Netzwerkdaten** (Hostname, IP, MAC)\n4. **Software/Lizenzen, Garantie- und Wartungsende**\n\n(weitere: Anschaffungsdatum/-kosten, Abhängigkeiten zu Diensten, Änderungshistorie)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-mon-eol-01",
+      "type": "qa",
+      "front": "Ein Server läuft noch mit einem Betriebssystem, dessen **Support (End of Life)** abgelaufen ist. Erläutern Sie das Risiko und zwei Maßnahmen.",
+      "back": "- **Risiko:** keine **Sicherheitsupdates** mehr → bekannte Lücken bleiben offen; häufig auch kein Herstellersupport, Probleme bei Compliance/Versicherung.\n- Maßnahmen:\n  1. **Migration/Upgrade** auf eine unterstützte Version planen und umsetzen\n  2. Übergangsweise **isolieren** (eigenes Netzsegment, strenge Firewallregeln), ggf. **erweiterte Sicherheitsupdates (ESU)** kaufen",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

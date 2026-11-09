@@ -1,0 +1,78 @@
+{
+  "area": "KA",
+  "topic": "IT-Service-Management (ITIL)",
+  "cards": [
+    {
+      "id": "ka-itil-incident-problem-01",
+      "type": "compare",
+      "front": "Unterscheiden Sie im ITIL-Kontext **Incident Management** und **Problem Management**.",
+      "back": "| | Incident Management | Problem Management |\n|---|---|---|\n| Ziel | **Dienst schnellstmöglich wiederherstellen** | **Ursache finden und beseitigen**, Wiederholung verhindern |\n| Auslöser | einzelne Störung („Drucker druckt nicht“) | wiederkehrende oder schwerwiegende Incidents |\n| Ergebnis | Workaround/Lösung, Ticket geschlossen | Root-Cause-Analyse, Known Error, Change |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-itil-change-01",
+      "type": "qa",
+      "front": "Beschreiben Sie den Ablauf eines **Change Managements** für eine geplante Änderung (z. B. Firewall-Update).",
+      "back": "1. **Request for Change (RFC)** stellen: Beschreibung, Begründung, betroffene Systeme\n2. **Bewertung**: Risiko, Auswirkungen, Aufwand, Rückfallplan\n3. **Genehmigung** (Change Manager bzw. **CAB** – Change Advisory Board)\n4. **Planung und Umsetzung** im Wartungsfenster, Information der Betroffenen\n5. **Überprüfung (Review)** und Dokumentation (CMDB aktualisieren)\n\nArten: Standard-Change (vorab genehmigt), normaler Change, Emergency Change.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-itil-priorisierung-01",
+      "type": "qa",
+      "front": "Wie wird die **Priorität** eines Incidents üblicherweise bestimmt? Geben Sie ein Beispiel.",
+      "back": "- **Priorität = Auswirkung (Impact) × Dringlichkeit (Urgency)**\n- Impact: Wie viele Benutzer/welche Geschäftsprozesse sind betroffen?\n- Urgency: Wie schnell entsteht Schaden?\n- Beispiel: **Kassensystem aller Filialen ausgefallen** → hoher Impact, hohe Dringlichkeit → **Priorität 1**; ein einzelner Monitor flackert → Priorität 4.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-itil-servicedesk-01",
+      "type": "qa",
+      "front": "Erläutern Sie das **Single Point of Contact (SPOC)**-Prinzip des Service Desks und den Unterschied zwischen **1st-** und **2nd-Level-Support**.",
+      "back": "- **SPOC:** Benutzer haben **eine zentrale Anlaufstelle** (Hotline, Ticketsystem, Portal) für alle IT-Anliegen.\n- **1st Level:** nimmt Anfragen an, erfasst Tickets, löst Standardprobleme (z. B. Kennwort zurücksetzen, bekannte Lösungen), leitet sonst weiter.\n- **2nd Level:** Fachspezialisten (z. B. Netzwerk, Server) für komplexere Probleme; **3rd Level:** Hersteller/Entwickler.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-itil-known-error-01",
+      "type": "qa",
+      "front": "Was ist ein **Known Error** und wozu dient eine **Known Error Database (KEDB)**?",
+      "back": "- **Known Error:** Problem mit **bekannter Ursache** und dokumentiertem **Workaround**, aber noch ohne endgültige Lösung.\n- **KEDB:** Wissensdatenbank, damit der Service Desk wiederkehrende Incidents **schnell mit dem Workaround lösen** kann.\n- Verkürzt Lösungszeiten und entlastet den 2nd Level.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-itil-sla-ola-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **SLA**, **OLA** und **Underpinning Contract (UC)**.",
+      "back": "- **SLA:** Vereinbarung zwischen IT-Dienstleister und **Kunde** (z. B. Verfügbarkeit des Mailsystems).\n- **OLA (Operational Level Agreement):** interne Vereinbarung **zwischen Abteilungen** des IT-Dienstleisters (z. B. Netzwerkteam reagiert in 30 Min.).\n- **UC:** Vertrag mit einem **externen Lieferanten** (z. B. Hardware-Wartung 4 h vor Ort).\n- OLAs und UCs müssen die SLA-Zusagen **absichern**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-itil-ticket-01",
+      "type": "qa",
+      "front": "Nennen Sie **fünf** Angaben, die ein Incident-Ticket enthalten sollte.",
+      "back": "1. **Melder** und Kontaktdaten\n2. **Beschreibung** der Störung (Fehlermeldung, seit wann, reproduzierbar?)\n3. **Betroffenes System/Configuration Item**\n4. **Kategorie und Priorität**\n5. **Bearbeiter, Status, Zeitstempel und Lösungsschritte**",
+      "points": 5,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-itil-kontinuierlich-01",
+      "type": "qa",
+      "front": "Was bedeutet der **PDCA-Zyklus** (Deming-Kreis) im IT-Service-Management?",
+      "back": "- **Plan:** Ziele und Maßnahmen planen\n- **Do:** umsetzen\n- **Check:** Ergebnisse messen/überprüfen (Kennzahlen, Audits)\n- **Act:** Verbesserungen ableiten und standardisieren\n\n→ Grundlage der **kontinuierlichen Verbesserung** (ITIL CSI, ISO 27001, ISO 9001).",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

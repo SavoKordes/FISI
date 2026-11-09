@@ -5,8 +5,9 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
 
 **Live:** https://fisi-pruefung.netlify.app
 
-## Funktionen (Stand: Meilenstein 2)
+## Funktionen (Stand: Meilenstein 3)
 
+- **Fragenpool mit 515 Karten** (KA 181 · NET 170 · WiSo 108 · Projekt 56), eigene Formulierungen im IHK-Stil, Jahreswerte mit Stand gekennzeichnet
 - **Karteikarten mit Spaced Repetition** (FSRS über `ts-fsrs`), Bewertung Nochmal / Schwer / Gut / Einfach
 - Startseite „Heute“: fällige Karten, neue Karten pro Tag (einstellbar), geschätzte Lernzeit, Lern-Serie
 - Lernmodus mit Tastenkürzeln (Leertaste = aufdecken, 1–4 = bewerten, S = Stern, Esc = beenden) und Wischgesten (← Nochmal, Gut →)
@@ -20,7 +21,7 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
   IPv4-Subnetting (inkl. VLSM) · IPv6 (Kürzen, Präfixe, n-tes Subnetz, EUI-64) · Zahlensysteme · RAID & Speicher (GB/GiB) ·
   Übertragung & Datenmengen · Backup · Verfügbarkeit & USV · Wirtschaftlichkeit (Nutzwertanalyse, Break-even, Amortisation, Stromkosten, Netzplan)
 
-Folgt: vollständiger Fragenpool ≥ 500 Karten (M3), KI-Tutor (M4), WiSo-Modus, Simulation, Notenrechner, Statistik, Projekt-Checkliste (M5).
+Folgt: KI-Tutor (M4), WiSo-Modus, Simulation, Notenrechner, Statistik, Projekt-Checkliste (M5).
 
 ## Entwicklung
 

@@ -19,6 +19,96 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-nat-pat-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **NAT** (statisch/1:1) und **PAT** (NAT-Overload/Masquerading).",
+      "back": "- **Statisches NAT (1:1):** eine private Adresse wird fest auf **eine öffentliche Adresse** abgebildet – z. B. für einen von außen erreichbaren Server.\n- **PAT:** **viele private Adressen** teilen sich **eine öffentliche Adresse**; unterschieden werden die Verbindungen über die **Portnummern** (Übersetzungstabelle). Standard am DSL-Router.\n- Zusätzlich: **Port-Forwarding (DNAT)** leitet einen öffentlichen Port auf einen internen Server weiter.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-nat-nachteile-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Nachteile von NAT.",
+      "back": "1. **Ende-zu-Ende-Prinzip verletzt:** Verbindungen von außen nach innen sind nur mit Portweiterleitung möglich; Probleme bei Protokollen mit IP-Adressen in den Nutzdaten (SIP, FTP aktiv, IPsec ohne NAT-Traversal).\n2. **Rückverfolgbarkeit erschwert** und zusätzliche Last/Zustände am Router (CGNAT: viele Kunden hinter einer IP).\n\nNAT ist **keine** Sicherheitsfunktion im eigentlichen Sinn – das leistet die Firewall.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv4-klassen-01",
+      "type": "qa",
+      "front": "Nennen Sie die Bereiche der klassischen IPv4-**Adressklassen A, B und C** und ihre Standardmasken. Warum spielen sie heute kaum noch eine Rolle?",
+      "back": "| Klasse | 1. Oktett | Standardmaske |\n|---|---|---|\n| A | 1–126 (0 und 127 reserviert) | /8 – 255.0.0.0 |\n| B | 128–191 | /16 – 255.255.0.0 |\n| C | 192–223 | /24 – 255.255.255.0 |\n| D | 224–239 | Multicast |\n| E | 240–255 | reserviert |\n\nHeute gilt **CIDR** (klassenlos, beliebige Präfixlängen) → effizientere Adressvergabe und Routen-Zusammenfassung.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv4-sonder-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Sonderadressbereiche **127.0.0.0/8**, **169.254.0.0/16** und **100.64.0.0/10**.",
+      "back": "- **127.0.0.0/8 – Loopback:** Adresse des eigenen Rechners (127.0.0.1, localhost), verlässt den Host nie.\n- **169.254.0.0/16 – Link-Local/APIPA:** automatisch vergeben, wenn **kein DHCP-Server** erreichbar ist → Hinweis auf DHCP-Problem.\n- **100.64.0.0/10 – Shared Address Space:** für **Carrier-Grade-NAT** bei Providern.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-supernetting-01",
+      "type": "qa",
+      "front": "Fassen Sie die Netze **192.168.4.0/24 bis 192.168.7.0/24** zu einer einzigen Route zusammen (Supernetting).",
+      "back": "- 4 Netze = 2² → 2 Bit weniger: **/22**\n- Drittes Oktett binär: 4 = 0000 01**00**, 7 = 0000 01**11** → gemeinsame Bits: 000001\n- Zusammenfassung: **192.168.4.0/22** (Maske 255.255.252.0, umfasst 192.168.4.0–192.168.7.255)\n\nVoraussetzung: Die Netze müssen zusammenhängend und an einer passenden Grenze ausgerichtet sein (4 ist durch 4 teilbar).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-subnetting-planung-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Gründe, ein Firmennetz in mehrere Subnetze/VLANs aufzuteilen.",
+      "back": "1. **Sicherheit:** Bereiche trennen und Verkehr über die Firewall kontrollieren (z. B. Gäste, Server, Produktion)\n2. **Kleinere Broadcast-Domänen** → weniger Broadcast-Last, bessere Performance\n3. **Übersichtlichkeit/Verwaltung**: Adressen nach Standort/Abteilung, gezielte Richtlinien (QoS, DHCP-Optionen)",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv4-gateway-fehler-01",
+      "type": "qa",
+      "front": "Ein PC hat die Konfiguration **IP 192.168.20.130/25, Gateway 192.168.20.1**. Er erreicht keine anderen Netze. Analysieren Sie den Fehler.",
+      "back": "- /25 → Blockgröße 128; 130 liegt im Netz **192.168.20.128–192.168.20.255**.\n- Das Gateway 192.168.20.1 liegt im Netz **192.168.20.0/25** → **nicht im eigenen Subnetz**, nicht direkt erreichbar.\n- Korrektur: Gateway aus dem eigenen Netz (z. B. 192.168.20.129) eintragen **oder** IP/Maske des PCs anpassen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv4-header-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Felder des IPv4-Headers und ihre Bedeutung.",
+      "back": "1. **Quell- und Ziel-IP-Adresse**\n2. **TTL (Time to Live):** wird je Router um 1 verringert; bei 0 wird das Paket verworfen (verhindert Endlosschleifen, Grundlage von traceroute)\n3. **Protocol:** Protokoll der Nutzdaten (z. B. 6 = TCP, 17 = UDP, 1 = ICMP)\n4. **Header-Checksumme**, Fragmentierungsfelder (ID, Flags, Offset), Gesamtlänge, DSCP für QoS",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-ip-plan-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Bestandteile eines sinnvollen **IP-Adresskonzepts** für ein Unternehmen.",
+      "back": "1. **Aufteilung in Subnetze/VLANs** je Bereich (Server, Clients, Drucker, VoIP, WLAN-Gäste, Management) mit Reserven\n2. **Feste Bereiche** für statische Adressen (Gateway z. B. immer .1, Server, Netzwerkgeräte) und **DHCP-Bereiche**\n3. **Dokumentation** (IPAM: Netz, VLAN-ID, Gateway, DNS, Verantwortlicher)\n\nAußerdem: private Bereiche wählen, die nicht mit typischen Heimnetzen kollidieren (wegen VPN), z. B. 10.x statt 192.168.0.0/24.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ipv4-broadcast-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Unicast**, **Broadcast** und **Multicast** und nennen Sie je ein Beispiel.",
+      "back": "- **Unicast:** an **genau einen** Empfänger – z. B. Aufruf einer Webseite.\n- **Broadcast:** an **alle** im Netz (Broadcast-Domäne) – z. B. ARP-Anfrage, DHCPDISCOVER.\n- **Multicast:** an eine **Gruppe interessierter** Empfänger – z. B. IPTV, OSPF-Updates (224.0.0.5), mDNS.\n- IPv6 kennt **keinen Broadcast** mehr (dafür Multicast; zusätzlich Anycast).",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
     }
   ]
 }

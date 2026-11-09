@@ -1,0 +1,77 @@
+{
+  "area": "PROJ",
+  "topic": "Qualitätssicherung, Tests & Abnahme",
+  "cards": [
+    {
+      "id": "proj-testarten-01",
+      "type": "qa",
+      "front": "Nennen und erläutern Sie **vier** Testarten, die Sie in einem Infrastrukturprojekt einsetzen können.",
+      "back": "1. **Funktionstest:** Erfüllt das System die Anforderungen (z. B. Clients erhalten IP aus dem richtigen VLAN)?\n2. **Integrationstest:** Zusammenspiel mit bestehenden Systemen (AD, Backup, Monitoring)\n3. **Last-/Performancetest:** Verhalten unter Last (z. B. 50 gleichzeitige VPN-Benutzer)\n4. **Ausfall-/Failovertest:** Redundanz wirklich wirksam (Netzteil ziehen, Cluster-Knoten abschalten)\n5. **Abnahmetest (UAT)** mit dem Auftraggeber, **Sicherheitstest** (Portscan, Rechte)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-testprotokoll-01",
+      "type": "qa",
+      "front": "Welche Angaben gehören in ein **Testprotokoll**?",
+      "back": "1. **Testfall-ID und Beschreibung** (was wird getestet?)\n2. **Voraussetzungen/Testumgebung**\n3. **Testschritte** und **erwartetes Ergebnis**\n4. **Tatsächliches Ergebnis** und Status (bestanden/nicht bestanden)\n5. **Datum, Tester**, ggf. Maßnahmen bei Fehlern und Nachtest",
+      "points": 5,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-abnahme-01",
+      "type": "qa",
+      "front": "Beschreiben Sie den Ablauf der **Abnahme** eines Projekts und ihre Bedeutung.",
+      "back": "- Der Auftraggeber prüft anhand der **vereinbarten Abnahmekriterien** (Pflichtenheft), ob das Ergebnis den Anforderungen entspricht – oft gemeinsam mit Abnahmetests.\n- Ergebnis wird in einem **Abnahmeprotokoll** festgehalten (ggf. mit Restmängeln und Fristen) und **unterschrieben**.\n- Bedeutung: formaler **Projektabschluss**, Übergang der Verantwortung in den Betrieb, Beginn von Gewährleistung, Grundlage der Rechnung.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-qs-massnahmen-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Maßnahmen zur **Qualitätssicherung** während der Projektdurchführung.",
+      "back": "1. **Testumgebung**/Pilotphase vor dem Produktivbetrieb\n2. **Checklisten** und Herstellerdokumentation/Best Practices (z. B. BSI-Bausteine)\n3. **Reviews/Vier-Augen-Prinzip** (z. B. Firewallregeln vom Ausbilder prüfen lassen)\n4. **Dokumentation** aller Konfigurationsschritte, Backups/Snapshots vor Änderungen, Soll-Ist-Vergleiche an Meilensteinen",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-uebergabe-01",
+      "type": "qa",
+      "front": "Was gehört zu einer professionellen **Übergabe** an den Kunden bzw. den IT-Betrieb?",
+      "back": "1. **Kundendokumentation**: Bedienungsanleitung für Anwender, Betriebshandbuch für Administratoren (Zugangsdaten sicher getrennt übergeben)\n2. **Einweisung/Schulung** der Nutzer bzw. Administratoren\n3. **Übergabe von Lizenzen, Verträgen, Support-Kontakten**\n4. **Abnahmeprotokoll** und Klärung des weiteren Supports (Ansprechpartner, Wartung)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-rollback-01",
+      "type": "qa",
+      "front": "Was ist ein **Rollback-Plan** und warum gehört er zu jeder Umstellung im Produktivbetrieb?",
+      "back": "- **Vorab festgelegtes Vorgehen**, um bei Problemen schnell zum **vorherigen funktionierenden Zustand** zurückzukehren (z. B. Snapshot/Backup zurückspielen, alte Konfiguration aktivieren, DNS zurückstellen).\n- Enthält **Abbruchkriterien** und Zeitpunkt der Entscheidung („Go/No-Go“).\n- Minimiert Ausfallzeiten und Risiko – gehört ins **Change Management** und in die Projektplanung.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-lessons-01",
+      "type": "qa",
+      "front": "Was sind **Lessons Learned** und wo gehören sie in die Projektdokumentation?",
+      "back": "- **Erkenntnisse aus dem Projekt** – was lief gut, was schlecht, was würde man beim nächsten Mal anders machen (fachlich und organisatorisch).\n- Gehören ins **Fazit** der Dokumentation und werden im Fachgespräch gern erfragt („Was würden Sie heute anders machen?“).\n- Zeigen **Reflexionsfähigkeit** – ehrlich, konkret, mit Begründung.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-soll-ist-01",
+      "type": "qa",
+      "front": "Erläutern Sie den **Soll-Ist-Vergleich** am Projektende und nennen Sie, was verglichen wird.",
+      "back": "- Gegenüberstellung von **Planung (Soll)** und **tatsächlichem Ergebnis (Ist)**:\n  - **Zeit** je Phase (Stunden)\n  - **Kosten** (geplant vs. tatsächlich)\n  - **Zielerreichung** (Sachziele/Anforderungen erfüllt?)\n- Abweichungen werden **begründet** und bewertet; Grundlage für Fazit und Lessons Learned.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    }
+  ]
+}

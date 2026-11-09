@@ -37,6 +37,227 @@
       "explanation": "Nach der Probezeit kann das Ausbildungsverhältnis nur noch aus **wichtigem Grund** (fristlos, beide Seiten) oder vom **Azubi** mit 4 Wochen Frist bei Aufgabe der Ausbildung bzw. Wechsel in eine andere Berufsausbildung gekündigt werden.",
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-dual-01",
+      "type": "mc",
+      "front": "Was versteht man unter dem **dualen System** der Berufsausbildung?",
+      "choices": [
+        "Ausbildung an zwei Standorten desselben Unternehmens",
+        "Ausbildung im Betrieb und in der Berufsschule",
+        "Ausbildung mit zwei Abschlussprüfungen",
+        "Ausbildung bei zwei verschiedenen Ausbildungsbetrieben"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Ausbildung an den Lernorten **Betrieb** (praktisch, Grundlage BBiG/Ausbildungsordnung) und **Berufsschule** (theoretisch, Grundlage Rahmenlehrplan/Schulgesetze der Länder).",
+      "explanation": "Die **IHK** als zuständige Stelle überwacht die Ausbildung, führt das Verzeichnis der Ausbildungsverhältnisse und nimmt die Prüfungen ab.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-vertrag-01",
+      "type": "mc",
+      "front": "Welche Angabe muss die Niederschrift des Berufsausbildungsvertrags nach § 11 BBiG **nicht** enthalten?",
+      "choices": [
+        "Beginn und Dauer der Ausbildung",
+        "Dauer der Probezeit",
+        "Höhe der Vergütung",
+        "Name der Berufsschullehrkraft"
+      ],
+      "correct": [
+        3
+      ],
+      "back": "Der **Name der Berufsschullehrkraft** gehört nicht zu den Mindestangaben.",
+      "explanation": "Mindestangaben u. a.: Art, sachliche und zeitliche Gliederung und Ziel der Ausbildung, Beginn und Dauer, Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, regelmäßige tägliche Ausbildungszeit, Probezeit, Vergütung, Urlaub, Kündigungsvoraussetzungen, Hinweis auf Tarifverträge/Betriebsvereinbarungen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ausbildung-pflichten-azubi-01",
+      "type": "mc",
+      "front": "Welche Pflichten hat ein **Auszubildender** nach § 13 BBiG? (2 richtige)",
+      "choices": [
+        "Den Ausbildungsnachweis (Berichtsheft) ordnungsgemäß führen",
+        "Ausbildungsmittel selbst bezahlen",
+        "Über Betriebs- und Geschäftsgeheimnisse Stillschweigen bewahren",
+        "Überstunden ohne Ausgleich leisten"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "back": "Ausbildungsnachweis führen und **Verschwiegenheit** wahren.",
+      "explanation": "Weitere Pflichten: Lernpflicht, Weisungen befolgen, an Berufsschule und Prüfungen teilnehmen, Ordnung beachten, Werkzeuge pfleglich behandeln. Ausbildungsmittel stellt der Ausbildende **kostenlos** zur Verfügung.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-pflichten-betrieb-01",
+      "type": "mc",
+      "front": "Welche Pflicht hat der **Ausbildende** (Betrieb)?",
+      "choices": [
+        "Er darf dem Azubi nur Aufgaben übertragen, die dem Ausbildungszweck dienen.",
+        "Er muss den Azubi nach der Ausbildung unbefristet übernehmen.",
+        "Er muss die Berufsschulzeiten nachholen lassen.",
+        "Er kann die Probezeit nach Belieben verlängern."
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Nur Aufgaben, die dem **Ausbildungszweck dienen** und den körperlichen Kräften angemessen sind (§ 14 BBiG).",
+      "explanation": "Weitere Pflichten: Ausbildungsmittel kostenlos stellen, zur Berufsschule freistellen, Ausbildungsnachweis durchsehen, charakterlich fördern, Zeugnis ausstellen. Eine Übernahmepflicht gibt es gesetzlich nicht.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-ende-01",
+      "type": "mc",
+      "front": "Die Ausbildungszeit endet laut Vertrag am 31. August. Der Azubi besteht die Abschlussprüfung am 20. Juni (Bekanntgabe des Ergebnisses). Wann endet das Ausbildungsverhältnis?",
+      "choices": [
+        "am 31. August",
+        "am 20. Juni mit Bekanntgabe des Prüfungsergebnisses",
+        "am 30. Juni (Monatsende)",
+        "erst nach Aushändigung des Zeugnisses durch die IHK"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Mit **Bekanntgabe des Ergebnisses** durch den Prüfungsausschuss (§ 21 Abs. 2 BBiG).",
+      "explanation": "Wird der Azubi danach **weiterbeschäftigt**, ohne dass etwas vereinbart wurde, entsteht ein **unbefristetes Arbeitsverhältnis** (§ 24 BBiG).",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-nichtbestanden-01",
+      "type": "mc",
+      "front": "Ein Azubi besteht die Abschlussprüfung **nicht**. Was gilt?",
+      "choices": [
+        "Das Ausbildungsverhältnis endet sofort.",
+        "Auf sein Verlangen verlängert sich das Ausbildungsverhältnis bis zur nächsten Wiederholungsprüfung, höchstens um ein Jahr.",
+        "Der Betrieb muss ihn ein weiteres Jahr ausbilden, auch gegen seinen Willen.",
+        "Eine Wiederholung ist nicht möglich."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Verlängerung **auf Verlangen des Azubis** bis zur nächsten Wiederholungsprüfung, **höchstens 1 Jahr** (§ 21 Abs. 3 BBiG).",
+      "explanation": "Die Abschlussprüfung kann **zweimal wiederholt** werden. Bereits bestandene Prüfungsbereiche können auf Antrag angerechnet werden.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-zeugnis-01",
+      "type": "mc",
+      "front": "Was muss ein **qualifiziertes** Ausbildungszeugnis zusätzlich zum einfachen Zeugnis enthalten?",
+      "choices": [
+        "Angaben über Verhalten und Leistung",
+        "die Prüfungsnoten der Berufsschule",
+        "den Grund für Fehltage",
+        "die Höhe der Ausbildungsvergütung"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "**Verhalten und Leistung** – nur auf Verlangen des Azubis (§ 16 BBiG).",
+      "explanation": "Das **einfache** Zeugnis enthält Art, Dauer und Ziel der Ausbildung sowie die erworbenen Fertigkeiten, Kenntnisse und Fähigkeiten. Zeugnisse müssen **wohlwollend und wahr** formuliert sein.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ausbildung-berufsschule-01",
+      "type": "mc",
+      "front": "Ein volljähriger Azubi hat am Dienstag **6 Unterrichtsstunden à 45 Minuten** Berufsschule. Was gilt nach § 15 BBiG?",
+      "choices": [
+        "Er muss nach der Schule noch in den Betrieb.",
+        "Der Berufsschultag wird mit der durchschnittlichen täglichen Ausbildungszeit angerechnet; er muss nicht mehr in den Betrieb.",
+        "Nur die reine Unterrichtszeit wird angerechnet.",
+        "Das gilt nur für Azubis unter 18 Jahren."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Ein Berufsschultag mit **mehr als 5 Unterrichtsstunden** (à 45 Min.) wird **einmal pro Woche** mit der durchschnittlichen täglichen Ausbildungszeit angerechnet.",
+      "explanation": "Seit 2020 gilt das im BBiG für **alle** Azubis, unabhängig vom Alter. Auch Wegezeiten zwischen Berufsschule und Betrieb gelten als Ausbildungszeit.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-verguetung-01",
+      "type": "mc",
+      "front": "Wie hoch ist die gesetzliche **Mindestausbildungsvergütung** im **ersten Ausbildungsjahr** für Ausbildungen, die **2026** beginnen?",
+      "choices": [
+        "682 €",
+        "724 €",
+        "854 €",
+        "977 €"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**724 €** monatlich im 1. Ausbildungsjahr (Ausbildungsbeginn 2026; Stand 2026).",
+      "explanation": "Für 2026 begonnene Ausbildungen: 2. Jahr 854 €, 3. Jahr 977 €, 4. Jahr 1.014 €. Es gilt der Satz des **Jahres des Ausbildungsbeginns**. Tarifverträge können höhere (oder unter Bedingungen abweichende) Vergütungen festlegen.",
+      "difficulty": 1,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    },
+    {
+      "id": "wiso-ausbildung-krank-01",
+      "type": "mc",
+      "front": "Ein Azubi ist krank. Wie lange erhält er seine Ausbildungsvergütung weiter?",
+      "choices": [
+        "3 Tage",
+        "2 Wochen",
+        "6 Wochen",
+        "gar nicht, nur Krankengeld"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Bis zu 6 Wochen** (§ 19 BBiG), danach Krankengeld der Krankenkasse.",
+      "explanation": "Die Arbeitsunfähigkeit ist unverzüglich mitzuteilen; die AU wird heute meist elektronisch (eAU) vom Arbeitgeber bei der Krankenkasse abgerufen.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ausbildung-verkuerzung-01",
+      "type": "mc",
+      "front": "Welche Möglichkeit gibt es, wenn ein Azubi das Ausbildungsziel voraussichtlich in kürzerer Zeit erreicht (z. B. wegen Abitur)?",
+      "choices": [
+        "Verkürzung der Ausbildungszeit auf gemeinsamen Antrag bei der IHK",
+        "Der Betrieb kann die Ausbildung einseitig verkürzen.",
+        "Eine Verkürzung ist nur bei Studienabbrechern möglich.",
+        "Die Berufsschule entscheidet über die Verkürzung."
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Verkürzung auf **Antrag** (gemeinsam von Azubi und Ausbildendem) bei der **zuständigen Stelle (IHK)** (§ 8 BBiG).",
+      "explanation": "Zusätzlich möglich: **vorzeitige Zulassung** zur Abschlussprüfung bei guten Leistungen (§ 45 BBiG).",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-ausbildung-fristlos-01",
+      "type": "mc",
+      "front": "Der Ausbildende will einem Azubi **nach der Probezeit** wegen eines schwerwiegenden Diebstahls kündigen. Was gilt?",
+      "choices": [
+        "Eine Kündigung ist nach der Probezeit gar nicht mehr möglich.",
+        "Kündigung aus wichtigem Grund ohne Frist, schriftlich mit Begründung, innerhalb von 2 Wochen nach Kenntnis",
+        "Kündigung mit 4 Wochen Frist ohne Begründung",
+        "mündliche Kündigung genügt"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**Fristlose Kündigung aus wichtigem Grund**, schriftlich mit Angabe der Gründe, innerhalb von **2 Wochen** nach Bekanntwerden (§ 22 BBiG).",
+      "explanation": "Besteht ein Betriebsrat, muss er vorher **angehört** werden (§ 102 BetrVG). Bei Streitigkeiten ist häufig zuerst der Schlichtungsausschuss der IHK anzurufen.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
     }
   ]
 }

@@ -1,0 +1,78 @@
+{
+  "area": "NET",
+  "topic": "Verkabelung",
+  "cards": [
+    {
+      "id": "net-kabel-cat-01",
+      "type": "compare",
+      "front": "Vergleichen Sie die Kupferkabel-Kategorien **Cat 5e, Cat 6, Cat 6A** und **Cat 7/8** hinsichtlich Frequenz und typischer Übertragungsrate.",
+      "back": "| Kategorie | Frequenz | typische Rate (100 m) |\n|---|---|---|\n| Cat 5e | 100 MHz | 1 Gbit/s |\n| Cat 6 | 250 MHz | 1 Gbit/s (10 Gbit/s bis ca. 55 m) |\n| **Cat 6A** | 500 MHz | **10 Gbit/s** auf 100 m – heutiger Standard für Neuverkabelung |\n| Cat 7/7A | 600/1000 MHz | 10 Gbit/s (eigene Stecker, GG45/TERA) |\n| Cat 8 | 2000 MHz | 25/40 Gbit/s, nur **bis 30 m** (Rechenzentrum) |",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-lwl-mm-sm-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **Multimode-** und **Singlemode-Glasfaser**.",
+      "back": "| | Multimode (OM3/OM4/OM5) | Singlemode (OS2) |\n|---|---|---|\n| Kerndurchmesser | **50 µm** (früher 62,5 µm) | **ca. 9 µm** |\n| Lichtquelle | LED/VCSEL (850 nm) | Laser (1310/1550 nm) |\n| Reichweite | bis einige **hundert Meter** (10G: ca. 300–400 m) | **viele Kilometer** |\n| Kosten Transceiver | günstiger | teurer |\n| Einsatz | Gebäude, Rechenzentrum | Campus, Standortverbindungen, Provider |\n\nFarbcode Mantel: OM3/OM4 türkis/violett, OS2 gelb.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-lwl-vorteile-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Vorteile von Lichtwellenleitern gegenüber Kupferkabeln.",
+      "back": "1. **Größere Reichweite** und höhere Bandbreite\n2. **Unempfindlich gegen elektromagnetische Störungen** und keine Potenzialprobleme (galvanische Trennung) – ideal zwischen Gebäuden\n3. **Abhörsicherer** (kein Abstrahlen), geringeres Gewicht\n\nNachteil: aufwendigere Verlegung/Spleißen, empfindlich gegen zu enge Biegeradien.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-strukturiert-01",
+      "type": "qa",
+      "front": "Beschreiben Sie die drei Bereiche der **strukturierten Verkabelung** (EN 50173).",
+      "back": "- **Primärbereich (Campus):** Verbindung zwischen **Gebäuden** – meist LWL (Singlemode)\n- **Sekundärbereich (Gebäude-Steigbereich):** Verbindung zwischen **Etagenverteilern** und Gebäudeverteiler – LWL oder Kupfer\n- **Tertiärbereich (Etage/horizontal):** vom Etagenverteiler zur **Anschlussdose** – Kupfer (max. **90 m** Installationskabel + 10 m Patchkabel = 100 m)\n\nVorteile: anwendungsneutral, erweiterbar, übersichtlich.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-kabel-schirmung-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Bezeichnung **S/FTP** bei Netzwerkkabeln.",
+      "back": "- Format: **Gesamtschirm / Paarschirm + TP** (Twisted Pair)\n- **S/FTP:** **Geflechtschirm** (S) um das ganze Kabel, jedes Adernpaar zusätzlich mit **Folie** (F) geschirmt.\n- Weitere: **U/UTP** = ungeschirmt, F/UTP = nur Foliengesamtschirm.\n- Schirmung reduziert **Störeinflüsse und Übersprechen**; Schirm muss beidseitig korrekt aufgelegt und geerdet sein.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-kabel-messung-01",
+      "type": "qa",
+      "front": "Nach der Installation einer Verkabelung wird eine **Abnahmemessung** gefordert. Nennen Sie drei Messwerte bzw. Prüfungen.",
+      "back": "1. **Verdrahtungsplan (Wiremap):** richtige Belegung, keine vertauschten/offenen Adern\n2. **Länge** und **Dämpfung (Insertion Loss)**\n3. **Nebensprechen** (NEXT/PS-NEXT) und **Rückflussdämpfung**\n\nBei LWL: Dämpfung je Strecke (Leistungsmessung) bzw. **OTDR**-Messung. Ergebnis: Messprotokoll je Link als Teil der Dokumentation.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-kabel-steckverbinder-01",
+      "type": "qa",
+      "front": "Nennen Sie zwei gängige **LWL-Steckverbinder** und den Anschluss eines **SFP-Moduls**.",
+      "back": "- Steckverbinder: **LC** (klein, im RZ und an SFPs Standard), **SC** (größer, oft in Verteilern), MPO/MTP (mehrfaserig, 40/100G).\n- **SFP/SFP+/SFP28/QSFP:** steckbare **Transceiver** im Switch-Port; je nach Modul Multimode/Singlemode, Wellenlänge und Reichweite (z. B. 10GBASE-SR, -LR).\n- Transceiver und Faser müssen zueinander passen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-kabel-doku-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Inhalte einer Verkabelungsdokumentation.",
+      "back": "1. **Grundrisspläne** mit Dosen- und Verteilerstandorten\n2. **Eindeutige Beschriftung** (Dose ↔ Patchpanel-Port) und Belegungslisten\n3. **Messprotokolle** aller Strecken\n4. **Kabeltypen/Kategorien**, Trassenverläufe, Brandschotts\n\nZusätzlich: Switch-Port-Zuordnung (Patchplan), Änderungsverlauf.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

@@ -33,6 +33,223 @@
       "points": 3,
       "difficulty": 1,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dhcp-optionen-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Informationen, die ein DHCPv4-Server einem Client neben der IP-Adresse mitgibt.",
+      "back": "1. **Subnetzmaske**\n2. **Standardgateway** (Option 3)\n3. **DNS-Server** (Option 6) und DNS-Suffix\n4. **Lease-Dauer**\n\n(weitere: NTP-Server, PXE-Bootserver (Option 66/67), WPAD)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dhcp-reservierung-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Begriffe **Bereich (Scope)**, **Ausschluss** und **Reservierung** beim DHCP-Server.",
+      "back": "- **Bereich:** Adresspool, aus dem vergeben wird (z. B. 192.168.10.100–200).\n- **Ausschluss:** Adressen innerhalb des Bereichs, die **nicht vergeben** werden (z. B. für statisch konfigurierte Geräte).\n- **Reservierung:** ein Client (über seine **MAC-Adresse**) erhält **immer dieselbe IP** – zentral verwaltet, z. B. für Drucker.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dhcp-relay-01",
+      "type": "qa",
+      "front": "Der DHCP-Server steht im Server-VLAN 10, Clients im VLAN 20 erhalten keine Adresse. Erklären Sie die Ursache und die Lösung.",
+      "back": "- **Ursache:** DHCPDISCOVER ist ein **Broadcast** – Router/Layer-3-Switch leiten Broadcasts **nicht** in andere Netze weiter.\n- **Lösung:** **DHCP-Relay** (IP-Helper) auf der Router-/Gateway-Schnittstelle des VLAN 20 einrichten: Er leitet die Anfrage als **Unicast** an den DHCP-Server weiter; der Server erkennt am Relay-Feld (giaddr), aus welchem Bereich er vergeben muss.\n- Auf dem DHCP-Server einen **Bereich für VLAN 20** anlegen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dhcp-snooping-01",
+      "type": "qa",
+      "front": "Was ist ein **Rogue-DHCP-Server** und wie schützt **DHCP Snooping** dagegen?",
+      "back": "- Ein **unautorisierter DHCP-Server** im Netz (z. B. versehentlich angeschlossener Router oder Angreifer) verteilt falsche Adressen/Gateways → Störungen oder Man-in-the-Middle.\n- **DHCP Snooping** auf dem Switch: Nur **vertrauenswürdige Ports** (Uplink zum echten DHCP-Server) dürfen DHCP-Antworten (OFFER/ACK) senden; Antworten an anderen Ports werden verworfen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-dns-ablauf-01",
+      "type": "qa",
+      "front": "Beschreiben Sie den Ablauf einer **rekursiven DNS-Auflösung** für `www.beispiel.de`, wenn der Resolver nichts im Cache hat.",
+      "back": "1. Client fragt seinen **DNS-Resolver** (rekursive Anfrage).\n2. Resolver fragt einen **Root-Server** → Verweis auf die Server für **.de**.\n3. Resolver fragt einen **.de-Server** → Verweis auf die autoritativen Server von **beispiel.de**.\n4. Resolver fragt den **autoritativen Server** → Antwort mit dem **A/AAAA-Record**.\n5. Resolver speichert das Ergebnis gemäß **TTL** im Cache und antwortet dem Client.\n\n(Schritte 2–4: iterative Anfragen)",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dns-zonen-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Forward-Lookup-Zone** und **Reverse-Lookup-Zone** und nennen Sie den Namen der Reverse-Zone für **192.168.10.0/24**.",
+      "back": "- **Forward-Lookup:** Name → IP (A/AAAA-Records)\n- **Reverse-Lookup:** IP → Name (**PTR-Records**), z. B. für Logdateien, Mailserver-Prüfungen\n- Zonenname: **10.168.192.in-addr.arpa** (Oktette in umgekehrter Reihenfolge)\n- Für IPv6: `ip6.arpa` (Nibbles rückwärts).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-dns-mail-01",
+      "type": "qa",
+      "front": "Welche DNS-Einträge benötigt eine Domain, damit E-Mails zugestellt werden und als vertrauenswürdig gelten? Nennen Sie drei.",
+      "back": "1. **MX-Record** – zuständiger Mailserver (+ A/AAAA des Mailservers)\n2. **SPF** (TXT) – welche Server dürfen für die Domain senden\n3. **DKIM** (TXT) – öffentlicher Schlüssel zur Prüfung der Mail-Signatur\n4. **DMARC** (TXT) – Richtlinie, wie Empfänger mit SPF/DKIM-Fehlern umgehen sollen, plus Reporting\n\nZusätzlich: passender **PTR**-Record der Mailserver-IP.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-mail-protokolle-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **SMTP**, **POP3** und **IMAP** (Zweck und Ports).",
+      "back": "| Protokoll | Zweck | Ports |\n|---|---|---|\n| **SMTP** | **Versand** und Weiterleitung zwischen Mailservern | 25 (Server–Server), 587 (Submission, STARTTLS), 465 (implizites TLS) |\n| **POP3** | **Abholen** – Mails werden i. d. R. vom Server geladen und gelöscht | 110, **995** (TLS) |\n| **IMAP** | **Synchronisieren** – Mails bleiben auf dem Server, Ordner, mehrere Geräte | 143, **993** (TLS) |",
+      "points": 6,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-http-statuscodes-01",
+      "type": "qa",
+      "front": "Erläutern Sie die HTTP-Statuscodes **200, 301, 401, 403, 404** und **503**.",
+      "back": "- **200 OK** – Anfrage erfolgreich\n- **301 Moved Permanently** – dauerhafte Weiterleitung (z. B. HTTP → HTTPS)\n- **401 Unauthorized** – Authentifizierung erforderlich/fehlgeschlagen\n- **403 Forbidden** – angemeldet bzw. erkannt, aber **keine Berechtigung**\n- **404 Not Found** – Ressource nicht vorhanden\n- **503 Service Unavailable** – Server überlastet/in Wartung\n\nKlassen: 2xx Erfolg, 3xx Umleitung, 4xx Clientfehler, 5xx Serverfehler.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ftp-sftp-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **FTP**, **FTPS** und **SFTP**.",
+      "back": "| | FTP | FTPS | SFTP |\n|---|---|---|---|\n| Basis | eigenes Protokoll | FTP + **TLS** | Teil von **SSH** |\n| Verschlüsselung | **keine** (Kennwort im Klartext) | ja | ja |\n| Ports | 21 (Steuerung) + 20/Datenports | 21 (explizit) bzw. 990 (implizit) + Datenports | **22** – nur ein Port, firewallfreundlich |\n\nEmpfehlung: **SFTP** (oder FTPS); FTP nur noch intern für unkritische Daten.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ntp-01",
+      "type": "qa",
+      "front": "Warum ist eine einheitliche **Zeitsynchronisation (NTP)** in Netzwerken wichtig? Nennen Sie drei Gründe und den Port.",
+      "back": "1. **Kerberos/AD-Anmeldung** (max. 5 Min. Abweichung)\n2. **Korrelation von Logdateien** und forensische Auswertung\n3. **Zertifikatsprüfung** (Gültigkeitszeitraum), Zeitpläne für Backups/Jobs, zeitbasierte Einmalkennwörter (TOTP)\n\nNTP nutzt **UDP 123**; Hierarchie über **Stratum**-Ebenen.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-snmp-versionen-01",
+      "type": "qa",
+      "front": "Vergleichen Sie **SNMPv2c** und **SNMPv3** hinsichtlich Sicherheit und nennen Sie die SNMP-Ports.",
+      "back": "- **SNMPv2c:** Authentifizierung nur über **Community-String im Klartext** (oft „public“) – unsicher.\n- **SNMPv3:** **Benutzerbasierte Authentifizierung** (SHA) und **Verschlüsselung** (AES) – Sicherheitsstufen noAuthNoPriv, authNoPriv, **authPriv**.\n- Ports: **UDP 161** (Abfragen an den Agenten), **UDP 162** (Traps an den Manager).\n- Daten werden in der **MIB** über **OIDs** adressiert.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-syslog-01",
+      "type": "qa",
+      "front": "Was ist **Syslog**? Nennen Sie Port und die Bedeutung der **Severity-Level 0 und 7**.",
+      "back": "- Standardprotokoll, mit dem Geräte (Switches, Firewalls, Linux-Server) **Logmeldungen an einen zentralen Server** senden.\n- Port **UDP 514** (TCP 514 bzw. **6514 mit TLS** für zuverlässige/verschlüsselte Übertragung).\n- Severity: **0 = Emergency** (System unbenutzbar) … **7 = Debug**. (Dazwischen u. a. 3 = Error, 4 = Warning, 6 = Informational)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-rdp-sicherheit-01",
+      "type": "qa",
+      "front": "Ein Administrator möchte Server per **RDP aus dem Internet** verwalten. Bewerten Sie das und nennen Sie zwei sichere Alternativen.",
+      "back": "- RDP (TCP **3389**) direkt im Internet ist ein **häufiges Einfallstor** (Brute Force, Schwachstellen wie BlueKeep) – **nicht** direkt freigeben.\n- Alternativen:\n  1. Zugriff nur über **VPN** mit MFA\n  2. **Remotedesktop-Gateway** (RDP über HTTPS) mit MFA bzw. Jump-Host/Bastion\n- Zusätzlich: **NLA** aktivieren, Kontosperre, Zugriff nur für Admin-Gruppen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ports-mc-01",
+      "type": "mc",
+      "front": "Welcher Port gehört standardmäßig zu **LDAPS**?",
+      "choices": [
+        "389",
+        "443",
+        "636",
+        "3268"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**TCP 636** (LDAP über TLS).",
+      "explanation": "389 = LDAP (unverschlüsselt bzw. mit STARTTLS), 3268/3269 = Globaler Katalog (unverschlüsselt/TLS).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ports-mc-02",
+      "type": "mc",
+      "front": "Welche Protokolle nutzen standardmäßig **UDP**? (2 richtige)",
+      "choices": [
+        "DNS-Abfragen",
+        "SSH",
+        "DHCP",
+        "SMTP"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "back": "**DNS** (UDP 53) und **DHCP** (UDP 67/68).",
+      "explanation": "SSH (TCP 22) und SMTP (TCP 25/587) benötigen die zuverlässige Übertragung von TCP. DNS weicht bei großen Antworten/Zonentransfers auf TCP aus.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ports-mc-03",
+      "type": "mc",
+      "front": "Ein Administrator muss in der Firewall **SMB-Dateifreigaben** erlauben. Welcher Port ist heute dafür maßgeblich?",
+      "choices": [
+        "TCP 21",
+        "TCP 445",
+        "UDP 161",
+        "TCP 3389"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**TCP 445** (SMB direkt über TCP).",
+      "explanation": "Ältere NetBIOS-Ports 137–139 werden nur noch für Altsysteme benötigt. SMB sollte **nie** ins Internet freigegeben werden.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ports-mc-04",
+      "type": "mc",
+      "front": "Welcher Dienst nutzt **UDP 123**?",
+      "choices": [
+        "SNMP",
+        "NTP",
+        "Syslog",
+        "TFTP"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**NTP** (Zeitsynchronisation).",
+      "explanation": "SNMP: UDP 161/162, Syslog: UDP 514, TFTP: UDP 69.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-ports-mc-05",
+      "type": "mc",
+      "front": "Welche Aussage zu **HTTPS** ist richtig?",
+      "choices": [
+        "HTTPS verschlüsselt nur das Kennwort, nicht den Seiteninhalt.",
+        "HTTPS nutzt standardmäßig TCP-Port 443 und TLS zur Verschlüsselung und Server-Authentifizierung.",
+        "HTTPS benötigt kein Zertifikat, wenn die Seite intern ist.",
+        "HTTPS ist dasselbe wie SFTP."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "HTTPS = HTTP über **TLS**, Port **443**.",
+      "explanation": "TLS verschlüsselt die gesamte HTTP-Kommunikation und authentifiziert den Server per Zertifikat. HTTP/3 nutzt QUIC über **UDP 443**.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
     }
   ]
 }

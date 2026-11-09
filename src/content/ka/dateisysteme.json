@@ -1,0 +1,60 @@
+{
+  "area": "KA",
+  "topic": "Dateisysteme",
+  "cards": [
+    {
+      "id": "ka-fs-vergleich-01",
+      "type": "compare",
+      "front": "Vergleichen Sie die Dateisysteme **FAT32**, **exFAT**, **NTFS** und **ext4** hinsichtlich maximaler Dateigröße, Rechteverwaltung und typischem Einsatz.",
+      "back": "| | FAT32 | exFAT | NTFS | ext4 |\n|---|---|---|---|---|\n| max. Dateigröße | **4 GiB − 1 Byte** | praktisch unbegrenzt | sehr groß (16 TiB+ ) | 16 TiB |\n| Rechte | keine | keine | ACLs, Verschlüsselung (EFS), Kompression, Journaling | Unix-Rechte, ACLs, Journaling |\n| Einsatz | Kompatibilität, kleine USB-Sticks, EFI-Partition | USB-Sticks/SD-Karten zwischen Systemen | Windows-Systeme und -Server | Linux-Systeme |",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-fs-journaling-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Zweck eines **Journaling-Dateisystems**.",
+      "back": "- Änderungen an den Metadaten (bei Bedarf auch Daten) werden **vor der Ausführung in ein Journal geschrieben**.\n- Nach einem **Absturz/Stromausfall** kann das Dateisystem anhand des Journals schnell in einen **konsistenten Zustand** gebracht werden.\n- Kein langwieriger vollständiger Check (chkdsk/fsck) nötig. Beispiele: NTFS, ext4, XFS.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-fs-refs-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Eigenschaften von **ReFS** gegenüber NTFS und einen typischen Einsatzzweck.",
+      "back": "1. **Integritätsprüfsummen** für Metadaten (optional Daten) und automatische Reparatur mit Storage Spaces (Datenkorruption wird erkannt)\n2. **Block Cloning** – sehr schnelle Kopien/Merges, z. B. für VHDX-Dateien und Backup-Repositorys\n\nEinsatz: **Hyper-V-Speicher, Backup-Ziele (z. B. Veeam), Storage Spaces Direct**. (Kein Boot-Laufwerk, keine Dateikompression/EFS.)",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-fs-inode-01",
+      "type": "qa",
+      "front": "Was ist eine **Inode** unter Linux und was passiert, wenn auf einem Dateisystem die Inodes ausgehen?",
+      "back": "- Inode = Datenstruktur mit den **Metadaten einer Datei** (Besitzer, Rechte, Zeitstempel, Größe, Verweise auf Datenblöcke) – der Dateiname steht im Verzeichnis.\n- Jede Datei belegt eine Inode. Sind alle Inodes belegt (z. B. Millionen kleiner Cache-/Session-Dateien), können **keine neuen Dateien angelegt werden, obwohl noch Speicherplatz frei ist**.\n- Prüfen mit `df -i`.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-fs-cluster-01",
+      "type": "qa",
+      "front": "Eine Partition nutzt eine **Clustergröße von 4 KiB**. Es werden 1.000 Dateien mit je **1 KiB** gespeichert. Wie viel Speicherplatz wird belegt? Erläutern Sie das Ergebnis.",
+      "back": "- Jede Datei belegt **mindestens einen ganzen Cluster**.\n- 1.000 × 4 KiB = **4.000 KiB** belegt, obwohl nur 1.000 KiB Daten vorhanden sind.\n- 3.000 KiB gehen als **Verschnitt (Slack)** verloren → für viele kleine Dateien kleinere Cluster wählen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-fs-mount-01",
+      "type": "qa",
+      "front": "Erläutern Sie, wie unter Linux ein Dateisystem **dauerhaft** eingebunden wird, und nennen Sie die Bedeutung der Felder in der Zeile:\n\n```text\nUUID=3f2a…  /srv/daten  ext4  defaults,noatime  0  2\n```",
+      "back": "- Dauerhaftes Einbinden über einen Eintrag in **`/etc/fstab`** (beim Booten gelesen, testen mit `mount -a`).\n- Felder: **Gerät** (per UUID, stabil gegenüber Umbenennung) · **Mountpoint** `/srv/daten` · **Dateisystemtyp** ext4 · **Optionen** (`noatime` = Zugriffszeit nicht schreiben → weniger Schreiblast) · **dump** 0 · **fsck-Reihenfolge** 2 (nach dem Root-Dateisystem prüfen).",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    }
+  ]
+}

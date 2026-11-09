@@ -1,0 +1,60 @@
+{
+  "area": "NET",
+  "topic": "Netzwerkplanung & Dokumentation",
+  "cards": [
+    {
+      "id": "net-plan-anforderungen-01",
+      "type": "qa",
+      "front": "Ein Kunde zieht in ein neues Bürogebäude (60 Arbeitsplätze). Nennen Sie **fünf** Punkte, die Sie für die Netzwerkplanung erfragen.",
+      "back": "1. **Anzahl und Art der Endgeräte** (PCs, Notebooks, Telefone, Drucker, Kameras, IoT) und Wachstum\n2. **Benötigte Dienste/Anwendungen** und Bandbreiten (Cloud, VoIP, Video)\n3. **Verfügbarkeitsanforderungen** (Redundanz, USV)\n4. **Sicherheitsanforderungen** (Segmentierung, Gäste-WLAN, Fernzugriff)\n5. **Räumliche Gegebenheiten** (Grundrisse, Serverraum, Kabelwege) und **Budget/Zeitplan**",
+      "points": 5,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-plan-plan-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Inhalte, die ein **logischer Netzplan** enthalten sollte.",
+      "back": "1. **Netzsegmente/VLANs** mit Netzadresse, Präfix und VLAN-ID\n2. **Router/Firewalls/L3-Switches** mit Schnittstellen-IPs und Gateways\n3. **Server und zentrale Dienste** (DNS, DHCP, AD) mit IP-Adressen\n4. **WAN-/Internetanbindungen**, VPN-Tunnel, DMZ\n\nDer **physische** Plan zeigt dagegen Standorte, Racks, Verkabelung und Ports.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-plan-switchauswahl-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Kriterien für die Auswahl von Access-Switches.",
+      "back": "1. **Anzahl und Geschwindigkeit der Ports** (1G/2,5G/mGig für Wi-Fi-6/7-APs), Uplinks (10G SFP+)\n2. **PoE-Standard und -Budget**\n3. **Managed-Funktionen**: VLAN, 802.1X, LACP, QoS, SNMP/LLDP, Stacking\n4. **Verwaltung/Lizenzen/Support** (Cloud-Management, Firmware-Updates, Garantie), Energieverbrauch",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-plan-bandbreite-01",
+      "type": "qa",
+      "front": "Ein Standort mit **40 Mitarbeitern** soll an das Internet angebunden werden, die Mitarbeiter nutzen Microsoft 365 und Videokonferenzen. Nennen Sie drei Überlegungen zur Leitungsauswahl.",
+      "back": "1. **Bandbreitenbedarf** abschätzen: gleichzeitige Videokonferenzen (z. B. 2–4 Mbit/s je Teilnehmer **symmetrisch**), Cloud-Sync, Updates → **Upload** nicht vergessen\n2. **Verfügbarkeit**: Business-Anschluss mit SLA, **zweite Leitung** anderer Technik/anderer Provider (Glasfaser + 5G) für Failover\n3. **Feste IP-Adressen** (VPN, eigene Dienste), Latenz, Kosten",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-plan-namenskonzept-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum ein einheitliches **Namenskonzept** für Netzwerkgeräte sinnvoll ist, und geben Sie ein Beispiel.",
+      "back": "- **Eindeutige Zuordnung** von Standort, Funktion und Nummer → schnellere Fehlersuche, bessere Dokumentation und Automatisierung.\n- Beispiel: `KOE-SW-ACC-03` = Köln, Switch, Access, Nr. 3; `KOE-FW-01` = Firewall Köln.\n- Keine sicherheitskritischen Infos (z. B. „Backup-Admin-Server“) in öffentlich sichtbaren Namen.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-plan-iot-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Maßnahmen, um **IoT-Geräte** (Kameras, Gebäudetechnik) sicher ins Firmennetz einzubinden.",
+      "back": "1. **Eigenes VLAN/Segment** mit restriktiven Firewallregeln (nur benötigte Ziele, kein Internet falls nicht nötig)\n2. **Standardkennwörter ändern**, Firmware aktuell halten, unnötige Dienste (Telnet, UPnP) deaktivieren\n3. **Inventarisieren und überwachen** (NAC/802.1X bzw. MAB, Anomalieerkennung)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "area": "PROJ",
+  "topic": "Projektdokumentation",
+  "cards": [
+    {
+      "id": "proj-doku-gliederung-01",
+      "type": "order",
+      "front": "Bringen Sie die Kapitel einer typischen **Projektdokumentation** in eine sinnvolle Reihenfolge.",
+      "choices": [
+        "Einleitung (Projektumfeld, Ausgangssituation, Ziel)",
+        "Projektplanung (Phasen, Ressourcen, Kosten)",
+        "Analyse und Entscheidung (Ist-Analyse, Alternativen, Wirtschaftlichkeit)",
+        "Durchführung/Realisierung",
+        "Qualitätssicherung und Abnahme",
+        "Fazit (Soll-Ist-Vergleich, Lessons Learned, Ausblick)"
+      ],
+      "back": "Danach folgen Verzeichnisse (Quellen, Abkürzungen), **Eigenständigkeitserklärung** und **Anlagen** (Kundendoku, Netzpläne, Testprotokolle). Die Gliederung variiert – entscheidend ist der rote Faden. Vorgaben der eigenen IHK beachten.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-doku-fehler-01",
+      "type": "qa",
+      "front": "Nennen Sie **fünf** häufige Fehler in Projektdokumentationen.",
+      "back": "1. **Begründungen fehlen** – Entscheidungen werden nur beschrieben, nicht begründet (keine Alternativen/Nutzwertanalyse)\n2. **Bedienungsanleitung statt Projektbericht** – seitenlange Installationsschritte/Screenshots im Haupttext\n3. **Eigenleistung nicht erkennbar** („wir“ statt „ich“, unklare Abgrenzung)\n4. **Formale Mängel**: Seitenumfang überschritten, fehlende Quellenangaben, Rechtschreibung\n5. **Kein Soll-Ist-Vergleich/Fazit**, Wirtschaftlichkeit oder Qualitätssicherung fehlt",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-doku-quellen-01",
+      "type": "qa",
+      "front": "Warum müssen in der Projektdokumentation **Quellen angegeben** werden und wie gehen Sie mit **KI-Werkzeugen** um?",
+      "back": "- Übernommene Inhalte (Herstellerdokumentationen, Fachartikel, Grafiken) ohne Quelle gelten als **Täuschung/Plagiat** → kann zur Bewertung „ungenügend“ führen. Mit der **Eigenständigkeitserklärung** wird die eigene Leistung bestätigt.\n- **KI-Nutzung** (z. B. für Formulierungen, Code, Recherche) gemäß IHK-Vorgaben **kennzeichnen** und Inhalte **selbst prüfen** – die Verantwortung für fachliche Richtigkeit bleibt beim Prüfling.\n- **Vorgaben der eigenen IHK haben Vorrang** (manche verlangen ein KI-Verzeichnis).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-doku-kundendoku-01",
+      "type": "qa",
+      "front": "Was unterscheidet die **Kundendokumentation** von der **Projektdokumentation**?",
+      "back": "- **Projektdokumentation** (Prüfungsleistung): beschreibt **Vorgehen, Entscheidungen, Planung, Wirtschaftlichkeit, Ergebnis** – Zielgruppe Prüfungsausschuss.\n- **Kundendokumentation** (Anlage): **anwenderorientiert** – Bedienungsanleitung, Administrationshandbuch, Konfigurationsübersicht, Notfallanleitung – Zielgruppe Nutzer/Administratoren beim Kunden.\n- Die Kundendoku kommt in den **Anhang**; im Haupttext nur darauf verweisen.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-doku-sprache-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Regeln für einen guten **Schreibstil** in der Projektdokumentation.",
+      "back": "1. **Ich-Form** für eigene Leistungen (die Eigenleistung muss erkennbar sein), sachlich und präzise\n2. **Fachbegriffe** korrekt verwenden, Abkürzungen beim ersten Auftreten erklären (Abkürzungsverzeichnis)\n3. **Begründen** statt nur beschreiben („Ich habe X gewählt, weil …“)\n4. **Abbildungen/Tabellen** nummerieren, beschriften und im Text darauf verweisen\n\n(weiter: einheitliche Zeitform – meist Präteritum für Durchgeführtes, Rechtschreibprüfung, roter Faden)",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-doku-anhang-01",
+      "type": "qa",
+      "front": "Welche Unterlagen gehören typischerweise in den **Anhang** der Projektdokumentation? Nennen Sie vier.",
+      "back": "1. **Kundendokumentation** (Benutzer-/Administratorhandbuch)\n2. **Netzwerkpläne**, Rack-/Raumpläne\n3. **Testprotokolle**, Abnahmeprotokoll\n4. **Detaillierte Kostenaufstellungen**, Angebote, Nutzwertanalyse-Details\n5. Wichtige **Konfigurationsauszüge/Skripte** (keine Kennwörter!), Zeitplan/Gantt-Diagramm",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

@@ -19,6 +19,187 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "hoch"
+    },
+    {
+      "id": "net-vpn-arten-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **Site-to-Site-VPN** und **Client-to-Site-VPN (Remote Access)**.",
+      "back": "| | Site-to-Site | Client-to-Site |\n|---|---|---|\n| verbindet | **ganze Netze** (Standorte) über Gateways | **einzelnen Client** (Homeoffice) mit dem Firmennetz |\n| Endpunkte | Router/Firewalls, dauerhaft verbunden | VPN-Client-Software ↔ VPN-Gateway, bei Bedarf |\n| Benutzer merken | nichts (transparent) | Anmeldung am VPN-Client (MFA) |\n| Technik | meist **IPsec**, WireGuard | TLS-/SSL-VPN, IPsec (IKEv2), WireGuard |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipsec-01",
+      "type": "qa",
+      "front": "Erläutern Sie **IPsec**: Nennen Sie die beiden Sicherheitsprotokolle, die beiden Modi und die Aufgabe von IKE.",
+      "back": "- **AH (Authentication Header):** Integrität und Authentizität, **keine Verschlüsselung**; inkompatibel mit NAT.\n- **ESP (Encapsulating Security Payload):** **Verschlüsselung** + Integrität – heute Standard.\n- **Transportmodus:** nur Nutzdaten geschützt, Original-IP-Header bleibt (Host-zu-Host).\n- **Tunnelmodus:** **gesamtes Paket** wird gekapselt, neuer IP-Header (Gateway-zu-Gateway, Site-to-Site).\n- **IKE (v2):** Aushandlung der Algorithmen, gegenseitige Authentifizierung (PSK/Zertifikat), **Schlüsselaustausch** (Diffie-Hellman); UDP 500, NAT-Traversal über UDP 4500.",
+      "points": 6,
+      "difficulty": 3,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wireguard-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Merkmale von **WireGuard** im Vergleich zu IPsec/OpenVPN.",
+      "back": "1. **Sehr schlanker Code** (wenige tausend Zeilen) → leicht prüfbar, kleine Angriffsfläche\n2. **Moderne, feste Kryptografie** (Curve25519, ChaCha20-Poly1305) – keine Algorithmen-Aushandlung, keine veralteten Optionen\n3. **Hohe Performance**, im Linux-Kernel, schneller Verbindungsaufbau, nur **UDP** (ein Port, z. B. 51820)\n\nAuthentifizierung über **öffentliche Schlüssel** je Peer; für Benutzerverwaltung/MFA zusätzliche Lösungen nötig.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-tls-vpn-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Vorteile eines **TLS-/SSL-VPN** für Remote-Access-Benutzer.",
+      "back": "1. Nutzt **TCP/UDP 443** → funktioniert auch in restriktiven Netzen (Hotel, Kundennetz), weil HTTPS fast immer erlaubt ist\n2. **Einfacher Client** bzw. clientloser Zugriff über den Browser auf einzelne Webanwendungen; feingranulare Freigaben je Benutzergruppe",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-krypto-sym-asym-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **symmetrische** und **asymmetrische** Verschlüsselung und nennen Sie je ein Verfahren.",
+      "back": "| | symmetrisch | asymmetrisch |\n|---|---|---|\n| Schlüssel | **ein gemeinsamer** geheimer Schlüssel | **Schlüsselpaar**: öffentlicher + privater Schlüssel |\n| Geschwindigkeit | **schnell** | langsam (ca. Faktor 100–1000) |\n| Problem | **Schlüsselaustausch**; n Teilnehmer → n(n−1)/2 Schlüssel | Echtheit des öffentlichen Schlüssels (→ PKI) |\n| Verfahren | **AES**, ChaCha20 | **RSA**, ECC (ECDH, ECDSA) |\n\nIn der Praxis **hybrid** kombiniert.",
+      "points": 6,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-hash-01",
+      "type": "qa",
+      "front": "Was ist eine **kryptografische Hashfunktion**? Nennen Sie drei Eigenschaften und zwei Einsatzzwecke.",
+      "back": "- Berechnet aus beliebigen Daten einen **Prüfwert fester Länge** (z. B. SHA-256: 256 Bit).\n- Eigenschaften:\n  1. **Einwegfunktion** – aus dem Hash nicht auf die Daten schließbar\n  2. **Kollisionsresistenz** – praktisch keine zwei Eingaben mit gleichem Hash\n  3. **Lawineneffekt** – kleinste Änderung ergibt völlig anderen Hash\n- Einsatz: **Integritätsprüfung** von Downloads, **digitale Signaturen**, **Kennwortspeicherung** (mit Salt und langsamen Verfahren wie bcrypt/Argon2).\n- Veraltet: **MD5, SHA-1**.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-signatur-01",
+      "type": "qa",
+      "front": "Beschreiben Sie, wie eine **digitale Signatur** erstellt und geprüft wird.",
+      "back": "**Erstellen (Absender):**\n1. **Hashwert** des Dokuments berechnen\n2. Hash mit dem **privaten Schlüssel des Absenders** signieren\n\n**Prüfen (Empfänger):**\n1. Signatur mit dem **öffentlichen Schlüssel des Absenders** prüfen → ursprünglicher Hash\n2. Hash des empfangenen Dokuments selbst berechnen und **vergleichen**\n\n→ gleich: **Integrität** und **Authentizität** (Nichtabstreitbarkeit) bestätigt. Vertraulichkeit bietet die Signatur **nicht**.",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-pki-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Zweck einer **PKI** und die Aufgabe einer **Zertifizierungsstelle (CA)**.",
+      "back": "- **Public Key Infrastructure:** System zur Ausstellung, Verteilung, Prüfung und zum Widerruf von **digitalen Zertifikaten**.\n- Ein **Zertifikat (X.509)** bindet einen **öffentlichen Schlüssel an eine Identität** (z. B. `www.firma.de`) und ist von einer **CA signiert**.\n- Vertrauenskette: **Root-CA → Intermediate-CA → Serverzertifikat**; Root-Zertifikate sind im Betriebssystem/Browser hinterlegt.\n- Widerruf über **CRL** oder **OCSP**.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-tls-handshake-01",
+      "type": "qa",
+      "front": "Beschreiben Sie grob den **TLS-1.3-Handshake** beim Aufruf einer HTTPS-Seite.",
+      "back": "1. **Client Hello:** unterstützte Cipher Suites, Schlüsselanteil (Key Share, ECDHE), Servername (SNI)\n2. **Server Hello:** gewählte Cipher Suite und eigener Key Share → beide berechnen den **gemeinsamen Sitzungsschlüssel** (Diffie-Hellman)\n3. Server sendet (bereits verschlüsselt) sein **Zertifikat** und eine Signatur; Client **prüft Zertifikat** (Kette, Name, Gültigkeit, Widerruf)\n4. **Finished**-Nachrichten → Nutzdaten werden **symmetrisch** (z. B. AES-GCM) verschlüsselt\n\nTLS 1.3 braucht nur **einen Roundtrip** und erzwingt **Forward Secrecy**.",
+      "points": 5,
+      "difficulty": 3,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-zertifikat-fehler-01",
+      "type": "qa",
+      "front": "Ein Browser meldet beim Aufruf von `https://intranet.firma.local` eine **Zertifikatswarnung**. Nennen Sie drei mögliche Ursachen.",
+      "back": "1. **Selbstsigniertes Zertifikat** bzw. interne CA ist auf dem Client **nicht als vertrauenswürdig** installiert\n2. **Name passt nicht** (Zertifikat ausgestellt für anderen Hostnamen, fehlender SAN-Eintrag, Aufruf per IP)\n3. Zertifikat **abgelaufen** oder noch nicht gültig (auch: falsche Systemzeit)\n4. Zwischenzertifikat fehlt in der Kette / Zertifikat widerrufen",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-forward-secrecy-01",
+      "type": "qa",
+      "front": "Was bedeutet **Perfect Forward Secrecy (PFS)**?",
+      "back": "- Für jede Sitzung wird ein **temporärer Schlüssel** per (EC)DHE vereinbart, der nicht aus dem langfristigen privaten Schlüssel ableitbar ist.\n- Wird der **private Schlüssel des Servers später kompromittiert**, lassen sich **früher aufgezeichnete Sitzungen trotzdem nicht entschlüsseln**.\n- In TLS 1.3, WireGuard und WPA3-SAE Standard.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-krypto-letsencrypt-01",
+      "type": "qa",
+      "front": "Was ist **Let's Encrypt** und wie funktioniert die automatische Zertifikatsausstellung grob?",
+      "back": "- Kostenlose, automatisierte **CA** für Domain-validierte TLS-Zertifikate (Laufzeit kurz, z. B. 90 Tage → automatische Erneuerung).\n- Protokoll **ACME**: Ein Client (z. B. certbot) beweist die **Kontrolle über die Domain** per HTTP-01 (Datei unter `/.well-known/acme-challenge/`) oder **DNS-01** (TXT-Record), danach wird das Zertifikat ausgestellt.\n- DNS-01 ermöglicht auch Wildcard-Zertifikate und Server ohne Internet-Erreichbarkeit.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-krypto-schluessellaenge-01",
+      "type": "qa",
+      "front": "Ein Kunde fragt, ob **RSA mit 1024 Bit** und **AES mit 128 Bit** noch sicher sind. Nehmen Sie Stellung (Stand BSI TR-02102).",
+      "back": "- **RSA-1024:** **nicht mehr sicher**; BSI empfiehlt **mindestens 3000 Bit** (bzw. ECC ≥ 250 Bit).\n- **AES-128:** derzeit noch als sicher eingestuft; für langfristigen Schutz **AES-256** bevorzugt.\n- Asymmetrische Verfahren brauchen deutlich längere Schlüssel als symmetrische für gleiches Sicherheitsniveau. Langfristig: Post-Quanten-Verfahren (z. B. ML-KEM) beobachten/hybrid einsetzen.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-ssh-keys-01",
+      "type": "qa",
+      "front": "Beschreiben Sie, wie die **Anmeldung per SSH-Schlüssel** eingerichtet wird und warum sie sicherer ist als ein Kennwort.",
+      "back": "1. Schlüsselpaar auf dem Client erzeugen: `ssh-keygen -t ed25519` (privater Schlüssel mit Passphrase schützen)\n2. **Öffentlichen** Schlüssel auf den Server kopieren: `ssh-copy-id user@server` → landet in `~/.ssh/authorized_keys`\n3. Danach Kennwortanmeldung im Server deaktivieren.\n\n**Sicherer**, weil der private Schlüssel **nie übertragen** wird (Challenge-Response), nicht erraten werden kann und Brute-Force-Angriffe auf Kennwörter ins Leere laufen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-vpn-mfa-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum ein Remote-Access-VPN mit **MFA** abgesichert werden sollte, und nennen Sie eine weitere Härtungsmaßnahme.",
+      "back": "- VPN-Zugänge sind direkt aus dem Internet erreichbar und ein **beliebtes Ziel** für Kennwort-Angriffe (Credential Stuffing, Phishing). Mit MFA reicht ein erbeutetes Kennwort nicht aus.\n- Weitere Maßnahmen: **VPN-Gateway zeitnah patchen** (häufig ausgenutzte Lücken), Zugriff nach dem Login nur auf benötigte Netze (Least Privilege), Geräteprüfung, Logging/Alarmierung bei Anomalien.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-krypto-ende-zu-ende-01",
+      "type": "qa",
+      "front": "Unterscheiden Sie **Transportverschlüsselung** und **Ende-zu-Ende-Verschlüsselung** am Beispiel E-Mail.",
+      "back": "- **Transportverschlüsselung (TLS/STARTTLS):** schützt die Mail **auf dem Weg zwischen Servern**, auf den Mailservern liegt sie aber **im Klartext**.\n- **Ende-zu-Ende (S/MIME, OpenPGP):** Mail wird beim Absender verschlüsselt und **erst beim Empfänger** entschlüsselt – auch Mailserver/Provider können nicht mitlesen.\n- S/MIME nutzt X.509-Zertifikate (PKI), OpenPGP ein Web of Trust bzw. Schlüsselserver.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-krypto-mc-01",
+      "type": "mc",
+      "front": "Mit welchem Schlüssel verschlüsselt Alice eine Nachricht an Bob bei **asymmetrischer** Verschlüsselung?",
+      "choices": [
+        "mit Alices privatem Schlüssel",
+        "mit Alices öffentlichem Schlüssel",
+        "mit Bobs öffentlichem Schlüssel",
+        "mit Bobs privatem Schlüssel"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "Mit **Bobs öffentlichem Schlüssel** – nur Bob kann mit seinem privaten Schlüssel entschlüsseln.",
+      "explanation": "Beim **Signieren** ist es umgekehrt: Alice signiert mit ihrem **privaten** Schlüssel, Bob prüft mit Alices **öffentlichem** Schlüssel.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-krypto-mc-02",
+      "type": "mc",
+      "front": "Welche Verfahren gelten heute als **unsicher** und sollten nicht mehr eingesetzt werden? (2 richtige)",
+      "choices": [
+        "SHA-256",
+        "MD5",
+        "AES-256",
+        "DES"
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "back": "**MD5** (Kollisionen) und **DES** (56-Bit-Schlüssel, per Brute Force knackbar).",
+      "explanation": "SHA-256 und AES-256 sind aktuelle, empfohlene Verfahren. Ebenfalls veraltet: SHA-1, RC4, 3DES, TLS < 1.2.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }

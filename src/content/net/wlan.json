@@ -1,0 +1,114 @@
+{
+  "area": "NET",
+  "topic": "WLAN",
+  "cards": [
+    {
+      "id": "net-wlan-standards-01",
+      "type": "compare",
+      "front": "Ordnen Sie den WLAN-Generationen **Wi-Fi 4, 5, 6, 6E und 7** die IEEE-Standards und Frequenzbänder zu.",
+      "back": "| Bezeichnung | Standard | Bänder | max. Brutto (theor.) |\n|---|---|---|---|\n| Wi-Fi 4 | 802.11n | 2,4 + 5 GHz | 600 Mbit/s |\n| Wi-Fi 5 | 802.11ac | 5 GHz | ca. 6,9 Gbit/s |\n| Wi-Fi 6 | 802.11ax | 2,4 + 5 GHz | ca. 9,6 Gbit/s |\n| Wi-Fi 6E | 802.11ax | + **6 GHz** | ca. 9,6 Gbit/s |\n| Wi-Fi 7 | **802.11be** | 2,4 + 5 + 6 GHz | ca. 46 Gbit/s (320-MHz-Kanäle, 4096-QAM, **Multi-Link Operation**) |",
+      "points": 5,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-baender-01",
+      "type": "compare",
+      "front": "Vergleichen Sie die Frequenzbänder **2,4 GHz**, **5 GHz** und **6 GHz**.",
+      "back": "| | 2,4 GHz | 5 GHz | 6 GHz |\n|---|---|---|---|\n| Reichweite/Durchdringung | **am größten** | mittel | am geringsten |\n| überlappungsfreie Kanäle | nur **3** (1, 6, 11 bzw. 13 in EU) | viele (19 in EU) | sehr viele, breite Kanäle |\n| Störungen | hoch (Bluetooth, Mikrowelle, Nachbarn) | geringer, teils **DFS** (Radar) | sehr gering, nur Wi-Fi 6E/7 |\n| Durchsatz | gering | hoch | sehr hoch |\n\n6 GHz erfordert **WPA3**.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-8021x-01",
+      "type": "qa",
+      "front": "Beschreiben Sie die Anmeldung mit **WPA2/WPA3-Enterprise** (802.1X) und nennen Sie die beteiligten Komponenten.",
+      "back": "- **Supplicant** (Client) → **Authenticator** (Access Point/Controller) → **Authentication Server** (RADIUS, z. B. NPS/FreeRADIUS mit AD).\n- Der AP lässt zunächst nur **EAP-Verkehr** durch und leitet ihn an den RADIUS-Server weiter.\n- Authentifizierung je Benutzer/Gerät mit **Benutzername/Kennwort (PEAP-MSCHAPv2)** oder **Zertifikat (EAP-TLS)**.\n- Nach Erfolg individuelle Schlüssel und ggf. **dynamische VLAN-Zuweisung**.\n- Vorteil gegenüber PSK: kein gemeinsamer Schlüssel, Konten einzeln sperrbar.",
+      "points": 5,
+      "difficulty": 3,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-psk-enterprise-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Nachteile von **WPA2-Personal (PSK)** im Unternehmen.",
+      "back": "1. **Ein gemeinsamer Schlüssel** für alle – scheidet ein Mitarbeiter aus, muss der Schlüssel überall geändert werden.\n2. **Keine Zuordnung zu Personen** (keine Nachvollziehbarkeit), Offline-Wörterbuchangriffe auf mitgeschnittene Handshakes bei schwachem Schlüssel.\n\nEmpfehlung: **WPA2/3-Enterprise** mit 802.1X; Gäste in eigenes WLAN/VLAN.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-controller-01",
+      "type": "qa",
+      "front": "Welche Vorteile bietet ein **WLAN-Controller** (oder Cloud-Management) gegenüber einzeln konfigurierten Access Points? Nennen Sie drei.",
+      "back": "1. **Zentrale Konfiguration** und Firmware-Updates aller APs\n2. **Automatische Kanal- und Sendeleistungsanpassung** (RRM)\n3. **Nahtloses Roaming** zwischen APs (802.11r/k/v) und zentrale Überwachung/Rogue-AP-Erkennung\n\n(weiter: Gäste-Portal, Lastverteilung zwischen APs)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-wlan-ausleuchtung-01",
+      "type": "qa",
+      "front": "Was ist eine **WLAN-Ausleuchtung (Site Survey)** und welche Faktoren beeinflussen die Planung? Nennen Sie drei.",
+      "back": "- **Messung bzw. Planung** der Funkabdeckung vor Ort, um Anzahl und Position der APs festzulegen.\n- Einflussfaktoren:\n  1. **Baumaterialien** (Stahlbeton, Glas, Metallregale dämpfen)\n  2. **Anzahl der Clients/Dichte** und benötigter Durchsatz (Kapazität statt nur Abdeckung)\n  3. **Störquellen** und Nachbarnetze, Kanalplanung",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-wlan-gast-01",
+      "type": "qa",
+      "front": "Beschreiben Sie ein sicheres Konzept für ein **Gäste-WLAN** (mindestens drei Maßnahmen).",
+      "back": "1. **Eigene SSID in eigenem VLAN**, per Firewall vom internen Netz getrennt – nur Internetzugang\n2. **Client-Isolation** (Gäste können sich gegenseitig nicht erreichen)\n3. **Zugang über Captive Portal/Voucher** mit zeitlicher Begrenzung, Nutzungsbedingungen\n4. **Bandbreitenbegrenzung**, ggf. Inhaltsfilter",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-ssid-01",
+      "type": "qa",
+      "front": "Ein Kollege schlägt vor, die **SSID zu verstecken** und einen **MAC-Filter** zu nutzen, um das WLAN abzusichern. Bewerten Sie diesen Vorschlag.",
+      "back": "- Beide Maßnahmen bieten **keinen wirksamen Schutz**:\n  - Versteckte SSIDs sind in Probe-Requests der Clients **mitlesbar**.\n  - MAC-Adressen lassen sich **mitschneiden und fälschen**.\n- Zusätzlicher Aufwand ohne echten Sicherheitsgewinn.\n- Wirksam: **WPA3/WPA2-Enterprise**, starke Schlüssel, PMF, Segmentierung.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-wlan-ofdma-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** technische Neuerungen von **Wi-Fi 6 (802.11ax)**, die die Leistung in Umgebungen mit vielen Clients verbessern.",
+      "back": "1. **OFDMA:** Kanal wird in Ressourceneinheiten aufgeteilt → **mehrere Clients gleichzeitig** in einer Übertragung\n2. **MU-MIMO** im Up- und Downlink\n3. **BSS Coloring** (weniger Störung durch Nachbarzellen), **Target Wake Time** (Akku sparen für IoT), 1024-QAM\n\n(zwei genügen)",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-wlan-mesh-01",
+      "type": "qa",
+      "front": "Erläutern Sie **WLAN-Mesh** und nennen Sie einen Nachteil gegenüber per Kabel angebundenen APs.",
+      "back": "- Access Points verbinden sich **untereinander per Funk** (Backhaul) und bilden ein gemeinsames Netz; nur einer braucht eine Kabelverbindung.\n- **Nachteil:** Jeder Funk-Hop **halbiert** (ohne eigenes Backhaul-Band) grob den verfügbaren Durchsatz und erhöht die Latenz.\n- Empfehlung im Unternehmen: APs **per Kabel (PoE)** anbinden, Mesh nur wo Kabel unmöglich ist.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "net-wlan-kanal-01",
+      "type": "qa",
+      "front": "Im 2,4-GHz-Band werden in Europa meist nur die Kanäle **1, 6 und 11** (bzw. 1, 5, 9, 13) genutzt. Begründen Sie.",
+      "back": "- Die Kanäle liegen nur **5 MHz** auseinander, ein Kanal ist aber ca. **20 MHz** breit → benachbarte Kanäle **überlappen** und stören sich.\n- 1/6/11 sind **überlappungsfrei** → bei der Planung benachbarter APs abwechselnd verwenden.\n- 40-MHz-Kanäle im 2,4-GHz-Band vermeiden.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-wlan-wpa3-transition-01",
+      "type": "qa",
+      "front": "Was ist der **WPA3-Transition-Mode** und welches Risiko birgt er?",
+      "back": "- Der AP bietet **WPA2-PSK und WPA3-SAE gleichzeitig** auf derselben SSID an, damit ältere Clients weiter funktionieren.\n- **Risiko:** Angreifer können Clients zu **WPA2 herabstufen (Downgrade)** und dessen Schwächen ausnutzen.\n- Empfehlung: Übergangsweise nutzen, ältere Geräte ersetzen, dann **reinen WPA3-Modus** aktivieren (für 6 GHz Pflicht).",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    }
+  ]
+}

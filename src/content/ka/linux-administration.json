@@ -19,6 +19,114 @@
       "points": 3,
       "difficulty": 2,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-chown-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Befehle:\n\n```bash\nchown -R www-data:www-data /var/www/shop\nchmod -R u=rwX,g=rX,o= /var/www/shop\n```",
+      "back": "- `chown -R` setzt **Besitzer und Gruppe** rekursiv auf `www-data` (Benutzer des Webservers).\n- `chmod -R` setzt rekursiv: Besitzer lesen/schreiben, Gruppe lesen, andere **keine** Rechte.\n- Großes **`X`**: Ausführen/Betreten **nur für Verzeichnisse** (und bereits ausführbare Dateien) → Ordner bleiben betretbar, Dateien werden nicht ausführbar.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-sonderrechte-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Sonderrechte **SUID**, **SGID** und **Sticky Bit** mit je einem Beispiel.",
+      "back": "- **SUID (4xxx):** Programm läuft mit den Rechten des **Dateibesitzers**, z. B. `/usr/bin/passwd` (root) zum Ändern des eigenen Kennworts.\n- **SGID (2xxx):** auf Verzeichnissen erben neue Dateien die **Gruppe des Verzeichnisses** – ideal für Teamordner.\n- **Sticky Bit (1xxx):** in einem Verzeichnis dürfen Dateien **nur vom Besitzer gelöscht** werden, z. B. `/tmp` (`drwxrwxrwt`).",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-umask-01",
+      "type": "qa",
+      "front": "Die **umask** eines Benutzers ist `027`. Welche Rechte erhalten neu angelegte **Dateien** und **Verzeichnisse**?",
+      "back": "- Ausgangsrechte: Dateien **666**, Verzeichnisse **777**; die umask nimmt Rechte weg.\n- Dateien: 666 − 027 → **640** (`rw-r-----`)\n- Verzeichnisse: 777 − 027 → **750** (`rwxr-x---`)\n\n(Genau: bitweise UND mit der negierten umask.)",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-benutzer-01",
+      "type": "qa",
+      "front": "Legen Sie unter Linux den Benutzer **mmuster** mit Home-Verzeichnis an, fügen Sie ihn der bestehenden Gruppe **vertrieb** hinzu und setzen Sie ein Kennwort. Geben Sie die Befehle an.",
+      "back": "```bash\nsudo useradd -m -s /bin/bash mmuster   # -m legt /home/mmuster an\nsudo usermod -aG vertrieb mmuster       # -a anhängen, sonst werden andere Gruppen entfernt!\nsudo passwd mmuster\n```\n\nKontrolle: `id mmuster`. Benutzerdaten stehen in `/etc/passwd`, Kennwort-Hashes in `/etc/shadow`.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-linux-systemd-01",
+      "type": "qa",
+      "front": "Nennen Sie die `systemctl`-Befehle, um den Dienst **nginx** zu starten, beim Systemstart automatisch zu aktivieren und seinen Status sowie die letzten Logeinträge anzuzeigen.",
+      "back": "```bash\nsudo systemctl start nginx\nsudo systemctl enable nginx      # (oder: enable --now für beides)\nsystemctl status nginx\njournalctl -u nginx -n 50        # letzte 50 Logzeilen des Dienstes\n```\n\nNach Konfigurationsänderung: `nginx -t` (Syntaxtest) und `systemctl reload nginx`.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-linux-paket-01",
+      "type": "qa",
+      "front": "Nennen Sie die Befehle, um auf **Debian/Ubuntu** die Paketlisten zu aktualisieren und alle Pakete zu aktualisieren, sowie das Äquivalent unter **RHEL/Rocky Linux**.",
+      "back": "- Debian/Ubuntu (APT):\n```bash\nsudo apt update && sudo apt upgrade\n```\n- RHEL/Rocky/Alma (DNF):\n```bash\nsudo dnf upgrade --refresh\n```\n- Automatische Sicherheitsupdates z. B. mit `unattended-upgrades` bzw. `dnf-automatic`.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-log-01",
+      "type": "qa",
+      "front": "Wie finden Sie unter Linux heraus, welche IP-Adressen sich **erfolglos per SSH** anzumelden versucht haben? Nennen Sie einen Befehl.",
+      "back": "```bash\nsudo journalctl -u ssh --since today | grep \"Failed password\"\n# bzw. klassisch:\nsudo grep \"Failed password\" /var/log/auth.log\n```\n\nAuswertung/Zählen z. B. mit `awk`/`sort | uniq -c`. Schutz: **fail2ban**, nur Schlüssel-Login, Root-Login verbieten.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-ssh-haertung-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** Maßnahmen zur Härtung eines SSH-Servers.",
+      "back": "1. **Anmeldung nur mit SSH-Schlüssel** (`PasswordAuthentication no`)\n2. **Root-Login verbieten** (`PermitRootLogin no`), Arbeit mit `sudo`\n3. **Zugriff beschränken**: Firewall/Quell-IPs, `AllowUsers`/`AllowGroups`, ggf. nur über VPN\n4. **Brute-Force-Schutz** mit fail2ban, aktuelle Updates, schwache Algorithmen deaktivieren\n\n(ein anderer Port reduziert nur Log-Rauschen, ist keine echte Sicherheitsmaßnahme)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-linux-prozesse-01",
+      "type": "qa",
+      "front": "Ein Linux-Server ist sehr langsam. Nennen Sie **drei** Befehle zur Analyse und was sie anzeigen.",
+      "back": "1. `top`/`htop` – **CPU- und RAM-Verbrauch je Prozess**, Load Average\n2. `free -h` – **Arbeitsspeicher und Swap**\n3. `df -h` – **Belegung der Dateisysteme** (volle Partition?)\n\n(weitere: `iostat`/`iotop` für Plattenlast, `ss -tulpen` für Netzwerkverbindungen, `journalctl -p err` für Fehler)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-verzeichnisse-01",
+      "type": "qa",
+      "front": "Nennen Sie den Zweck der Linux-Verzeichnisse `/etc`, `/var/log`, `/home` und `/tmp`.",
+      "back": "- `/etc` – **Konfigurationsdateien** des Systems und der Dienste\n- `/var/log` – **Logdateien**\n- `/home` – **Home-Verzeichnisse** der Benutzer\n- `/tmp` – **temporäre Dateien** (wird oft beim Neustart geleert, Sticky Bit gesetzt)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-linux-sudo-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Vorteil von **sudo** gegenüber einer direkten Anmeldung als root.",
+      "back": "- Benutzer arbeiten normal **ohne Administratorrechte** und erhöhen Rechte nur **für einzelne Befehle**.\n- **Nachvollziehbarkeit:** Jede Nutzung wird **mit dem Benutzernamen protokolliert**.\n- **Feingranular:** In `/etc/sudoers` (Bearbeiten mit `visudo`) kann festgelegt werden, wer welche Befehle ausführen darf.\n- Root-Kennwort muss nicht geteilt werden.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-linux-acl-01",
+      "type": "qa",
+      "front": "Ein Benutzer **azubi** soll zusätzlich zu Besitzer und Gruppe **Leserechte** auf `/srv/projekte` erhalten, ohne die Gruppe zu ändern. Wie lösen Sie das?",
+      "back": "Mit **POSIX-ACLs**:\n```bash\nsetfacl -R -m u:azubi:rX /srv/projekte      # bestehende Inhalte\nsetfacl -R -d -m u:azubi:rX /srv/projekte   # Default-ACL für neue Dateien\ngetfacl /srv/projekte                        # Kontrolle\n```\nIn `ls -l` erkennt man ACLs am **`+`** hinter den Rechten.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "mittel"
     }
   ]
 }

@@ -8,4 +8,13 @@ describe('Inhalte', () => {
     expect(r.errors).toEqual([]);
     expect(r.cards).toBeGreaterThan(0);
   });
+
+  it('Fragenpool: mindestens 500 Karten, alle Prüfungsbereiche abgedeckt', () => {
+    const r = checkContent(join(__dirname, '..', 'src', 'content'));
+    expect(r.cards).toBeGreaterThanOrEqual(500);
+    expect(r.byArea.KA).toBeGreaterThanOrEqual(160);
+    expect(r.byArea.NET).toBeGreaterThanOrEqual(160);
+    expect(r.byArea.WISO).toBeGreaterThanOrEqual(100);
+    expect(r.byArea.PROJ).toBeGreaterThanOrEqual(45);
+  });
 });

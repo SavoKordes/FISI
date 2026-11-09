@@ -1,0 +1,138 @@
+{
+  "area": "KA",
+  "topic": "Active Directory & Verzeichnisdienste",
+  "cards": [
+    {
+      "id": "ka-ad-begriffe-01",
+      "type": "qa",
+      "front": "Erläutern Sie die AD-Begriffe **Domäne**, **Struktur (Tree)** und **Gesamtstruktur (Forest)**.",
+      "back": "- **Domäne:** Verwaltungs- und Sicherheitsgrenze mit gemeinsamer Datenbank (Benutzer, Computer, Gruppen) und eigenen Richtlinien, z. B. `firma.local`.\n- **Struktur (Tree):** Domänen mit **zusammenhängendem DNS-Namensraum** (z. B. `firma.local` und `de.firma.local`).\n- **Gesamtstruktur (Forest):** oberste Ebene, eine oder mehrere Strukturen mit **gemeinsamem Schema, globalem Katalog** und automatischen Vertrauensstellungen.",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-ou-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** Gründe, Objekte im Active Directory in **Organisationseinheiten (OUs)** zu gliedern.",
+      "back": "1. **Gruppenrichtlinien gezielt verknüpfen** (z. B. eigene GPO für die OU „Laptops“ oder „Vertrieb“).\n2. **Delegation von Verwaltungsrechten** (z. B. Helpdesk darf in der OU „Benutzer Standort Köln“ Kennwörter zurücksetzen).\n\nUnterschied zu Gruppen: OUs sind Container zur Verwaltung, Gruppen dienen der Rechtevergabe.",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-gpo-reihenfolge-01",
+      "type": "qa",
+      "front": "In welcher Reihenfolge werden **Gruppenrichtlinien** verarbeitet und welche gewinnt bei Konflikten?",
+      "back": "- Reihenfolge **LSDOU**: **L**okal → **S**tandort (Site) → **D**omäne → **O**U (von der übergeordneten zur untergeordneten OU).\n- Bei widersprüchlichen Einstellungen gewinnt die **zuletzt angewendete** Richtlinie, also die **OU, die dem Objekt am nächsten ist**.\n- Ausnahmen: **Erzwungen (Enforced)** setzt sich gegen untergeordnete durch; **Vererbung deaktivieren** blockiert übergeordnete (außer erzwungene).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-gpo-beispiele-01",
+      "type": "qa",
+      "front": "Nennen Sie **vier** typische Einstellungen, die per Gruppenrichtlinie zentral gesetzt werden.",
+      "back": "1. **Kennwort- und Kontosperrrichtlinien** (Länge, Komplexität, Sperre nach Fehlversuchen)\n2. **Laufwerkszuordnungen und Drucker** (über Einstellungen/Preferences)\n3. **Softwareverteilung**/Windows-Update-Einstellungen (z. B. WSUS-Server)\n4. **Sicherheitseinstellungen**: Firewall, BitLocker, USB-Sperre, Bildschirmsperre\n\n(weitere: Ordnerumleitung, Desktop-Hintergrund, Anmeldeskripte, Proxy-Einstellungen)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-gpupdate-01",
+      "type": "qa",
+      "front": "Ein Administrator ändert eine GPO, doch auf dem Client wirkt die Änderung nicht. Nennen Sie **drei** Schritte zur Fehleranalyse.",
+      "back": "1. Auf dem Client `gpupdate /force` ausführen (bzw. neu anmelden/neu starten – manche Einstellungen gelten erst dann).\n2. Mit `gpresult /r` (oder `/h bericht.html`) prüfen, **welche GPOs angewendet** bzw. gefiltert wurden.\n3. Prüfen, ob die GPO mit der **richtigen OU verknüpft** ist, ob **Sicherheitsfilterung/WMI-Filter** greifen und ob es sich um Computer- oder Benutzerkonfiguration handelt (Objekt muss in passender OU liegen).\n\n(weitere: Replikation zwischen DCs abwarten/prüfen, Ereignisanzeige GroupPolicy)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ad-kerberos-01",
+      "type": "qa",
+      "front": "Beschreiben Sie grob die Anmeldung mit **Kerberos** in einer AD-Domäne.",
+      "back": "1. Client authentifiziert sich beim **KDC** (auf dem Domänencontroller) und erhält ein **Ticket Granting Ticket (TGT)**.\n2. Für den Zugriff auf einen Dienst (z. B. Dateiserver) fordert der Client mit dem TGT ein **Service-Ticket** an.\n3. Das Service-Ticket wird dem Dienst vorgelegt → Zugriff ohne erneute Passworteingabe (**Single Sign-on**).\n\nWichtig: **Zeitsynchronisation** (Standard max. 5 Minuten Abweichung), sonst schlägt Kerberos fehl.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-zeit-01",
+      "type": "qa",
+      "front": "Nach einem BIOS-Batteriedefekt geht die Uhr eines Clients **15 Minuten nach**. Anmeldungen an der Domäne schlagen fehl. Erklären Sie den Zusammenhang.",
+      "back": "- Kerberos-Tickets enthalten **Zeitstempel**; Standard-Toleranz im AD: **5 Minuten**.\n- Bei größerer Abweichung lehnt der DC die Anfrage als möglichen **Replay-Angriff** ab.\n- Lösung: Zeit korrigieren, Batterie tauschen; Clients synchronisieren mit dem DC, dieser (PDC-Emulator) mit einer zuverlässigen NTP-Quelle.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ad-ldap-01",
+      "type": "qa",
+      "front": "Was ist **LDAP** und wie ist ein **Distinguished Name** aufgebaut? Geben Sie ein Beispiel.",
+      "back": "- **LDAP (Lightweight Directory Access Protocol):** Protokoll zum Lesen/Schreiben von Verzeichnisdiensten (Port **389**, verschlüsselt **LDAPS 636**).\n- **DN** = eindeutiger Pfad eines Objekts, von speziell nach allgemein:\n\n`CN=Max Muster,OU=Vertrieb,OU=Benutzer,DC=firma,DC=local`\n\n(CN = Common Name, OU = Organisationseinheit, DC = Domain Component)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ad-dc-redundanz-01",
+      "type": "qa",
+      "front": "Begründen Sie, warum ein Unternehmen mindestens **zwei Domänencontroller** betreiben sollte.",
+      "back": "- Fällt der einzige DC aus, sind **keine Anmeldungen, keine Gruppenrichtlinien und (meist) keine DNS-Auflösung** mehr möglich.\n- Mit zwei DCs (Multi-Master-Replikation) übernimmt der zweite automatisch; Wartung/Updates ohne Ausfall möglich.\n- Ein DC ersetzt kein Backup (Fehler/Löschungen replizieren sich) → zusätzlich **Systemstatus-Sicherung**.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-fsmo-01",
+      "type": "qa",
+      "front": "Was sind **FSMO-Rollen** und warum gibt es sie trotz Multi-Master-Replikation?",
+      "back": "- **Flexible Single Master Operations:** fünf Aufgaben, die immer nur **ein** DC ausführen darf, um Konflikte zu vermeiden.\n- Gesamtstruktur: **Schemamaster**, **Domänennamenmaster**.\n- Domäne: **RID-Master** (Vergabe von SID-Pools), **PDC-Emulator** (Zeitquelle, Kennwortänderungen, Kontosperren), **Infrastrukturmaster**.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-ad-dns-01",
+      "type": "qa",
+      "front": "Warum ist **DNS** für Active Directory unverzichtbar? Nennen Sie einen Record-Typ, der dabei eine Rolle spielt.",
+      "back": "- Clients finden Domänencontroller, KDC, LDAP- und GC-Dienste über **DNS-Abfragen**.\n- Dafür registrieren DCs **SRV-Records** (z. B. `_ldap._tcp.dc._msdcs.firma.local`, `_kerberos._tcp…`).\n- Clients müssen deshalb den **internen DNS-Server** (DC) verwenden, nicht den Router/öffentliches DNS – sonst schlagen Domänenbeitritt und Anmeldung fehl.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-entra-01",
+      "type": "qa",
+      "front": "Ein Unternehmen nutzt Microsoft 365. Erläutern Sie den Unterschied zwischen **Active Directory (AD DS)** und **Microsoft Entra ID**.",
+      "back": "- **AD DS:** lokaler Verzeichnisdienst, Kerberos/NTLM/LDAP, Gruppenrichtlinien, OUs, Domänencontroller im eigenen Netz.\n- **Entra ID** (früher Azure AD): Cloud-Identitätsdienst für SaaS/Cloud, Protokolle **OAuth 2.0/OpenID Connect/SAML**, MFA und Conditional Access, Geräteverwaltung über Intune – **keine OUs/GPOs** im klassischen Sinn.\n- Kombination (**hybrid**) über **Entra Connect** (Synchronisation der Konten).",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-ad-kennwort-01",
+      "type": "qa",
+      "front": "Nennen Sie **drei** Einstellungen einer sinnvollen Kennwort- bzw. Kontosperrrichtlinie und begründen Sie eine davon.",
+      "back": "1. **Mindestlänge** (z. B. ≥ 12 Zeichen; BSI: lieber lang als kompliziert)\n2. **Kontosperrung** nach z. B. 10 Fehlversuchen für eine bestimmte Dauer → bremst Brute-Force-Angriffe\n3. **Kennwortchronik**/keine Wiederverwendung; Abgleich mit Listen kompromittierter Kennwörter\n\nHinweis: Regelmäßiger Zwangswechsel wird vom BSI nicht mehr empfohlen, nur bei Verdacht auf Kompromittierung – besser **MFA**.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-ad-domaenenbeitritt-01",
+      "type": "order",
+      "front": "Ein neuer Windows-Client soll der Domäne `firma.local` beitreten. Bringen Sie die Schritte in eine sinnvolle Reihenfolge.",
+      "choices": [
+        "IP-Konfiguration prüfen: DNS-Server = Domänencontroller",
+        "Namensauflösung testen (nslookup firma.local)",
+        "Systemeigenschaften: Domäne firma.local eintragen",
+        "Mit einem berechtigten Domänenkonto authentifizieren",
+        "Neustart und Computerobjekt in die richtige OU verschieben"
+      ],
+      "back": "Der häufigste Fehler beim Domänenbeitritt ist ein **falscher DNS-Server** (z. B. Router). Das Computerkonto landet standardmäßig im Container „Computers“, auf den keine OU-GPOs wirken.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

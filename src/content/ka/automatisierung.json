@@ -10,6 +10,114 @@
       "points": 4,
       "difficulty": 3,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-bash-backup-01",
+      "type": "qa",
+      "front": "Erläutern Sie das folgende Bash-Skript und nennen Sie eine Schwachstelle:\n\n```bash\n#!/bin/bash\nZIEL=/mnt/backup/$(date +%F)\nmkdir -p \"$ZIEL\"\ntar -czf \"$ZIEL/www.tar.gz\" /var/www\nfind /mnt/backup -mindepth 1 -maxdepth 1 -type d -mtime +14 -exec rm -rf {} +\n```",
+      "back": "- Legt ein Verzeichnis mit dem **heutigen Datum** (z. B. `2026-03-15`) an.\n- Packt `/var/www` als **komprimiertes tar-Archiv** dorthin.\n- Löscht Sicherungsordner, die **älter als 14 Tage** sind (Rotation).\n- **Schwachstelle:** keine Fehlerprüfung – ist `/mnt/backup` nicht eingehängt, wird auf die Systemplatte gesichert; schlägt `tar` fehl, wird trotzdem rotiert. Besser: `set -euo pipefail`, Mount prüfen, Exit-Code auswerten, Ergebnis protokollieren/melden.",
+      "points": 5,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-ps-csv-01",
+      "type": "qa",
+      "front": "Ergänzen Sie das PowerShell-Skript, sodass für jede Zeile der CSV-Datei ein AD-Benutzer angelegt wird:\n\n```powershell\n$benutzer = Import-Csv \"C:\\neu.csv\"   # Spalten: Vorname;Nachname;Abteilung\nforeach (______) {\n    $sam = ($b.Vorname.Substring(0,1) + $b.Nachname).ToLower()\n    New-ADUser -Name \"$($b.Vorname) $($b.Nachname)\" -SamAccountName $sam `\n      -Path \"OU=$($b.Abteilung),DC=firma,DC=local\" -Enabled $true `\n      -AccountPassword (Read-Host -AsSecureString \"Startkennwort\")\n}\n```",
+      "back": "- Lücke: **`$b in $benutzer`**\n- Hinweis: Bei Semikolon als Trennzeichen `Import-Csv -Delimiter \";\"` verwenden.\n- Verbesserungen: Kennwort-Änderung bei erster Anmeldung erzwingen (`-ChangePasswordAtLogon $true`), prüfen, ob der SamAccountName schon existiert, Umlaute ersetzen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-skript-pseudocode-01",
+      "type": "qa",
+      "front": "Schreiben Sie **Pseudocode**, der für alle Server einer Liste prüft, ob sie per Ping erreichbar sind, und nicht erreichbare Server in eine Logdatei schreibt.",
+      "back": "```text\nserverliste ← lies Datei \"server.txt\"\nFÜR JEDEN server IN serverliste\n    WENN ping(server) nicht erfolgreich DANN\n        schreibe Datum, Uhrzeit, server in \"ausfall.log\"\n    ENDE WENN\nENDE FÜR\n```\n\nBewertet werden: Schleife, Bedingung, sinnvolle Bezeichner und Ausgabe – nicht die exakte Syntax.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-skript-python-01",
+      "type": "qa",
+      "front": "Was gibt das folgende Python-Skript aus?\n\n```python\nbelegung = {\"C:\": 91, \"D:\": 45, \"E:\": 83}\nfor lw, prozent in belegung.items():\n    if prozent >= 90:\n        print(lw, \"KRITISCH\")\n    elif prozent >= 80:\n        print(lw, \"WARNUNG\")\n```",
+      "back": "```text\nC: KRITISCH\nE: WARNUNG\n```\n\nD: (45 %) erfüllt keine Bedingung und wird nicht ausgegeben. `elif` wird nur geprüft, wenn die erste Bedingung falsch war – deshalb erscheint C: nicht zusätzlich als WARNUNG.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-ps-pipeline-01",
+      "type": "qa",
+      "front": "Erläutern Sie, was der folgende Befehl liefert:\n\n```powershell\nGet-Service | Where-Object { $_.StartType -eq \"Automatic\" -and $_.Status -ne \"Running\" } |\n  Select-Object Name, DisplayName\n```",
+      "back": "- Alle **Dienste mit Starttyp „Automatisch“, die aktuell nicht laufen** – typische Kandidaten für Störungen nach einem Neustart.\n- Ausgabe nur der Spalten **Name** und **DisplayName**.\n- Pipeline: Objekte (nicht Text) werden weitergereicht; `$_` ist das aktuelle Objekt.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-variablen-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Unterschied zwischen einfachen und doppelten Anführungszeichen in **Bash** bzw. **PowerShell** am Beispiel `echo \"$USER\"` und `echo '$USER'`.",
+      "back": "- **Doppelte Anführungszeichen:** Variablen werden **ersetzt** → Ausgabe z. B. `mmuster`.\n- **Einfache Anführungszeichen:** Text wird **wörtlich** übernommen → Ausgabe `$USER`.\n- Gilt sinngemäß auch in PowerShell (`\"$env:USERNAME\"` vs. `'$env:USERNAME'`). Variablen in Bash immer in doppelte Anführungszeichen setzen, damit Leerzeichen in Werten nicht zu Fehlern führen.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-skript-aufgabenplanung-01",
+      "type": "qa",
+      "front": "Wie wird ein PowerShell-Skript unter Windows **täglich um 22:00 Uhr** automatisch ausgeführt? Nennen Sie zwei Punkte, auf die Sie achten müssen.",
+      "back": "- Über die **Aufgabenplanung** (Task Scheduler) bzw. `Register-ScheduledTask` mit Trigger „täglich 22:00“, Aktion: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\Skripte\\job.ps1`.\n- Achten auf:\n  1. **Ausführungskonto** mit minimal nötigen Rechten (z. B. gMSA), „unabhängig von Benutzeranmeldung ausführen“\n  2. **Protokollierung/Fehlerbehandlung** (Logdatei, Exit-Code, Benachrichtigung)\n  (weiter: Execution Policy, Pfade absolut angeben)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-regex-01",
+      "type": "qa",
+      "front": "Ein Skript soll aus Logzeilen alle IPv4-Adressen herausfiltern. Erläutern Sie den Befehl:\n\n```bash\ngrep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" access.log | sort | uniq -c | sort -nr | head -5\n```",
+      "back": "- `grep -oE` – gibt **nur die Treffer** des regulären Ausdrucks aus (vier Zahlengruppen mit Punkten)\n- `sort | uniq -c` – gleiche Adressen zusammenfassen und **zählen**\n- `sort -nr` – nach Anzahl **absteigend** sortieren\n- `head -5` – die **5 häufigsten** IP-Adressen\n\nEinsatz: z. B. Angreifer oder Top-Clients im Webserver-Log finden.",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-fehler-01",
+      "type": "qa",
+      "front": "Finden Sie den Fehler im Pseudocode, der die Summe der Festplattengrößen berechnen soll:\n\n```text\nFÜR JEDE platte IN plattenliste\n    summe ← 0\n    summe ← summe + platte.groesse\nENDE FÜR\nausgabe summe\n```",
+      "back": "- `summe ← 0` steht **innerhalb der Schleife** → die Summe wird bei jedem Durchlauf zurückgesetzt; am Ende steht nur die Größe der **letzten** Platte.\n- Korrektur: Initialisierung **vor** die Schleife ziehen.",
+      "points": 2,
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-skript-idempotent-01",
+      "type": "qa",
+      "front": "Was bedeutet **Idempotenz** bei Automatisierungswerkzeugen wie Ansible und warum ist sie wichtig?",
+      "back": "- Eine Aufgabe führt **bei mehrfacher Ausführung immer zum gleichen Zielzustand**, ohne unerwünschte Nebenwirkungen (z. B. „Paket nginx installiert“ statt „installiere nginx“).\n- Vorteile: Playbooks können **gefahrlos wiederholt** werden, nur Abweichungen werden korrigiert (Konfigurationsdrift), gut für Dokumentation des Sollzustands.",
+      "points": 3,
+      "difficulty": 3,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-skript-api-01",
+      "type": "qa",
+      "front": "Ein Skript soll per **REST-API** Daten von einem Monitoring-System abrufen. Nennen Sie **drei** Punkte, die dabei zu beachten sind.",
+      "back": "1. **Authentifizierung** (API-Token/Schlüssel) sicher speichern – nicht im Klartext im Skript/Repository\n2. **HTTPS** verwenden und Zertifikat prüfen\n3. **Fehlerbehandlung**: HTTP-Statuscodes (z. B. 401, 429, 500), Timeouts, Rate-Limits\n\n(weiter: Antwortformat JSON parsen, Paginierung, Protokollierung)",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
+    },
+    {
+      "id": "ka-skript-ps-remote-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Zweck des folgenden Befehls:\n\n```powershell\nInvoke-Command -ComputerName SRV01,SRV02 -ScriptBlock { Get-HotFix | Sort-Object InstalledOn | Select-Object -Last 3 }\n```",
+      "back": "- Führt den Skriptblock per **PowerShell Remoting (WinRM)** gleichzeitig auf **SRV01 und SRV02** aus.\n- Ermittelt jeweils die **drei zuletzt installierten Updates** (Hotfixes).\n- Nutzen: Patchstand mehrerer Server zentral prüfen. Voraussetzung: WinRM aktiviert, passende Rechte, Firewall (TCP 5985/5986).",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "niedrig"
     }
   ]
 }

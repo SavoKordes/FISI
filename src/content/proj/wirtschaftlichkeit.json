@@ -28,6 +28,49 @@
       "points": 4,
       "difficulty": 2,
       "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-kosten-arten-01",
+      "type": "qa",
+      "front": "Nennen Sie die Kostenarten, die Sie in der **Projektkostenkalkulation** berücksichtigen, und geben Sie je ein Beispiel.",
+      "back": "1. **Personalkosten:** eigene Arbeitsstunden (z. B. 40 h Azubi + Stunden von Ansprechpartnern/Kollegen) × Stundensatz inkl. Gemeinkosten\n2. **Sachkosten Hardware:** Server, Switches, Lizenzen\n3. **Software/Lizenzen und Dienstleistungen** (z. B. Support, Cloud-Abo)\n4. **Ressourcennutzung/Gemeinkosten** (Arbeitsplatz, Testumgebung – oft pauschaler Satz pro Stunde)\n5. **Laufende Kosten** nach dem Projekt (Wartung, Strom, Abo) – wichtig für die Wirtschaftlichkeitsbetrachtung",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-kosten-beispiel-01",
+      "type": "qa",
+      "front": "Berechnen Sie die **Personalkosten** Ihres Projekts: Sie arbeiten **40 Stunden** (Stundensatz Azubi intern **18 €**), Ihr Ausbilder unterstützt **3 Stunden** (Stundensatz **55 €**), zusätzlich wird eine Ressourcenpauschale von **12 € pro Projektstunde** (für alle Stunden) angesetzt.",
+      "back": "- Azubi: 40 h × 18 € = **720 €**\n- Ausbilder: 3 h × 55 € = **165 €**\n- Ressourcenpauschale: (40 + 3) h × 12 € = **516 €**\n- **Summe: 1.401 €**\n\nIn der Doku die **Herkunft der Stundensätze** angeben (z. B. Vorgabe der Personalabteilung, Bruttogehalt + Lohnnebenkosten).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-tco-01",
+      "type": "qa",
+      "front": "Was versteht man unter **Total Cost of Ownership (TCO)** und warum ist sie bei Investitionsentscheidungen wichtig?",
+      "back": "- **Gesamtkosten** eines Systems über die **gesamte Nutzungsdauer**: Anschaffung + Installation + Betrieb (Strom, Wartung, Lizenzen, Support, Administration, Schulung) + Entsorgung.\n- Wichtig, weil die **Anschaffungskosten oft nur ein kleiner Teil** sind – eine günstige Lösung kann durch hohe laufende Kosten insgesamt teurer sein.\n- Beispiel: Kauf eines Servers vs. Cloud über 5 Jahre vergleichen.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "proj-nutzwert-ablauf-01",
+      "type": "qa",
+      "front": "Beschreiben Sie das Vorgehen bei einer **Nutzwertanalyse** in fünf Schritten.",
+      "back": "1. **Alternativen** festlegen (ggf. K.-o.-Kriterien vorher prüfen)\n2. **Bewertungskriterien** bestimmen (Kosten, Funktionen, Sicherheit, Support …)\n3. **Gewichtung** der Kriterien (Summe 100 %), begründet\n4. **Bewertung** jeder Alternative je Kriterium mit Punkten (z. B. 1–10)\n5. **Nutzwert** = Σ Gewicht × Punkte berechnen und **Entscheidung begründen**\n\nVorteil: auch **nicht-monetäre** Kriterien vergleichbar; Nachteil: Subjektivität bei Gewichtung/Punkten.",
+      "points": 5,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-amortisation-diagramm-01",
+      "type": "qa",
+      "front": "Erläutern Sie, wie Sie die **Amortisation** in Ihrer Projektdokumentation **grafisch** darstellen können.",
+      "back": "- **Liniendiagramm** über die Zeit (Monate/Jahre):\n  - Kostenkurve der neuen Lösung: startet bei den **Investitionskosten**, steigt mit den laufenden Kosten\n  - Kostenkurve der alten Lösung: startet bei 0, steigt mit den (höheren) laufenden Kosten\n- Der **Schnittpunkt** ist der **Amortisationszeitpunkt (Break-even)**; danach spart die neue Lösung.\n- Zahlen in einer Tabelle ergänzen und die Berechnung nachvollziehbar zeigen.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
     }
   ]
 }
