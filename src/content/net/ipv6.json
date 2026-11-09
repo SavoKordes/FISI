@@ -1,0 +1,33 @@
+{
+  "area": "NET",
+  "topic": "IPv6",
+  "cards": [
+    {
+      "id": "net-ipv6-kuerzen-01",
+      "type": "qa",
+      "front": "Kürzen Sie die IPv6-Adresse so weit wie möglich:\n\n`2001:0db8:0000:0000:0a00:0000:0000:0001`",
+      "back": "**2001:db8::a00:0:0:1**\n\n1. Führende Nullen je Block weglassen: `2001:db8:0:0:a00:0:0:1`\n2. `::` darf nur **einmal** verwendet werden. Es gibt zwei gleich lange Null-Folgen (je 2 Blöcke) → nach RFC 5952 wird die **erste** ersetzt.\n\nAchtung: `a00` darf **nicht** zu `a` gekürzt werden – nur **führende** Nullen entfallen.",
+      "points": 2,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-adresstypen-01",
+      "type": "qa",
+      "front": "Nennen Sie für die IPv6-Adresstypen **Global Unicast**, **Unique Local**, **Link-Local** und **Multicast** jeweils das Präfix und den Einsatzzweck.",
+      "back": "| Typ | Präfix | Zweck |\n|---|---|---|\n| Global Unicast (GUA) | **2000::/3** | weltweit routbar (öffentlich) |\n| Unique Local (ULA) | **fc00::/7** (genutzt: fd00::/8) | intern, nicht im Internet geroutet – vergleichbar mit privaten IPv4-Netzen |\n| Link-Local | **fe80::/10** | nur im eigenen Segment, automatisch auf jedem Interface, z. B. für NDP und als Gateway-Adresse |\n| Multicast | **ff00::/8** | Gruppenkommunikation, ersetzt Broadcast (z. B. ff02::1 alle Knoten) |",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ipv6-slaac-01",
+      "type": "qa",
+      "front": "Beschreiben Sie den Ablauf von **SLAAC** (Stateless Address Autoconfiguration).",
+      "back": "1. Host bildet eine **Link-Local-Adresse** (fe80::/64 + Interface-ID) und prüft sie per **DAD** (Duplicate Address Detection).\n2. Host sendet eine **Router Solicitation** (an ff02::2) oder wartet auf das periodische **Router Advertisement**.\n3. Router sendet ein **Router Advertisement** mit **Präfix (/64)**, Gateway (Link-Local des Routers) und Flags (M/O).\n4. Host bildet daraus seine **globale Adresse** = Präfix + Interface-ID (EUI-64 oder zufällig/Privacy Extensions), wieder DAD.\n\nDNS-Server kommen per RDNSS-Option im RA oder per stateless DHCPv6 (O-Flag).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

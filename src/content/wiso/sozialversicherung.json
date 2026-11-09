@@ -1,0 +1,46 @@
+{
+  "area": "WISO",
+  "topic": "Sozialversicherung",
+  "cards": [
+    {
+      "id": "wiso-sv-unfall-01",
+      "type": "mc",
+      "front": "Welcher Zweig der Sozialversicherung wird **allein vom Arbeitgeber** finanziert?",
+      "choices": [
+        "Krankenversicherung",
+        "Rentenversicherung",
+        "Arbeitslosenversicherung",
+        "Unfallversicherung"
+      ],
+      "correct": [
+        3
+      ],
+      "back": "Die **gesetzliche Unfallversicherung** – Träger sind die **Berufsgenossenschaften**.",
+      "explanation": "Sie zahlt bei **Arbeits- und Wegeunfällen** sowie **Berufskrankheiten**. Kranken-, Pflege-, Renten- und Arbeitslosenversicherung werden grundsätzlich je zur Hälfte von Arbeitgeber und Arbeitnehmer getragen (Ausnahmen: den **Zuschlag für Kinderlose** in der Pflegeversicherung trägt der AN allein; in Sachsen trägt der AN einen höheren Anteil an der Pflegeversicherung).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-sv-rente-01",
+      "type": "mc",
+      "front": "Wie hoch ist der **allgemeine Beitragssatz zur gesetzlichen Rentenversicherung** im Jahr 2026?",
+      "choices": [
+        "14,6 %",
+        "18,6 %",
+        "2,6 %",
+        "3,6 %"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**18,6 %** des Bruttoentgelts (bis zur Beitragsbemessungsgrenze), je zur Hälfte AG/AN = 9,3 % (Stand 2026).",
+      "explanation": "Zum Vergleich (Stand 2026): Krankenversicherung 14,6 % + Zusatzbeitrag der Kasse, Arbeitslosenversicherung 2,6 %, Pflegeversicherung 3,6 % (+ Zuschlag für Kinderlose).",
+      "difficulty": 1,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    }
+  ]
+}

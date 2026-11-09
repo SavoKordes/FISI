@@ -1,0 +1,33 @@
+{
+  "area": "KA",
+  "topic": "Virtualisierung & Container",
+  "cards": [
+    {
+      "id": "ka-virt-hypervisor-01",
+      "type": "compare",
+      "front": "Unterscheiden Sie **Hypervisor Typ 1** und **Typ 2** und nennen Sie je ein Produktbeispiel.",
+      "back": "| | Typ 1 (Bare Metal) | Typ 2 (Hosted) |\n|---|---|---|\n| Läuft auf | direkt auf der Hardware | auf einem Host-Betriebssystem |\n| Leistung/Overhead | hoch / gering | geringer / höher |\n| Einsatz | Rechenzentrum, Server | Test, Entwicklung, Arbeitsplatz |\n| Beispiele | VMware ESXi, Microsoft Hyper-V, Proxmox VE (KVM), Xen | VirtualBox, VMware Workstation |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-container-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei Vorteile** von Containern (z. B. Docker) gegenüber virtuellen Maschinen und **einen Nachteil**.",
+      "back": "**Vorteile**\n1. **Geringer Ressourcenbedarf / schneller Start:** Container teilen sich den Kernel des Hosts, kein eigenes Gast-Betriebssystem.\n2. **Portabilität:** Das Image enthält die Anwendung samt Abhängigkeiten und läuft überall gleich (Entwicklung → Produktion).\n\n**Nachteil**\n- **Schwächere Isolation** als bei VMs (gemeinsamer Kernel); Container müssen zum Host-Kernel passen (Linux-Container auf Linux-Kernel).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-virt-snapshot-01",
+      "type": "qa",
+      "front": "Ein Kollege sagt: „Unsere VMs haben tägliche **Snapshots**, ein Backup brauchen wir nicht.“ Nennen Sie **zwei** Gründe, warum diese Aussage falsch ist.",
+      "back": "1. Snapshots liegen **auf demselben Speicher** wie die VM – fällt der Datastore aus oder wird er verschlüsselt, sind Snapshots ebenfalls verloren.\n2. Snapshots sind **Differenzdateien** und von der Basisdisk abhängig; viele/alte Snapshots kosten Performance und Speicherplatz und sind nicht für lange Aufbewahrung gedacht.\n\n→ Snapshots eignen sich für **kurzfristige Rücksprungpunkte** (z. B. vor Updates), nicht als Datensicherung.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

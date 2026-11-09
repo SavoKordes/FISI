@@ -1,0 +1,32 @@
+{
+  "area": "NET",
+  "topic": "OSI- & TCP/IP-Modell",
+  "cards": [
+    {
+      "id": "net-osi-schichten-01",
+      "type": "order",
+      "front": "Bringen Sie die Schichten des **OSI-Modells** in die richtige Reihenfolge – beginnend mit Schicht 1.",
+      "choices": [
+        "Bitübertragungsschicht (Physical)",
+        "Sicherungsschicht (Data Link)",
+        "Vermittlungsschicht (Network)",
+        "Transportschicht (Transport)",
+        "Sitzungsschicht (Session)",
+        "Darstellungsschicht (Presentation)",
+        "Anwendungsschicht (Application)"
+      ],
+      "back": "Merksatz (von unten): **„Please Do Not Throw Salami Pizza Away“** – Physical, Data Link, Network, Transport, Session, Presentation, Application.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-osi-geraete-01",
+      "type": "qa",
+      "front": "Ordnen Sie die Geräte **Repeater/Hub**, **Switch**, **Router** und **Layer-3-Switch** den OSI-Schichten zu und nennen Sie jeweils die verwendete Adressierung.",
+      "back": "| Gerät | OSI-Schicht | Arbeitet mit |\n|---|---|---|\n| Repeater/Hub | 1 – Bitübertragung | Signalen/Bits, keine Adressen |\n| Switch | 2 – Sicherung | **MAC-Adressen** (MAC-Tabelle) |\n| Router | 3 – Vermittlung | **IP-Adressen** (Routingtabelle) |\n| Layer-3-Switch | 2 **und** 3 | MAC + IP – Routing zwischen VLANs in Hardware |",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    }
+  ]
+}

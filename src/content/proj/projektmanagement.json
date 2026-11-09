@@ -1,0 +1,15 @@
+{
+  "area": "PROJ",
+  "topic": "Netzplan & Zeitplanung",
+  "cards": [
+    {
+      "id": "proj-netzplan-puffer-01",
+      "type": "qa",
+      "front": "Erläutern Sie im Netzplan die Begriffe **Gesamtpuffer**, **freier Puffer** und **kritischer Pfad** und geben Sie die Formeln an.",
+      "back": "- **Gesamtpuffer (GP):** Zeit, um die ein Vorgang verschoben werden kann, **ohne das Projektende** zu gefährden. GP = SAZ − FAZ = SEZ − FEZ\n- **Freier Puffer (FP):** Zeit, um die ein Vorgang verschoben werden kann, **ohne den frühesten Anfang des Nachfolgers** zu verschieben. FP = FAZ(Nachfolger, kleinster) − FEZ\n- **Kritischer Pfad:** Folge von Vorgängen mit **GP = 0** – jede Verzögerung verschiebt das Projektende.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

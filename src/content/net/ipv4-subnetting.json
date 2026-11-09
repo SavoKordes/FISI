@@ -1,0 +1,24 @@
+{
+  "area": "NET",
+  "topic": "IPv4 & Subnetting",
+  "cards": [
+    {
+      "id": "net-ipv4-privat-01",
+      "type": "qa",
+      "front": "Nennen Sie die drei **privaten IPv4-Adressbereiche** nach RFC 1918 in CIDR-Notation.",
+      "back": "- **10.0.0.0/8** (10.0.0.0 – 10.255.255.255)\n- **172.16.0.0/12** (172.16.0.0 – 172.31.255.255)\n- **192.168.0.0/16** (192.168.0.0 – 192.168.255.255)\n\nDiese Adressen werden im Internet nicht geroutet → Zugriff nach außen über NAT/PAT.",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-subnetting-host-01",
+      "type": "qa",
+      "front": "Ein Client hat die Adresse **192.168.10.77/27**. Bestimmen Sie Netzadresse, Broadcastadresse, ersten und letzten nutzbaren Host sowie die Anzahl nutzbarer Hosts.",
+      "back": "- /27 → Maske 255.255.255.**224**, Blockgröße 256 − 224 = **32**\n- Netze im letzten Oktett: 0, 32, **64**, 96, … → 77 liegt im Block 64–95\n- Netzadresse: **192.168.10.64**\n- Broadcast: **192.168.10.95**\n- Hosts: **192.168.10.65 – 192.168.10.94**\n- Anzahl: 2⁵ − 2 = **30**",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

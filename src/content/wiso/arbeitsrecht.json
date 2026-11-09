@@ -1,0 +1,101 @@
+{
+  "area": "WISO",
+  "topic": "Arbeitsrecht",
+  "cards": [
+    {
+      "id": "wiso-arbeitsrecht-kuendigungsfrist-01",
+      "type": "mc",
+      "front": "Wie lautet die **gesetzliche Grundkündigungsfrist** für Arbeitnehmer nach § 622 BGB (außerhalb der Probezeit)?",
+      "choices": [
+        "2 Wochen",
+        "4 Wochen zum 15. oder zum Ende eines Kalendermonats",
+        "1 Monat zum Monatsende",
+        "3 Monate zum Quartalsende"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**4 Wochen zum 15. oder zum Ende eines Kalendermonats.**",
+      "explanation": "Für den **Arbeitgeber** verlängert sich die Frist mit der Betriebszugehörigkeit (ab 2 Jahren 1 Monat zum Monatsende, gestaffelt bis 7 Monate). In der vereinbarten Probezeit (max. 6 Monate) gilt eine Frist von 2 Wochen. Tarifverträge können abweichen.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-arbzg-01",
+      "type": "mc",
+      "front": "Welche Aussagen zum **Arbeitszeitgesetz** (Erwachsene) sind richtig? (2 richtige)",
+      "choices": [
+        "Die werktägliche Arbeitszeit darf 8 Stunden nicht überschreiten; sie kann auf bis zu 10 Stunden verlängert werden, wenn im Durchschnitt von 6 Monaten 8 Stunden nicht überschritten werden.",
+        "Bei mehr als 6 Stunden Arbeit ist eine Pause von mindestens 60 Minuten Pflicht.",
+        "Nach Arbeitsende ist eine ununterbrochene Ruhezeit von mindestens 11 Stunden einzuhalten.",
+        "Werktage sind Montag bis Freitag."
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "back": "Richtig: **8 h, verlängerbar auf 10 h** mit Ausgleich – und **11 h Ruhezeit**.",
+      "explanation": "Pausen nach § 4 ArbZG: **30 Min** bei mehr als 6 bis 9 Stunden, **45 Min** bei mehr als 9 Stunden. Werktage sind **Montag bis Samstag** – deshalb sind bis zu 48 h/Woche zulässig.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-jarbschg-01",
+      "type": "mc",
+      "front": "Ein 17-jähriger Auszubildender arbeitet 7 Stunden am Tag. Welche **Ruhepausen** stehen ihm nach dem Jugendarbeitsschutzgesetz insgesamt mindestens zu?",
+      "choices": [
+        "30 Minuten",
+        "45 Minuten",
+        "60 Minuten",
+        "keine, da er in Ausbildung ist"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**60 Minuten** (bei mehr als 6 Stunden Arbeitszeit, § 11 JArbSchG).",
+      "explanation": "Jugendliche: **30 Min** bei mehr als 4,5 bis 6 Stunden, **60 Min** bei mehr als 6 Stunden. Außerdem: max. 8 h täglich und 40 h wöchentlich, 12 h Freizeit zwischen zwei Arbeitstagen.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "wiso-burlg-01",
+      "type": "mc",
+      "front": "Eine Arbeitnehmerin arbeitet in einer **5-Tage-Woche**. Wie viele Urlaubstage stehen ihr nach dem **Bundesurlaubsgesetz** mindestens zu?",
+      "choices": [
+        "18 Arbeitstage",
+        "20 Arbeitstage",
+        "24 Arbeitstage",
+        "30 Arbeitstage"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "**20 Arbeitstage.**",
+      "explanation": "Das BUrlG nennt **24 Werktage** – Werktage sind Mo–Sa (6 Tage). Umrechnung auf die 5-Tage-Woche: 24 ÷ 6 × 5 = **20 Arbeitstage**. Tarif- oder Arbeitsverträge gewähren oft mehr.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-mindestlohn-01",
+      "type": "mc",
+      "front": "Wie hoch ist der **gesetzliche Mindestlohn** (brutto je Zeitstunde) seit dem 1. Januar 2026?",
+      "choices": [
+        "12,82 €",
+        "13,50 €",
+        "13,90 €",
+        "14,60 €"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**13,90 €** pro Stunde (seit 01.01.2026; Stand 2026).",
+      "explanation": "Beschluss der Mindestlohnkommission 2025: 13,90 € ab 2026, **14,60 € ab 01.01.2027**. Auszubildende fallen nicht unter das Mindestlohngesetz, für sie gilt die **Mindestausbildungsvergütung** nach § 17 BBiG.",
+      "difficulty": 1,
+      "examRelevance": "mittel",
+      "tags": [
+        "jahreswert"
+      ],
+      "asOf": "2026-01"
+    }
+  ]
+}

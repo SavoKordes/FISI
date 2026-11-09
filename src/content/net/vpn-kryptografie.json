@@ -1,0 +1,24 @@
+{
+  "area": "NET",
+  "topic": "VPN & Kryptografie",
+  "cards": [
+    {
+      "id": "net-vpn-split-01",
+      "type": "qa",
+      "front": "Erläutern Sie **Split Tunneling** bei einem Client-to-Site-VPN und nennen Sie je einen Vor- und Nachteil.",
+      "back": "- **Split Tunneling:** Nur der Verkehr ins **Firmennetz** läuft durch den VPN-Tunnel; Internetverkehr geht direkt über den lokalen Anschluss.\n- **Vorteil:** entlastet VPN-Gateway und Firmenleitung, bessere Performance z. B. für Videokonferenzen/Cloud-Dienste.\n- **Nachteil:** Internetverkehr läuft **nicht über die Sicherheitssysteme der Firma** (Proxy, Firewall, IDS) → geringere Kontrolle, höheres Risiko.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "net-krypto-hybrid-01",
+      "type": "qa",
+      "front": "Erläutern Sie das Prinzip der **hybriden Verschlüsselung** und begründen Sie, warum sie z. B. bei TLS eingesetzt wird.",
+      "back": "- Ein zufälliger **symmetrischer Sitzungsschlüssel** verschlüsselt die eigentlichen Daten (z. B. AES).\n- Der Sitzungsschlüssel wird **asymmetrisch** ausgetauscht bzw. vereinbart (z. B. (EC)DHE, früher RSA-Verschlüsselung mit dem öffentlichen Schlüssel).\n- **Begründung:** kombiniert die **Geschwindigkeit** der symmetrischen Verfahren mit dem **sicheren Schlüsselaustausch** der asymmetrischen Verfahren (Schlüsselverteilungsproblem gelöst).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

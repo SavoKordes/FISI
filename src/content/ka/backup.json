@@ -1,0 +1,56 @@
+{
+  "area": "KA",
+  "topic": "Backup & Restore",
+  "cards": [
+    {
+      "id": "ka-backup-arten-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **Vollsicherung**, **differenzielle** und **inkrementelle Sicherung** hinsichtlich der gesicherten Daten, des Archivbits und des Aufwands bei der Wiederherstellung.",
+      "back": "| | Voll | Differenziell | Inkrementell |\n|---|---|---|---|\n| Gesichert wird | alle Daten | alle Änderungen **seit der letzten Vollsicherung** | alle Änderungen **seit der letzten Sicherung** (voll oder inkrementell) |\n| Archivbit | wird zurückgesetzt | wird **nicht** zurückgesetzt | wird zurückgesetzt |\n| Speicherbedarf / Dauer der Sicherung | hoch | wächst täglich | gering |\n| Wiederherstellung | nur 1 Sicherung | Vollsicherung + **letzte** Differenzielle | Vollsicherung + **alle** Inkrementellen in Reihenfolge |",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-321-01",
+      "type": "cloze",
+      "front": "3-2-1-Regel: Halte mindestens {{3}} Kopien deiner Daten vor, auf {{2}} unterschiedlichen Speichermedien, davon {{1}} Kopie außer Haus (offsite).",
+      "back": "Erweiterung „3-2-1-1-0“: zusätzlich eine Kopie **offline/unveränderbar** (immutable, Schutz vor Ransomware) und **0 Fehler** bei der Prüfung der Wiederherstellung.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-rpo-rto-01",
+      "type": "qa",
+      "front": "Erläutern Sie die Begriffe **RPO** und **RTO** jeweils mit einem Beispiel.",
+      "back": "- **RPO (Recovery Point Objective):** maximal tolerierbarer **Datenverlust**, gemessen als Zeitraum. Beispiel: RPO = 4 h → spätestens alle 4 Stunden muss gesichert werden.\n- **RTO (Recovery Time Objective):** maximal tolerierbare **Ausfallzeit** bis zur Wiederherstellung des Dienstes. Beispiel: RTO = 2 h → der Mailserver muss nach einem Ausfall innerhalb von 2 Stunden wieder laufen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-restore-01",
+      "type": "order",
+      "front": "Sicherungsplan: Sonntag **Vollsicherung**, Montag bis Donnerstag jeweils **inkrementell**. Am Freitagmorgen fällt der Server aus. In welcher Reihenfolge spielen Sie die Sicherungen zurück?",
+      "choices": [
+        "Vollsicherung vom Sonntag",
+        "Inkrementelle Sicherung Montag",
+        "Inkrementelle Sicherung Dienstag",
+        "Inkrementelle Sicherung Mittwoch",
+        "Inkrementelle Sicherung Donnerstag"
+      ],
+      "back": "Bei inkrementeller Sicherung werden **die Vollsicherung und anschließend alle inkrementellen Sicherungen in chronologischer Reihenfolge** zurückgespielt. Fehlt eine Sicherung in der Kette, sind die nachfolgenden Änderungen nicht vollständig wiederherstellbar.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-backup-gfs-01",
+      "type": "qa",
+      "front": "Erläutern Sie das **Generationenprinzip (Großvater-Vater-Sohn)** bei der Datensicherung.",
+      "back": "- **Sohn:** tägliche Sicherungen (z. B. Mo–Do), Medien werden wöchentlich überschrieben.\n- **Vater:** wöchentliche Sicherung (z. B. Freitag), wird monatlich rotiert.\n- **Großvater:** monatliche Sicherung, wird z. B. 12 Monate aufbewahrt.\n- **Ziel:** mit überschaubarer Zahl an Medien auf **mehrere ältere Stände** zurückgreifen zu können (z. B. bei spät bemerkten Fehlern).",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

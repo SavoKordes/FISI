@@ -1,0 +1,30 @@
+{
+  "area": "PROJ",
+  "topic": "Fachgespräch & Präsentation",
+  "cards": [
+    {
+      "id": "proj-fachgespraech-alternative-01",
+      "type": "qa",
+      "front": "Im Fachgespräch fragt der Prüfungsausschuss: **„Warum haben Sie sich nicht für eine Cloud-Lösung entschieden?“** Wie bauen Sie eine überzeugende Antwort auf?",
+      "back": "1. **Alternative anerkennen:** „Die Cloud-Lösung haben wir in der Nutzwertanalyse betrachtet …“\n2. **Kriterien nennen**, die entschieden haben (z. B. Datenschutz/DSGVO bei personenbezogenen Daten, laufende Kosten über 5 Jahre, Bandbreite am Standort, vorhandenes Know-how, Vorgaben des Kunden).\n3. **Mit Zahlen belegen** (Ergebnis Nutzwertanalyse, Kostenvergleich).\n4. **Bedingungen nennen**, unter denen die Alternative besser wäre („Bei mehreren Standorten wäre die Cloud vorteilhaft.“).\n\nNie „wusste ich nicht“ – ehrlich, aber fachlich begründet antworten.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-praesentation-aufbau-01",
+      "type": "qa",
+      "front": "Skizzieren Sie einen sinnvollen Aufbau für die **Projektpräsentation (12–15 Minuten)** vor dem Prüfungsausschuss.",
+      "back": "1. **Einleitung** (≈ 1 Min): Vorstellung, Unternehmen, Thema\n2. **Ausgangssituation & Ziele** (≈ 2 Min): Problem, Soll-Zustand\n3. **Planung & Entscheidung** (≈ 3 Min): Alternativen, Nutzwertanalyse, Kosten\n4. **Umsetzung** (≈ 4–5 Min): technische Kernpunkte, Screenshots/Schaubilder\n5. **Test, Qualitätssicherung, Ergebnis** (≈ 2 Min): Soll-Ist-Vergleich, Zeitplan\n6. **Fazit & Ausblick** (≈ 1–2 Min): Lessons Learned, Erweiterungen\n\nZielgruppe: Fachleute – Technik zeigen, aber das **Warum** in den Mittelpunkt stellen. Zeit unbedingt einhalten (Probedurchlauf mit Stoppuhr).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-doku-formalia-01",
+      "type": "qa",
+      "front": "Nennen Sie typische **Formalia** für die Projektdokumentation (FISI) – und worauf Sie vorher unbedingt achten müssen.",
+      "back": "Typischer Rahmen (variiert je IHK):\n- ca. **15 Seiten** Bericht (ohne Deckblatt/Verzeichnisse) + **Anlagen**\n- Schriftgrad **11**, Zeilenabstand **1,3**, Abgabe als **PDF**\n- Deckblatt, Inhalts-, Abbildungs-, Tabellen-, Abkürzungs- und Quellenverzeichnis\n- **Eigenständigkeitserklärung**; Nutzung von **KI-Werkzeugen kennzeichnen**\n- Kundendokumentation/Auszüge als Anlage\n\n**Wichtig:** Die **Vorgaben der eigenen IHK haben Vorrang** – Merkblatt der zuständigen IHK lesen!",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

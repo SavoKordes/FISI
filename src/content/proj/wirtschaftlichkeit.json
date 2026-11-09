@@ -1,0 +1,33 @@
+{
+  "area": "PROJ",
+  "topic": "Wirtschaftlichkeit & Entscheidung",
+  "cards": [
+    {
+      "id": "proj-nutzwert-01",
+      "type": "qa",
+      "front": "Für die Auswahl einer Backup-Software werden zwei Produkte per **Nutzwertanalyse** verglichen (Punkte 1–10):\n\n| Kriterium | Gewichtung | Produkt A | Produkt B |\n|---|---|---|---|\n| Kosten | 40 % | 6 | 9 |\n| Funktionsumfang | 35 % | 9 | 6 |\n| Bedienbarkeit | 25 % | 8 | 7 |\n\nBerechnen Sie die Nutzwerte und treffen Sie eine Entscheidung.",
+      "back": "- **A:** 0,40 × 6 + 0,35 × 9 + 0,25 × 8 = 2,40 + 3,15 + 2,00 = **7,55**\n- **B:** 0,40 × 9 + 0,35 × 6 + 0,25 × 7 = 3,60 + 2,10 + 1,75 = **7,45**\n- **Entscheidung:** Produkt **A** hat den höheren Nutzwert und wird gewählt.\n\nHinweis: Bei so knappem Ergebnis die Gewichtung kritisch hinterfragen (Sensitivität) und das im Fachgespräch begründen können.",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-amortisation-01",
+      "type": "qa",
+      "front": "Die Virtualisierung von drei alten Servern kostet einmalig **12.000 €**. Dadurch sinken Strom- und Wartungskosten um **400 € pro Monat**. Berechnen Sie die **Amortisationszeit**.",
+      "back": "- Einsparung pro Jahr: 400 €/Monat × 12 = **4.800 €/Jahr**\n- Amortisationszeit = Investition ÷ jährliche Einsparung = 12.000 € ÷ 4.800 €/Jahr = **2,5 Jahre** (= 30 Monate)\n\nAlternativ direkt: 12.000 € ÷ 400 €/Monat = 30 Monate.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-make-or-buy-01",
+      "type": "compare",
+      "front": "Ihr Betrieb überlegt, das Monitoring der Server **selbst aufzubauen** (z. B. Zabbix) oder als **Managed Service** einzukaufen. Stellen Sie je zwei Vor- und Nachteile der Eigenlösung („Make“) gegenüber.",
+      "back": "| | Make (Eigenbetrieb) |\n|---|---|\n| **Vorteile** | volle Kontrolle und Anpassbarkeit · Know-how bleibt im Haus · Daten verlassen das Unternehmen nicht · keine laufenden Lizenz-/Servicegebühren |\n| **Nachteile** | eigener Personal- und Zeitaufwand für Aufbau und Betrieb · Abhängigkeit vom Wissen einzelner Mitarbeiter · keine vertraglich garantierte Verfügbarkeit (SLA) · Bereitschaft/24×7 schwer abzudecken |\n\nFür „Buy“ gilt jeweils umgekehrt; Entscheidung z. B. per Nutzwertanalyse und Kostenvergleich.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": "NET",
+  "topic": "Switching & VLAN",
+  "cards": [
+    {
+      "id": "net-vlan-8021q-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Unterschied zwischen einem **Tagged**- und einem **Untagged**-Port nach IEEE 802.1Q und nennen Sie je einen typischen Einsatz.",
+      "back": "- **Untagged (Access-Port):** gehört genau einem VLAN; Frames werden **ohne VLAN-Tag** an das Endgerät gegeben. Einsatz: PC, Drucker.\n- **Tagged (Trunk-Port):** transportiert **mehrere VLANs**; jeder Frame erhält ein **4-Byte-802.1Q-Tag** mit der VLAN-ID (12 Bit → 1–4094). Einsatz: Switch ↔ Switch, Switch ↔ Router/Firewall, Switch ↔ Hypervisor.\n\nAusnahme: Das **native VLAN** wird auf einem Trunk untagged übertragen.",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

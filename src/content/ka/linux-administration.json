@@ -1,0 +1,24 @@
+{
+  "area": "KA",
+  "topic": "Linux-Administration",
+  "cards": [
+    {
+      "id": "ka-linux-chmod-01",
+      "type": "qa",
+      "front": "Auf einem Linux-Server wird ausgeführt:\n\n```bash\nchmod 750 /srv/projekte\nls -ld /srv/projekte\n```\n\nGeben Sie die Ausgabe der Rechte in symbolischer Form an und erläutern Sie, wer was darf.",
+      "back": "Symbolisch: `drwxr-x---`\n\n- **7 = rwx** → Besitzer: lesen, schreiben, Verzeichnis betreten\n- **5 = r-x** → Gruppe: Inhalt auflisten und Verzeichnis betreten, aber nichts anlegen/löschen\n- **0 = ---** → alle anderen: kein Zugriff\n\n(r = 4, w = 2, x = 1)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-linux-cron-01",
+      "type": "qa",
+      "front": "Erläutern Sie den folgenden Crontab-Eintrag:\n\n```bash\n30 2 * * 1-5 /opt/scripts/backup.sh >> /var/log/backup.log 2>&1\n```",
+      "back": "- Felder: Minute **30**, Stunde **2**, jeder Tag des Monats, jeder Monat, Wochentage **1–5** (Montag bis Freitag)\n- → Das Skript `backup.sh` läuft **montags bis freitags um 02:30 Uhr**.\n- `>> …log` hängt die Ausgabe an die Logdatei an, `2>&1` leitet auch Fehlermeldungen (stderr) dorthin um.",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

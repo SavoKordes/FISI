@@ -1,0 +1,38 @@
+{
+  "area": "NET",
+  "topic": "Dienste & Ports",
+  "cards": [
+    {
+      "id": "net-dhcp-dora-01",
+      "type": "order",
+      "front": "Bringen Sie die Nachrichten der **DHCPv4-Adressvergabe** in die richtige Reihenfolge.",
+      "choices": [
+        "DHCPDISCOVER (Client, Broadcast)",
+        "DHCPOFFER (Server)",
+        "DHCPREQUEST (Client, Broadcast)",
+        "DHCPACK (Server)"
+      ],
+      "back": "Merkwort **DORA**. Der Request wird als Broadcast gesendet, damit auch andere DHCP-Server erfahren, dass ihr Angebot nicht angenommen wurde. Ports: Server **UDP 67**, Client **UDP 68**. In anderen Subnetzen hilft ein **DHCP-Relay** (ip helper-address).",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-ports-01",
+      "type": "qa",
+      "front": "Nennen Sie die Standardports (Protokoll/Port) für: **SSH, DNS, HTTPS, RDP, LDAPS, SMTP-Submission**.",
+      "back": "| Dienst | Port |\n|---|---|\n| SSH | TCP 22 |\n| DNS | UDP 53 (TCP 53 bei Zonentransfer/großen Antworten) |\n| HTTPS | TCP 443 |\n| RDP | TCP 3389 |\n| LDAPS | TCP 636 |\n| SMTP-Submission | TCP 587 (STARTTLS), 465 (implizites TLS) |",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-dns-records-01",
+      "type": "qa",
+      "front": "Erläutern Sie die DNS-Record-Typen **A, AAAA, MX, CNAME, PTR** und **TXT**.",
+      "back": "- **A:** Name → IPv4-Adresse\n- **AAAA:** Name → IPv6-Adresse\n- **MX:** zuständiger Mailserver einer Domain (mit Priorität)\n- **CNAME:** Alias → verweist auf einen anderen Namen\n- **PTR:** Reverse Lookup: IP-Adresse → Name\n- **TXT:** beliebiger Text, z. B. SPF, DKIM, DMARC, Domain-Verifizierung",
+      "points": 3,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    }
+  ]
+}

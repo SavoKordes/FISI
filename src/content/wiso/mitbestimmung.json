@@ -1,0 +1,42 @@
+{
+  "area": "WISO",
+  "topic": "Betriebsrat & Mitbestimmung",
+  "cards": [
+    {
+      "id": "wiso-betriebsrat-01",
+      "type": "mc",
+      "front": "Ab welcher Betriebsgröße kann nach dem Betriebsverfassungsgesetz ein **Betriebsrat** gewählt werden?",
+      "choices": [
+        "ab 5 ständigen wahlberechtigten Arbeitnehmern, von denen 3 wählbar sind",
+        "ab 10 Arbeitnehmern",
+        "ab 20 Arbeitnehmern",
+        "in jedem Betrieb unabhängig von der Größe"
+      ],
+      "correct": [
+        0
+      ],
+      "back": "In Betrieben mit in der Regel **mindestens 5 ständigen wahlberechtigten Arbeitnehmern**, von denen **3 wählbar** sind (§ 1 BetrVG).",
+      "explanation": "Wahlberechtigt sind Arbeitnehmer ab **16 Jahren**, wählbar ab **18 Jahren** mit mindestens 6 Monaten Betriebszugehörigkeit. Die Amtszeit beträgt 4 Jahre.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-jav-01",
+      "type": "mc",
+      "front": "Unter welchen Voraussetzungen wird eine **Jugend- und Auszubildendenvertretung (JAV)** gewählt?",
+      "choices": [
+        "In Betrieben mit mindestens 5 Arbeitnehmern unter 18 Jahren oder Auszubildenden unter 25 Jahren – und es gibt einen Betriebsrat.",
+        "In jedem Betrieb mit mindestens einem Auszubildenden.",
+        "Nur in Betrieben mit über 100 Beschäftigten.",
+        "In Betrieben mit mindestens 5 Auszubildenden, unabhängig vom Alter, auch ohne Betriebsrat."
+      ],
+      "correct": [
+        0
+      ],
+      "back": "Mind. **5** Arbeitnehmer **unter 18** oder Azubis **unter 25** (§ 60 BetrVG) – die JAV arbeitet **über den Betriebsrat**, setzt also einen Betriebsrat voraus.",
+      "explanation": "Die JAV hat kein eigenes Mitbestimmungsrecht gegenüber dem Arbeitgeber; sie bringt ihre Anliegen über den Betriebsrat ein und kann an Betriebsratssitzungen teilnehmen. Amtszeit: 2 Jahre.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}

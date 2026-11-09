@@ -1,0 +1,24 @@
+{
+  "area": "NET",
+  "topic": "Firewall & Netzwerksicherheit",
+  "cards": [
+    {
+      "id": "net-firewall-regel-01",
+      "type": "qa",
+      "front": "Ein Azubi hat folgendes Regelwerk erstellt. Trotzdem erreicht niemand den Webserver 10.0.5.10. Analysieren Sie den Fehler und korrigieren Sie das Regelwerk.\n\n| Nr. | Quelle | Ziel | Dienst | Aktion |\n|---|---|---|---|---|\n| 1 | any | any | any | deny |\n| 2 | any | 10.0.5.10 | TCP 443 | allow |\n| 3 | 10.0.1.0/24 | any | TCP 53, UDP 53 | allow |",
+      "back": "- Firewalls arbeiten die Regeln **von oben nach unten** ab, die **erste passende Regel** gilt (first match).\n- Regel 1 verwirft **alle** Pakete → Regeln 2 und 3 werden nie erreicht.\n- **Korrektur:** spezifische Allow-Regeln nach oben, die **Default-Deny-Regel ans Ende**:\n\n| Nr. | Quelle | Ziel | Dienst | Aktion |\n|---|---|---|---|---|\n| 1 | any | 10.0.5.10 | TCP 443 | allow |\n| 2 | 10.0.1.0/24 | any | TCP/UDP 53 | allow |\n| 3 | any | any | any | deny |",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "net-wlan-wpa3-01",
+      "type": "qa",
+      "front": "Nennen Sie **zwei** sicherheitstechnische Verbesserungen von **WPA3-Personal** gegenüber WPA2-Personal.",
+      "back": "1. **SAE (Simultaneous Authentication of Equals)** ersetzt den PSK-Handshake → Schutz gegen **Offline-Wörterbuchangriffe** auf mitgeschnittene Handshakes.\n2. **Forward Secrecy:** Wird das Passwort später bekannt, lässt sich früher aufgezeichneter Verkehr nicht entschlüsseln.\n\n(außerdem: **Protected Management Frames (PMF)** verpflichtend → Schutz vor Deauthentication-Angriffen)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

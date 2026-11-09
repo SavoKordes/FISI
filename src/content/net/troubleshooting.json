@@ -1,0 +1,21 @@
+{
+  "area": "NET",
+  "topic": "Troubleshooting",
+  "cards": [
+    {
+      "id": "net-troubleshooting-ping-01",
+      "type": "order",
+      "front": "Ein Client kommt nicht ins Internet. Sie prüfen systematisch „von innen nach außen“ mit `ping`. In welcher Reihenfolge gehen Sie vor?",
+      "choices": [
+        "ping 127.0.0.1 (eigener TCP/IP-Stack)",
+        "ping auf die eigene IP-Adresse (Netzwerkkarte)",
+        "ping auf das Default-Gateway",
+        "ping auf eine externe IP-Adresse (z. B. 9.9.9.9)",
+        "ping auf einen Hostnamen (Namensauflösung/DNS)"
+      ],
+      "back": "Klappt die externe IP, aber nicht der Name, liegt das Problem bei **DNS** (prüfen mit `nslookup` / `dig`). Klappt das Gateway nicht → lokales Netz/VLAN/IP-Konfiguration prüfen (`ipconfig /all` bzw. `ip a`).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

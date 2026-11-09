@@ -1,0 +1,42 @@
+{
+  "area": "WISO",
+  "topic": "Rechtsformen & Vollmachten",
+  "cards": [
+    {
+      "id": "wiso-gmbh-01",
+      "type": "mc",
+      "front": "Welches **Mindeststammkapital** ist für die Gründung einer **GmbH** vorgeschrieben?",
+      "choices": [
+        "1 €",
+        "12.500 €",
+        "25.000 €",
+        "50.000 €"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**25.000 €** Stammkapital (§ 5 GmbHG).",
+      "explanation": "Bei der Anmeldung muss mindestens die Hälfte (12.500 €) eingezahlt sein. Die **UG (haftungsbeschränkt)** kann ab 1 € gegründet werden, muss aber 25 % des Jahresüberschusses als Rücklage bilden. Die **AG** benötigt 50.000 € Grundkapital.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-prokura-01",
+      "type": "mc",
+      "front": "Welches Geschäft darf ein **Prokurist** ohne besondere Befugnis **nicht** vornehmen?",
+      "choices": [
+        "Mitarbeiter einstellen und entlassen",
+        "Kredite aufnehmen",
+        "ein Grundstück des Unternehmens verkaufen",
+        "einen Server für 50.000 € kaufen"
+      ],
+      "correct": [
+        2
+      ],
+      "back": "**Grundstücke veräußern oder belasten** – dafür braucht der Prokurist eine besondere Befugnis (§ 49 Abs. 2 HGB).",
+      "explanation": "Die Prokura deckt alle Geschäfte, die der Betrieb **irgendeines** Handelsgewerbes mit sich bringt. Ausgeschlossen sind u. a. außerdem: Bilanz und Steuererklärung unterschreiben, Insolvenz anmelden, Prokura erteilen, Geschäft verkaufen. Die Prokura muss ins **Handelsregister** eingetragen werden.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

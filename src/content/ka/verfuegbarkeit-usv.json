@@ -1,0 +1,24 @@
+{
+  "area": "KA",
+  "topic": "Verfügbarkeit & USV",
+  "cards": [
+    {
+      "id": "ka-verfuegbarkeit-01",
+      "type": "qa",
+      "front": "Im SLA wird eine Verfügbarkeit von **99,9 %** pro Jahr zugesichert. Berechnen Sie die maximal zulässige Ausfallzeit pro Jahr (365 Tage).",
+      "back": "- Ausfallanteil: 100 % − 99,9 % = 0,1 % = 0,001\n- Stunden pro Jahr: 365 × 24 h = 8.760 h\n- Ausfallzeit: 8.760 h × 0,001 = **8,76 h** ≈ 8 h 46 min",
+      "points": 3,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-usv-typen-01",
+      "type": "compare",
+      "front": "Vergleichen Sie die USV-Klassen **VFD**, **VI** und **VFI** nach Funktionsweise und Schutzwirkung.",
+      "back": "| Klasse | Bauart | Funktionsweise | Schutz |\n|---|---|---|---|\n| **VFD** | Offline / Standby | Last hängt direkt am Netz, bei Ausfall Umschaltung auf Batterie (Umschaltzeit wenige ms) | nur Netzausfall, Spannungseinbrüche |\n| **VI** | Line-Interactive | wie Standby, zusätzlich Spannungsregelung (Spartransformator) | zusätzlich Über-/Unterspannung |\n| **VFI** | Online / Doppelwandler | Strom wird ständig gleich- und wieder wechselgerichtet, **keine Umschaltzeit** | höchster Schutz, auch Frequenzschwankungen – für Server/RZ |",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

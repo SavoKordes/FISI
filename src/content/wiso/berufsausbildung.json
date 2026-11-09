@@ -1,0 +1,42 @@
+{
+  "area": "WISO",
+  "topic": "Berufsausbildung (BBiG)",
+  "cards": [
+    {
+      "id": "wiso-ausbildung-probezeit-01",
+      "type": "mc",
+      "front": "Wie lange darf die **Probezeit** in einem Berufsausbildungsverhältnis nach BBiG dauern?",
+      "choices": [
+        "mindestens 2 Wochen, höchstens 3 Monate",
+        "mindestens 1 Monat, höchstens 4 Monate",
+        "genau 6 Monate",
+        "mindestens 1 Monat, höchstens 6 Monate"
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Mindestens **1 Monat**, höchstens **4 Monate** (§ 20 BBiG).",
+      "explanation": "Während der Probezeit können beide Seiten **jederzeit ohne Kündigungsfrist** kündigen – schriftlich. Die 6 Monate gelten für die Wartezeit im Kündigungsschutzgesetz bzw. die maximale Probezeit in normalen Arbeitsverhältnissen.",
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "wiso-ausbildung-kuendigung-01",
+      "type": "mc",
+      "front": "Eine Auszubildende möchte **nach der Probezeit** ihre Ausbildung beenden, weil sie eine **andere Berufsausbildung** beginnen will. Welche Aussage ist richtig?",
+      "choices": [
+        "Sie kann nicht kündigen, nur der Ausbildende kann aus wichtigem Grund kündigen.",
+        "Sie kann mit einer Frist von 4 Wochen kündigen; die Kündigung muss schriftlich unter Angabe des Grundes erfolgen.",
+        "Sie kann fristlos und mündlich kündigen.",
+        "Sie kann mit der gesetzlichen Frist von 4 Wochen zum 15. oder Monatsende kündigen, ohne Grund."
+      ],
+      "correct": [
+        1
+      ],
+      "back": "Kündigung mit **4 Wochen Frist**, **schriftlich** und **mit Angabe des Kündigungsgrundes** (§ 22 Abs. 2 Nr. 2, Abs. 3 BBiG).",
+      "explanation": "Nach der Probezeit kann das Ausbildungsverhältnis nur noch aus **wichtigem Grund** (fristlos, beide Seiten) oder vom **Azubi** mit 4 Wochen Frist bei Aufgabe der Ausbildung bzw. Wechsel in eine andere Berufsausbildung gekündigt werden.",
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": "KA",
+  "topic": "Automatisierung & Skripte",
+  "cards": [
+    {
+      "id": "ka-skript-powershell-01",
+      "type": "qa",
+      "front": "Erläutern Sie, was das folgende PowerShell-Skript bewirkt:\n\n```powershell\n$grenze = (Get-Date).AddDays(-90)\nGet-ADUser -Filter * -Properties LastLogonDate |\n  Where-Object { $_.Enabled -and $_.LastLogonDate -lt $grenze } |\n  Disable-ADAccount\n```",
+      "back": "- `$grenze` = Datum **vor 90 Tagen**.\n- Alle AD-Benutzer werden inkl. Eigenschaft `LastLogonDate` abgerufen.\n- Gefiltert werden **aktivierte** Konten, deren **letzte Anmeldung älter als 90 Tage** ist.\n- Diese Konten werden **deaktiviert** (nicht gelöscht).\n\nZweck: Härtung – verwaiste Konten schließen. (Hinweis: `LastLogonDate` basiert auf `lastLogonTimestamp`, das nur mit bis zu ca. 14 Tagen Verzögerung repliziert wird – für eine 90-Tage-Grenze ausreichend genau.)",
+      "points": 4,
+      "difficulty": 3,
+      "examRelevance": "mittel"
+    }
+  ]
+}

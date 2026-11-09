@@ -1,0 +1,30 @@
+{
+  "area": "PROJ",
+  "topic": "Projektantrag & Ziele",
+  "cards": [
+    {
+      "id": "proj-antrag-ziele-01",
+      "type": "qa",
+      "front": "In Ihrem Projektantrag sollen die Ziele nach dem **magischen Dreieck** formuliert werden. Nennen und erläutern Sie die drei Zieldimensionen mit je einem Beispiel aus einem IT-Projekt.",
+      "back": "- **Sachziel (Qualität/Leistung):** *Was* soll erreicht werden? – z. B. „Alle 40 Clients werden per WSUS zentral mit Updates versorgt.“\n- **Kostenziel:** Budgetrahmen – z. B. „Gesamtkosten max. 3.500 € inkl. Personalkosten.“\n- **Zeitziel (Termin):** – z. B. „Abschluss innerhalb der 40 Projektstunden bis 15.03.“\n\nDie Ziele beeinflussen sich gegenseitig: Mehr Qualität kostet Zeit und/oder Geld. Ziele **SMART** formulieren (spezifisch, messbar, akzeptiert, realistisch, terminiert).",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "proj-antrag-phasen-01",
+      "type": "order",
+      "front": "Bringen Sie die typischen Phasen eines IHK-Abschlussprojekts (FISI) in die richtige Reihenfolge.",
+      "choices": [
+        "Ist-Analyse und Anforderungsaufnahme",
+        "Soll-Konzept und Wirtschaftlichkeitsbetrachtung",
+        "Realisierung / Implementierung",
+        "Test und Qualitätssicherung",
+        "Abnahme, Übergabe und Projektdokumentation"
+      ],
+      "back": "Achte darauf, dass die **Zeitplanung im Antrag** genau diese Phasen mit Stunden abbildet (Summe 40 h) und die Dokumentation später derselben Gliederung folgt.",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    }
+  ]
+}

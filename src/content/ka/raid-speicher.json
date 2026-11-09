@@ -1,0 +1,58 @@
+{
+  "area": "KA",
+  "topic": "RAID & Speicher",
+  "cards": [
+    {
+      "id": "ka-raid-vergleich-01",
+      "type": "compare",
+      "front": "Ihr Kunde schwankt für einen Dateiserver mit 6 Festplatten zwischen **RAID 5** und **RAID 6**. Vergleichen Sie beide Verfahren hinsichtlich Ausfallsicherheit, Nettokapazität und Schreibleistung.",
+      "back": "| | RAID 5 | RAID 6 |\n|---|---|---|\n| Ausfallsicherheit | 1 beliebige Platte darf ausfallen | 2 beliebige Platten dürfen ausfallen |\n| Nettokapazität (n Platten) | (n − 1) × Plattengröße | (n − 2) × Plattengröße |\n| Mindestanzahl | 3 Platten | 4 Platten |\n| Schreibleistung | besser (eine Parität) | schlechter (doppelte Paritätsberechnung) |\n\n**Empfehlung bei großen Platten:** RAID 6, weil der lange Rebuild das Risiko eines zweiten Ausfalls erhöht.",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-raid-kapazitaet-01",
+      "type": "qa",
+      "front": "Ein Server erhält **7 Festplatten à 4 TB**. Eine Platte wird als **Hot Spare** konfiguriert, die übrigen bilden ein **RAID 6**. Berechnen Sie die Nettokapazität. Der Rechenweg ist anzugeben.",
+      "back": "- Platten im Verbund: 7 − 1 (Hot Spare) = **6**\n- RAID 6 benötigt 2 Platten für Parität: 6 − 2 = **4 Nutzplatten**\n- Nettokapazität: 4 × 4 TB = **16 TB**\n\n(Brutto 28 TB, Nutzungsgrad 16 / 28 ≈ 57 %)",
+      "points": 4,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-raid-hotspare-01",
+      "type": "qa",
+      "front": "Erläutern Sie den Begriff **Hot Spare** und nennen Sie einen Vorteil.",
+      "back": "- **Hot Spare:** eine im System eingebaute, laufende, aber ungenutzte Reserveplatte.\n- Fällt eine Platte im RAID aus, startet der Controller **automatisch den Rebuild** auf die Hot Spare.\n- **Vorteil:** Das Zeitfenster ohne Redundanz wird verkürzt, weil niemand erst eine Ersatzplatte einbauen muss (auch nachts/am Wochenende).",
+      "difficulty": 1,
+      "examRelevance": "mittel"
+    },
+    {
+      "id": "ka-raid-kein-backup-01",
+      "type": "qa",
+      "front": "Der Geschäftsführer meint: „Wir haben doch RAID 1 – da brauchen wir kein Backup.“ Widerlegen Sie diese Aussage mit **zwei** Argumenten.",
+      "back": "1. **RAID schützt nur vor Hardwareausfall einzelner Platten**, nicht vor logischen Fehlern: versehentlich gelöschte oder durch Ransomware verschlüsselte Dateien werden sofort auf alle Platten gespiegelt.\n2. **Kein Schutz vor Ereignissen am Standort** (Brand, Wasser, Überspannung, Diebstahl, Controller-Defekt) – Backup muss räumlich getrennt liegen.\n\n(weitere: keine älteren Versionen/Generationen wiederherstellbar)",
+      "points": 4,
+      "difficulty": 1,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-speicher-nas-san-01",
+      "type": "compare",
+      "front": "Vergleichen Sie **NAS** und **SAN** anhand von Zugriffsart, typischen Protokollen und Einsatzzweck.",
+      "back": "| | NAS | SAN |\n|---|---|---|\n| Zugriff | **dateibasiert** – Speicher stellt ein Dateisystem bereit | **blockbasiert** – Server sieht ein „lokales“ Laufwerk (LUN) und formatiert es selbst |\n| Protokolle | SMB/CIFS, NFS über das normale LAN | Fibre Channel, iSCSI, (FCoE) – meist eigenes Speichernetz |\n| Einsatz | Dateifreigaben, Home-Verzeichnisse, kleine Umgebungen | Datenbanken, Virtualisierungscluster, hohe Performance |\n| Kosten/Aufwand | gering | hoch |",
+      "points": 6,
+      "difficulty": 2,
+      "examRelevance": "hoch"
+    },
+    {
+      "id": "ka-speicher-iscsi-01",
+      "type": "cloze",
+      "front": "Bei iSCSI heißt der Client, der auf den Speicher zugreift, {{Initiator}}; das Speichersystem, das die LUN bereitstellt, heißt {{Target}}. Die SCSI-Befehle werden dabei in {{TCP/IP}}-Pakete gekapselt.",
+      "back": "iSCSI = SCSI-Befehle über TCP/IP (Standard-Port 3260). Vorteil gegenüber Fibre Channel: nutzt vorhandene Ethernet-Infrastruktur, günstiger. Empfehlung: eigenes VLAN/Netz für iSCSI.",
+      "difficulty": 2,
+      "examRelevance": "mittel"
+    }
+  ]
+}
