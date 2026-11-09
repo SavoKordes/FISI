@@ -4,6 +4,7 @@ import { db, TABLES } from '../db/db';
 import { setSetting, useSettings, type Theme } from '../db/settings';
 import { createBackup, downloadJson, parseBackup, restoreBackup } from '../db/backup';
 import { Button, PageTitle, Panel } from '../components/ui';
+import { AiSettings } from '../components/AiSettings';
 
 const today = () => new Date().toISOString().slice(0, 10);
 
@@ -71,6 +72,8 @@ export function SettingsPage() {
           </select>
         </Row>
       </Panel>
+
+      <AiSettings />
 
       <Panel className="mb-4">
         <h2 className="text-lg font-semibold">Backup & Gerätewechsel</h2>

@@ -9,6 +9,7 @@ import { Markdown } from '../components/Markdown';
 import { Button, Chip, PageTitle, Panel } from '../components/ui';
 import { IconCheck, IconX } from '../components/icons';
 import { Placeholder } from './Placeholder';
+import { ExplainButton } from '../components/ExplainButton';
 
 const LEVEL_KEY = (id: string) => `fisi-trainer-level-${id}`;
 
@@ -254,6 +255,16 @@ export function CalcTrainerPage() {
           </div>
           <Markdown>{task.solution}</Markdown>
           {task.note && <p className="mt-2 text-xs text-slate-500">{task.note}</p>}
+          <div className="mt-3">
+            <ExplainButton
+              kind="calc"
+              getContext={() =>
+                `Trainer: ${trainer.title} (Stufe ${task.level})\n\nAufgabe:\n${task.prompt}\n\nRichtige Ergebnisse:\n${task.fields
+                  .map((f) => `- ${f.label}: ${f.answer}${f.unit ? ' ' + f.unit : ''}${results && !results[f.key] ? ` (Prüfling hat „${values[f.key] ?? ''}“ eingegeben)` : ''}`)
+                  .join('\n')}\n\nRechenweg:\n${task.solution}`
+              }
+            />
+          </div>
         </Panel>
       )}
     </>

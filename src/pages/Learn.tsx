@@ -10,6 +10,8 @@ import { buildQueue, matchesFilter, newIntroducedToday, startOfDay, topicFailRat
 import { CardView } from '../components/CardView';
 import { CardTools } from '../components/CardTools';
 import { Markdown } from '../components/Markdown';
+import { ExplainButton } from '../components/ExplainButton';
+import { cardContext } from '../ai/prompts';
 import { seededShuffle } from '../lib/random';
 import { gradeCard, toggleStar } from '../srs/actions';
 import { Button, LinkButton, Panel } from '../components/ui';
@@ -203,6 +205,11 @@ export function LearnPage() {
               actions={<div onClick={(e) => e.stopPropagation()}><CardTools card={card} state={state} /></div>}
             />
           </div>
+          {revealed && (
+            <div className="mt-3">
+              <ExplainButton kind="card" getContext={() => cardContext(card)} />
+            </div>
+          )}
           {revealed && state?.note && (
             <div className="mt-4 rounded-xl bg-sky-50 p-3 text-sm dark:bg-sky-950/40">
               <div className="mb-1 text-xs font-semibold text-sky-700 dark:text-sky-300">Deine Notiz</div>

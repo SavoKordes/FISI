@@ -5,7 +5,7 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
 
 **Live:** https://fisi-pruefung.netlify.app
 
-## Funktionen (Stand: Meilenstein 3)
+## Funktionen (Stand: Meilenstein 4)
 
 - **Fragenpool mit 515 Karten** (KA 181 · NET 170 · WiSo 108 · Projekt 56), eigene Formulierungen im IHK-Stil, Jahreswerte mit Stand gekennzeichnet
 - **Karteikarten mit Spaced Repetition** (FSRS über `ts-fsrs`), Bewertung Nochmal / Schwer / Gut / Einfach
@@ -21,7 +21,9 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
   IPv4-Subnetting (inkl. VLSM) · IPv6 (Kürzen, Präfixe, n-tes Subnetz, EUI-64) · Zahlensysteme · RAID & Speicher (GB/GiB) ·
   Übertragung & Datenmengen · Backup · Verfügbarkeit & USV · Wirtschaftlichkeit (Nutzwertanalyse, Break-even, Amortisation, Stromkosten, Netzplan)
 
-Folgt: KI-Tutor (M4), WiSo-Modus, Simulation, Notenrechner, Statistik, Projekt-Checkliste (M5).
+- **KI-Tutor (optional, Claude API)**: „Erklär mir das“ an jeder Karte und jedem Rechenweg (mit Rückfragen), offene Antworten wie ein IHK-Prüfer bewerten lassen (Punkte, fehlende Fachbegriffe, Übernahme in den Lernplan), neue Übungsaufgaben im IHK-Stil generieren und als Karte speichern, Fachgespräch-Simulator mit 15-Minuten-Timer und Notentendenz, Präsentations-Coach
+
+Folgt: WiSo-Modus, Simulation, Notenrechner, Statistik, Projekt-Checkliste (M5).
 
 ## Entwicklung
 
@@ -35,6 +37,14 @@ npm run validate   # nur Inhalte gegen das Zod-Schema prüfen
 npm run build      # validieren + Typecheck + Produktions-Build nach dist/
 npm run preview    # Build lokal ansehen
 ```
+
+## KI-Tutor (Claude API)
+
+- Einschalten unter **Einstellungen → KI-Tutor**, eigenen Anthropic-API-Key eintragen (console.anthropic.com, am besten mit Ausgabenlimit). Ohne Key ist die App voll nutzbar.
+- Der Key liegt **nur lokal** im Browser (IndexedDB) und wird **nicht** exportiert. Die App ruft die API direkt aus dem Browser auf (offizielles SDK `@anthropic-ai/sdk` mit `dangerouslyAllowBrowser`, Header `anthropic-dangerous-direct-browser-access`).
+- Standardmodell `claude-sonnet-5-5`, frei änderbar. Bei Sonnet 5.5/Opus 5.5 ist der serverseitige Fallback bei Ablehnungen aktiviert (`fallbacks: "default"`).
+- Eigener **Proxy** möglich: Basis-URL in den Einstellungen ändern. Der Proxy muss die Messages-API (`POST /v1/messages`, Streaming/SSE) durchreichen und kann den Key serverseitig setzen; das SDK sendet einen evtl. eingetragenen Key als `Authorization: Bearer …`.
+- Code: `src/ai/aiClient.ts` (API-Zugriff, Fehlermeldungen), `src/ai/prompts.ts` (System-Prompts), `src/ai/config.ts`.
 
 ## Rechen-Trainer erweitern
 

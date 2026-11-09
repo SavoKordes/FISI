@@ -13,6 +13,10 @@ import { CardMeta } from '../components/CardView';
 import { CardTools } from '../components/CardTools';
 import { clozeToMarkdown, Markdown } from '../components/Markdown';
 import { Button, Chip, LinkButton, PageTitle, Panel } from '../components/ui';
+import { ExplainButton } from '../components/ExplainButton';
+import { cardContext } from '../ai/prompts';
+import { useAiReady } from '../ai/useAi';
+import { db } from '../db/db';
 import { IconChevron, IconStar } from '../components/icons';
 
 const toggle = <T,>(list: T[] | undefined, v: T): T[] => (list?.includes(v) ? list.filter((x) => x !== v) : [...(list ?? []), v]);
@@ -21,6 +25,7 @@ const plain = (md: string) => md.replace(/```[\s\S]*?```/g, '[Code]').replace(/[
 
 function CardRow({ card, state }: { card: Card; state?: CardStateRow }) {
   const [open, setOpen] = useState(false);
+  const ai = useAiReady();
   const f = state?.fsrs;
   const status = isNew(f) ? 'neu' : isDue(f) ? 'fällig' : `in ${formatInterval(f!.due - Date.now())}`;
   return (
@@ -62,6 +67,19 @@ function CardRow({ card, state }: { card: Card; state?: CardStateRow }) {
               <b className="text-xs text-sky-700 dark:text-sky-300">Notiz:</b> <Markdown>{state.note}</Markdown>
             </div>
           )}
+          <div className="flex flex-wrap gap-2">
+            <ExplainButton kind="card" getContext={() => cardContext(card)} />
+            {ai && card.area !== 'WISO' && (card.type === 'qa' || card.type === 'compare') && (
+              <LinkButton to={`/ki/bewerten?karte=${encodeURIComponent(card.id)}`} variant="secondary" className="min-h-9 py-1">
+                Antwort bewerten lassen
+              </LinkButton>
+            )}
+            {card.source !== 'builtin' && (
+              <Button variant="ghost" className="min-h-9 py-1 text-rose-600" onClick={() => confirm('Diese eigene/KI-generierte Karte löschen?') && db.customCards.delete(card.id)}>
+                Karte löschen
+              </Button>
+            )}
+          </div>
           <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
             <span>{card.id}</span>
             {f && !isNew(f) && (
