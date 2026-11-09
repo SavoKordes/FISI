@@ -12,7 +12,7 @@ import { AiErrorBox } from '../components/AiChat';
 import { CardMeta } from '../components/CardView';
 import { Markdown } from '../components/Markdown';
 import { Button, Chip, PageTitle, Panel } from '../components/ui';
-import { Placeholder } from './Placeholder';
+import { AiNotReady } from './Placeholder';
 
 type RawTask = { front: string; back: string; points: number; difficulty: number; choices: string[]; correct: number[] };
 
@@ -93,7 +93,7 @@ export function AiGeneratePage() {
   const [result, setResult] = useState<Card[]>([]);
   const areaTopics = useMemo(() => topics.filter((t) => t.area === area).map((t) => t.topic), [topics, area]);
 
-  if (!ready) return <Placeholder title="KI-Tutor nicht eingerichtet" />;
+  if (!ready) return <AiNotReady />;
 
   const generate = async () => {
     const t = topic.trim() || areaTopics[0];

@@ -5,25 +5,44 @@ Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleib
 
 **Live:** https://fisi-pruefung.netlify.app
 
-## Funktionen (Stand: Meilenstein 4)
+## Funktionen
 
-- **Fragenpool mit 515 Karten** (KA 181 · NET 170 · WiSo 108 · Projekt 56), eigene Formulierungen im IHK-Stil, Jahreswerte mit Stand gekennzeichnet
+**Lernen**
+- **Fragenpool mit 515 Karten** (KA 181 · NET 170 · WiSo 108 · Projekt 56), eigene Formulierungen im IHK-Stil; Jahreswerte (Mindestlohn, Beitragssätze …) mit Tag `jahreswert` und Stand
 - **Karteikarten mit Spaced Repetition** (FSRS über `ts-fsrs`), Bewertung Nochmal / Schwer / Gut / Einfach
-- Startseite „Heute“: fällige Karten, neue Karten pro Tag (einstellbar), geschätzte Lernzeit, Lern-Serie
+- Startseite „Heute“: fällige und neue Karten (Limit einstellbar), geschätzte Lernzeit, Lern-Serie
 - Lernmodus mit Tastenkürzeln (Leertaste = aufdecken, 1–4 = bewerten, S = Stern, Esc = beenden) und Wischgesten (← Nochmal, Gut →)
 - Kartentypen: Frage/Antwort, Lückentext, Multiple Choice, Reihenfolge, Vergleich
-- Filter nach Bereich, Thema, Schwierigkeit, Prüfungsrelevanz, „nur schwache Karten“, markierte Karten, Volltextsuche
+- Filter nach Bereich, Thema, Schwierigkeit, Prüfungsrelevanz, „nur schwache Karten“, markierte Karten, Volltextsuche; freies Üben ohne Planung
 - **Prüfungsendspurt:** Prüfungsdatum eintragen → Countdown; in den letzten 60 Tagen werden prüfungsrelevante Karten und Themen mit schlechter Quote stärker gewichtet
 - Stern, eigene Notiz, „Karte als fehlerhaft melden“ (Liste exportierbar)
-- **Backup**: Export/Import als JSON (zusammenführen oder ersetzen) – auch für den Wechsel Handy ↔ PC
-- Dark Mode (Schnellumschalter System → Hell → Dunkel in Kopfzeile/Sidebar), Markdown mit Tabellen und Syntax-Highlighting
-- **Rechen-Trainer** (8 Trainer, je 3 Stufen, unendlich viele seed-basierte Zufallsaufgaben, ausführlicher Rechenweg, Trefferquote und Zeit):
-  IPv4-Subnetting (inkl. VLSM) · IPv6 (Kürzen, Präfixe, n-tes Subnetz, EUI-64) · Zahlensysteme · RAID & Speicher (GB/GiB) ·
-  Übertragung & Datenmengen · Backup · Verfügbarkeit & USV · Wirtschaftlichkeit (Nutzwertanalyse, Break-even, Amortisation, Stromkosten, Netzplan)
 
-- **KI-Tutor (optional, Claude API)**: „Erklär mir das“ an jeder Karte und jedem Rechenweg (mit Rückfragen), offene Antworten wie ein IHK-Prüfer bewerten lassen (Punkte, fehlende Fachbegriffe, Übernahme in den Lernplan), neue Übungsaufgaben im IHK-Stil generieren und als Karte speichern, Fachgespräch-Simulator mit 15-Minuten-Timer und Notentendenz, Präsentations-Coach
+**Rechnen** – 8 Rechen-Trainer, je 3 Stufen, unendlich viele seed-basierte Zufallsaufgaben mit ausführlichem Rechenweg, Trefferquote und Zeit:
+IPv4-Subnetting (inkl. VLSM) · IPv6 (Kürzen, Präfixe, n-tes Subnetz, EUI-64) · Zahlensysteme · RAID & Speicher (GB/GiB) · Übertragung & Datenmengen · Backup · Verfügbarkeit & USV · Wirtschaftlichkeit (Nutzwertanalyse, Break-even, Amortisation, Stromkosten, Netzplan)
 
-Folgt: WiSo-Modus, Simulation, Notenrechner, Statistik, Projekt-Checkliste (M5).
+**Prüfung trainieren**
+- **WiSo-Test:** Multiple-Choice-Runden mit 10/20/30 Fragen, sofortige oder gesammelte Auswertung mit Erklärung; **Simulation** mit 30 Fragen in 60 Minuten; falsche Fragen per Klick markieren
+- **Prüfungssimulation KA/NET:** zufällige offene Aufgaben + Rechenaufgaben, 90 (oder 45) Minuten mit Timer, Selbstbewertung nach Musterlösung oder KI-Bewertung, Ergebnis in Punkten und IHK-Note; Zwischenstand bleibt beim Neuladen erhalten
+- **Notenrechner:** Punkte je Prüfungsteil + AP1 → Gesamtergebnis, Note, Prüfung aller Bestehensregeln und Empfehlung zur mündlichen Ergänzungsprüfung (welcher Bereich, wie viele Punkte nötig)
+- **Projekt-Checkliste:** Antrag, Durchführung, Doku-Gliederung, Formalia, Präsentation, Fachgespräch
+
+**KI-Tutor (optional, Claude API):** „Erklär mir das“ an jeder Karte und jedem Rechenweg (mit Rückfragen), offene Antworten wie ein IHK-Prüfer bewerten lassen, neue Übungsaufgaben generieren und als Karte speichern, Fachgespräch-Simulator mit Timer und Notentendenz, Präsentations-Coach
+
+**Statistik:** Lernzeit, gelernte Karten, Quote (30 Tage), Heatmap-Kalender der letzten 26 Wochen, Quote je Prüfungsbereich und Thema, Top 10 schwächste Themen (mit „üben“-Link), Rechen-Trainer-Auswertung, Test- und Simulationsergebnisse
+
+**Allgemein:** installierbar und offline nutzbar (PWA), Dark Mode (Schnellumschalter System → Hell → Dunkel), Markdown mit Tabellen und Syntax-Highlighting, **Backup** als JSON (zusammenführen oder ersetzen) für den Wechsel Handy ↔ PC
+
+## Prüfungsrahmen (in der App abgebildet)
+
+| Prüfungsteil | Gewicht |
+|---|---|
+| AP Teil 1 | 20 % |
+| Projekt: Dokumentation / Präsentation / Fachgespräch | 25 % / 12,5 % / 12,5 % |
+| Konzeption und Administration von IT-Systemen | 10 % |
+| Analyse und Entwicklung von Netzwerken | 10 % |
+| Wirtschafts- und Sozialkunde | 10 % |
+
+Bestanden, wenn Gesamtergebnis ≥ 50, Teil 2 ≥ 50, mindestens 3 Bereiche von Teil 2 ≥ 50 und kein Bereich von Teil 2 unter 30 Punkten. Mündliche Ergänzungsprüfung in einem schriftlichen Bereich unter 50 Punkten möglich (Gewichtung schriftlich : mündlich = 2 : 1). IHK-Notenschlüssel: ab 92 = 1, ab 81 = 2, ab 67 = 3, ab 50 = 4, ab 30 = 5, darunter 6. **Vorgaben der eigenen IHK haben Vorrang.**
 
 ## Entwicklung
 
@@ -32,7 +51,7 @@ Voraussetzung: Node.js ≥ 20.
 ```bash
 npm install        # .npmrc setzt legacy-peer-deps (umgeht einen npm-Bug bei optionalen Peer-Dependencies)
 npm run dev        # Entwicklungsserver auf http://localhost:5173
-npm test           # Vitest (Rechen-Generatoren gegen unabhängige Referenzen, FSRS, Warteschlange, Backup, Inhalte)
+npm test           # Vitest: Rechen-Generatoren gegen unabhängige Referenzen, Notenrechner/Bestehensregeln, FSRS, Statistik, KI-Client (gemockt), Backup, Inhalte
 npm run validate   # nur Inhalte gegen das Zod-Schema prüfen
 npm run build      # validieren + Typecheck + Produktions-Build nach dist/
 npm run preview    # Build lokal ansehen
@@ -50,6 +69,23 @@ npm run preview    # Build lokal ansehen
 
 Jeder Trainer liegt in `src/trainers/<name>.ts` und besteht aus Aufgabentypen mit einer Funktion `gen(rng, level)`, die Aufgabentext, Eingabefelder (mit Typ und Toleranz) und den Rechenweg als Markdown liefert. Aufgaben sind über den Seed reproduzierbar (`#/rechnen/subnetting?typ=vlsm&seed=123`).
 Die Tests (`*.test.ts`) rechnen jede Aufgabe über einen **unabhängigen Weg** nach, z. B. Subnetting über Oktett-Arithmetik statt Bitmasken, IPv6 über den URL-Parser von Node, Netzpläne über die Aufzählung aller Pfade und Verfügbarkeit per Monte-Carlo-Simulation.
+
+## Projektstruktur
+
+```
+src/
+  app/        Layout, Routing (HashRouter)
+  pages/      Heute, Karten, Lernen, Rechnen, KI, Statistik, WiSo, Simulation, Notenrechner, Checkliste, Einstellungen
+  components/ Kartenansicht, Markdown, Chat, UI-Bausteine
+  content/    Fragenpool als JSON (ka/, net/, wiso/, proj/), Zod-Schema, Checkliste
+  db/         Dexie/IndexedDB, Einstellungen, Backup
+  srs/        FSRS-Wrapper, Warteschlange/Endspurt, Filter
+  trainers/   Rechen-Trainer (Generatoren + Rechenwege + Tests)
+  grading/    IHK-Notenschlüssel, Bestehensregeln, Ergänzungsprüfung
+  stats/      Statistik-Berechnungen
+  ai/         Claude-API-Client, System-Prompts
+scripts/      Inhaltsvalidierung
+```
 
 ## Eigene Karten ergänzen
 

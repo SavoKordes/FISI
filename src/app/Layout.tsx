@@ -13,7 +13,12 @@ export const NAV = [
   { to: '/statistik', label: 'Statistik', icon: IconChart },
 ];
 
-export const MORE_NAV: { to: string; label: string }[] = [];
+export const MORE_NAV: { to: string; label: string }[] = [
+  { to: '/wiso', label: 'WiSo-Test' },
+  { to: '/simulation', label: 'Prüfungssimulation' },
+  { to: '/noten', label: 'Notenrechner' },
+  { to: '/checkliste', label: 'Projekt-Checkliste' },
+];
 
 function UpdatePrompt() {
   const {

@@ -5,7 +5,7 @@ import { useAiReady } from '../ai/useAi';
 import { COACH } from '../ai/prompts';
 import { AiErrorBox, ChatInput, ChatLog } from '../components/AiChat';
 import { Button, PageTitle, Panel } from '../components/ui';
-import { Placeholder } from './Placeholder';
+import { AiNotReady } from './Placeholder';
 
 /** grobe Sprechzeit: ca. 130 Wörter pro Minute */
 export function speakingMinutes(text: string): number {
@@ -17,7 +17,7 @@ export function AiCoachPage() {
   const ready = useAiReady();
   const [text, setText] = useState('');
   const chat = useAiChat(COACH, 'medium');
-  if (!ready) return <Placeholder title="KI-Tutor nicht eingerichtet" />;
+  if (!ready) return <AiNotReady />;
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const minutes = speakingMinutes(text);
 

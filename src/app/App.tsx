@@ -13,6 +13,11 @@ const AiGradePage = lazy(() => import('../pages/AiGrade').then((m) => ({ default
 const AiGeneratePage = lazy(() => import('../pages/AiGenerate').then((m) => ({ default: m.AiGeneratePage })));
 const AiExamPage = lazy(() => import('../pages/AiExam').then((m) => ({ default: m.AiExamPage })));
 const AiCoachPage = lazy(() => import('../pages/AiCoach').then((m) => ({ default: m.AiCoachPage })));
+const WisoPage = lazy(() => import('../pages/Wiso').then((m) => ({ default: m.WisoPage })));
+const SimulationPage = lazy(() => import('../pages/Simulation').then((m) => ({ default: m.SimulationPage })));
+const GradesPage = lazy(() => import('../pages/Grades').then((m) => ({ default: m.GradesPage })));
+const StatsPage = lazy(() => import('../pages/Stats').then((m) => ({ default: m.StatsPage })));
+const ChecklistPage = lazy(() => import('../pages/Checklist').then((m) => ({ default: m.ChecklistPage })));
 const SettingsPage = lazy(() => import('../pages/Settings').then((m) => ({ default: m.SettingsPage })));
 
 /** Neue Sitzung bei jeder neuen Filter-URL (sonst bliebe die alte Warteschlange stehen) */
@@ -39,7 +44,11 @@ export function App() {
             <Route path="ki/generieren" element={<AiGeneratePage />} />
             <Route path="ki/fachgespraech" element={<AiExamPage />} />
             <Route path="ki/praesentation" element={<AiCoachPage />} />
-            <Route path="statistik" element={<Placeholder title="Statistik" milestone={5} />} />
+            <Route path="statistik" element={<StatsPage />} />
+            <Route path="wiso" element={<WisoPage />} />
+            <Route path="simulation" element={<SimulationPage />} />
+            <Route path="noten" element={<GradesPage />} />
+            <Route path="checkliste" element={<ChecklistPage />} />
             <Route path="einstellungen" element={<SettingsPage />} />
             <Route path="*" element={<Placeholder title="Seite nicht gefunden" />} />
           </Route>

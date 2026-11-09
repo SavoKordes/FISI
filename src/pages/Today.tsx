@@ -115,6 +115,23 @@ export function TodayPage() {
         ))}
       </div>
 
+      <h2 className="mt-6 mb-2 text-lg font-semibold">Prüfung trainieren</h2>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          { to: '/wiso', title: 'WiSo-Test', text: 'Multiple Choice, 60-Min.-Simulation' },
+          { to: '/simulation', title: 'Simulation', text: 'KA/NET mit Timer und Note' },
+          { to: '/noten', title: 'Notenrechner', text: 'Bestehen & Ergänzungsprüfung' },
+          { to: '/checkliste', title: 'Projekt', text: 'Checkliste Antrag bis Fachgespräch' },
+        ].map((t) => (
+          <Link key={t.to} to={t.to} className="block">
+            <Panel className="h-full p-3 transition-colors hover:border-sky-400">
+              <div className="font-semibold">{t.title}</div>
+              <div className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{t.text}</div>
+            </Panel>
+          </Link>
+        ))}
+      </div>
+
       {!settings.examDate && (
         <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
           Tipp: Trag in den <Link to="/einstellungen" className="text-sky-600 underline dark:text-sky-400">Einstellungen</Link> dein

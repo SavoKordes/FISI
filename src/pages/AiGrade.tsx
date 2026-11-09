@@ -12,7 +12,7 @@ import { CardMeta } from '../components/CardView';
 import { Markdown } from '../components/Markdown';
 import { AiErrorBox, ChatInput, ChatLog } from '../components/AiChat';
 import { Button, Chip, PageTitle, Panel } from '../components/ui';
-import { Placeholder } from './Placeholder';
+import { AiNotReady } from './Placeholder';
 
 const OPEN_TYPES = new Set(['qa', 'compare']);
 const AREAS: Area[] = ['KA', 'NET', 'PROJ'];
@@ -119,7 +119,7 @@ export function AiGradePage() {
   const cardId = params.get('karte');
   const card = cards.find((c) => c.id === cardId);
 
-  if (!ready) return <Placeholder title="KI-Tutor nicht eingerichtet" />;
+  if (!ready) return <AiNotReady />;
 
   const next = () => {
     const c = pickRandom(pool, card?.id);

@@ -8,7 +8,7 @@ import { downloadText } from '../lib/download';
 import { AiErrorBox, ChatInput, ChatLog } from '../components/AiChat';
 import { Button, PageTitle, Panel } from '../components/ui';
 import { IconClock } from '../components/icons';
-import { Placeholder } from './Placeholder';
+import { AiNotReady } from './Placeholder';
 
 const DURATION = 15 * 60;
 
@@ -43,7 +43,7 @@ export function AiExamPage() {
   const system = useMemo(() => examinerPrompt(text), [text]);
   const chat = useAiChat(system, 'medium');
 
-  if (!ready) return <Placeholder title="KI-Tutor nicht eingerichtet" />;
+  if (!ready) return <AiNotReady />;
 
   const start = async () => {
     await setSetting('projectSummary', text);
