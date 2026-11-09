@@ -3,7 +3,7 @@
 Lern-Web-App (PWA) für die **IHK-Abschlussprüfung Teil 2 – Fachinformatiker/-in Systemintegration** (AO 2020).
 Läuft auf Handy und PC, ist installierbar und offline nutzbar. Alle Daten bleiben lokal im Browser (IndexedDB) – kein Login, kein Server.
 
-**Live:** https://savokordes.github.io/FISI/
+**Live:** https://fisi-pruefung.netlify.app (Netlify) · https://savokordes.github.io/FISI/ (GitHub Pages)
 
 ## Funktionen (Stand: Meilenstein 1)
 
@@ -65,7 +65,7 @@ Der Build ist **pfadunabhängig** (relative Pfade + Hash-Routing) und läuft ohn
 
 - **GitHub Pages:** Der Workflow `.github/workflows/deploy.yml` testet, baut und veröffentlicht bei jedem Push auf `main`.
   Einmalig im Repo unter *Settings → Pages → Build and deployment → Source* **„GitHub Actions“** auswählen.
-- **Netlify:** Build-Befehl `npm run build`, Publish-Verzeichnis `dist`.
+- **Netlify:** `netlify.toml` legt Build-Befehl (`npm run build`), Publish-Verzeichnis (`dist`), Node-Version und Cache-Header fest (Service Worker/`index.html` ohne Cache, gehashte Assets langfristig).
 - **Apache / beliebiger Webserver:** Inhalt von `dist/` in ein beliebiges (Unter-)Verzeichnis kopieren. Für die PWA-Installation ist HTTPS nötig (Ausnahme: `localhost`).
 
 ## Hinweise
